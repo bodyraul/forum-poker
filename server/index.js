@@ -23,6 +23,7 @@ const userRoute = require("./routes/userRoute");
 const postRoute = require("./routes/postRoute");
 const likeRoute = require("./routes/likeRoute");
 const messageRoute = require("./routes/messageRoute");
+const photoRoute = require("./routes/photoRoute");
 // const adminRoute = require("./routes/admin");
 const signalementRoute = require("./routes/signalementRoute");
 const categorie = require("./routes/categorie");
@@ -31,42 +32,9 @@ app.use("/user",userRoute);
 app.use("/like",likeRoute);
 app.use("/message",messageRoute);
 app.use("/categorie",categorie);
+app.use("/photo",photoRoute);
 // app.use("/admin",adminRoute);
 app.use("/signalement",signalementRoute);
-
-const storage = multer.diskStorage({
-    destination:(req,file,cb)=>{
-        cb(null,'public/images')
-    },
-    filename : (req,file,cb)=>{
-        cb(null,Date.now() + "_" +file.originalname)
-    }
-    
-})
-
-const upload = multer({
-    storage:storage
-})
-
-app.post('/upload',upload.single('file'),(req,res)=>{
-    try {
-        PhotoModel.create({image:"/images/"+req.file.filename})
-        .then(result=>res.json(result));
-        
-    } catch (error) {
-        res.status(500).json(error.message);
-    }
-})
-
-app.get('/getImage',(req,res)=>{
-    try {
-        PhotoModel.find()
-        .then(photo=>res.json(photo));
-        
-    } catch (error) {
-        res.status(500).json(error.message);
-    }
-})
 
 
 const port = process.env.PORT || 5000;

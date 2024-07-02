@@ -36,7 +36,6 @@ useEffect(() => {
       },
     };
 
-
   axios.get("/post")
   .then((res)=>{
     console.log(res.data)
@@ -60,22 +59,39 @@ const accesPageMessagePost= (idPost)=>{
   navigate(`/messagePost/${idPost}`);
 }
 
-const handleimg = (e)=>{
+async function handleimg(){
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
   const formdata = new FormData();
   formdata.append('file',file);
-  axios.post("/upload",formdata)
+
+  await axios.post("/photo/upload",formdata,config)
     .then((res)=>console.log(res))
     .catch((err)=>console.log(err));
 }
 
 useEffect(() => {
-  axios.get("/getImage")
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+  async function getAllPhoto (){
+    await axios.get("/photo/getImage",config)
     .then((res)=>{
-      console.log(res.data[0].image)
-      setallImg(res.data[0].image)
+      console.log(res.data)
+      setallImg(res.data)
     })
     .catch((err)=>console.log(err));
-}, )
+  }
+  
+  getAllPhoto();
+
+},[] )
 
   return (
  
@@ -145,7 +161,11 @@ useEffect(() => {
         <div className='test'>
           <input type="file" onChange={e=>setfile(e.target.files[0])} />
           <button  onClick={handleimg}>bonjour</button>
-          <img style={{width:'100px'}} src={`http://localhost:5000`+allImg} alt="" />    
+          {allImg.map((element)=>{
+              return(
+                <img key={element._id}  src={`http://localhost:5000`+element.image} alt="" />
+              )
+          })} 
         </div>
     </div>
     

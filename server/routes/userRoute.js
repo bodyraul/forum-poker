@@ -14,7 +14,6 @@ router.post("/register",async(req,res)=>{
             pseudonyme:req.body.pseudonyme,
             nom : req.body.nom,
             email : req.body.email,
-            image : req.file.filename,
             password : req.body.password,
             role: req.body.role,
             bannis : req.body.bannis,
