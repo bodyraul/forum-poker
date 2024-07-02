@@ -1,0 +1,133 @@
+.ContainerSignUp {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 600px;
+  height: 680px;
+  background: rgb(250, 110, 89);
+  background: linear-gradient(90deg, #44ADA8 0%, #547981 100%);
+  opacity: 1;
+  z-index: 5000;
+  transform: translateX(-50%) translateY(-50%);
+  border-radius: 20px;
+  padding: 35px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.ContainerSignUp .SignUpTitreBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  color: #ffffff;
+}
+.ContainerSignUp .SignUpTitreBtn button {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 0px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  transition: all 0.2s ease-in-out;
+}
+.ContainerSignUp .SignUpTitreBtn button img {
+  width: 30px;
+}
+.ContainerSignUp .SignUpTitreBtn button:hover {
+  transform: rotate(90deg);
+  cursor: pointer;
+}
+.ContainerSignUp .SignUpTitreBtn h2 {
+  font-size: 30px;
+}
+.ContainerSignUp .SignUpInput {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+.ContainerSignUp .SignUpInput input:focus {
+  outline-color: #ffffff;
+  outline-style: double;
+}
+.ContainerSignUp .SignUpInput input:nth-child(1), .ContainerSignUp .SignUpInput input:nth-child(2) {
+  margin-bottom: 22px;
+  padding: 10px;
+  width: 40%;
+  border-radius: 8px;
+  border: solid 1px white;
+  color: #ffffff;
+  font-size: 15px;
+  background-color: #547981;
+}
+.ContainerSignUp .SignUpInput input:nth-child(1)::-moz-placeholder, .ContainerSignUp .SignUpInput input:nth-child(2)::-moz-placeholder {
+  color: #ffffff;
+  font-size: 15px;
+}
+.ContainerSignUp .SignUpInput input:nth-child(1)::placeholder, .ContainerSignUp .SignUpInput input:nth-child(2)::placeholder {
+  color: #ffffff;
+  font-size: 15px;
+}
+.ContainerSignUp .SignUpLabel {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+.ContainerSignUp .SignUpLabel .divLabel {
+  width: 40%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.ContainerSignUp .SignUpLabel .divLabel label:nth-child(1), .ContainerSignUp .SignUpLabel .divLabel label:nth-child(2) {
+  margin-bottom: 10px;
+  color: #ffffff;
+  font-size: 22px;
+}
+.ContainerSignUp .SignUpLogIn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  width: 100%;
+}
+.ContainerSignUp .SignUpLogIn button {
+  width: 40%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  color: #ffffff;
+  background-color: #547981;
+  font-size: 15px;
+  border: solid 1px #ffffff;
+  transition: all 0.2s ease-in-out;
+}
+.ContainerSignUp .SignUpLogIn button:hover {
+  cursor: pointer;
+  border: solid 1px #4897d8;
+  background-color: #ffffff;
+  color: #547981;
+}
+.ContainerSignUp .partieMsgErreurs {
+  color: red;
+  font-size: 25px;
+  height: 30px;
+  width: 100%;
+  text-align: center;
+}
+.ContainerSignUp .SignUpCreateAccount {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  color: white;
+  font-size: 17px;
+}/*# sourceMappingURL=signUp.css.map */

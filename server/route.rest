@@ -1,0 +1,65 @@
+POST http://localhost:5000/user/register
+Content-Type: application/json
+
+{
+    "nom":"peria",
+    "prenom":"aurelien",
+    "pseudonyme":"boby",
+    "email" : "aurelien.peria@gmail.com",
+    "password" : "123456"
+}
+
+###
+POST http://localhost:5000/user/login
+Content-Type: application/json
+
+{
+    "email" : "aurelien.peria@gmail.com",
+    "password" : "123456"
+}
+
+###
+POST http://localhost:5000/post/creerPost
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ODI1ZTg5OGI2OGE2NjM3ZWIwM2Q2YSIsInJvbGUiOiJ1dGlsaXNhdGV1ciIsImJhbm5pcyI6ZmFsc2UsImlhdCI6MTcxOTgyMDA0MH0._rds6KAjlJsk6dhOpBrnRril-563nzMs0Va4db4Erqo
+
+{
+    "categorie":"Stratégie Spin & Go",
+    "titre":"Premier"
+}
+
+###
+POST http://localhost:5000/message/creerMessage/66830c1d463d0605820cf90a
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ODI1ZTg5OGI2OGE2NjM3ZWIwM2Q2YSIsInJvbGUiOiJ1dGlsaXNhdGV1ciIsImJhbm5pcyI6ZmFsc2UsImlhdCI6MTcxOTgyMDA0MH0._rds6KAjlJsk6dhOpBrnRril-563nzMs0Va4db4Erqo
+
+{
+    "titre":"premier message",
+    "contenu":"salut ca va moi oui et toi bhein ouais trkl tu fais quoi bhein la rien du tout je vais au cinema pepouze avec madame normal quoi et toi aussi jimagine salut ca va moi oui et toi bhein ouais trkl tu fais quoi bhein la rien du tout je vais au cinema pepouze avec madame normal quoi et toi aussi jimagine "
+}
+
+###
+POST http://localhost:5000/like/creerLike/668261f0ebdc2424c0e5e154
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ODI1ZTg5OGI2OGE2NjM3ZWIwM2Q2YSIsInJvbGUiOiJ1dGlsaXNhdGV1ciIsImJhbm5pcyI6ZmFsc2UsImlhdCI6MTcxOTgyMDA0MH0._rds6KAjlJsk6dhOpBrnRril-563nzMs0Va4db4Erqo
+
+###
+GET  http://localhost:5000/like/AfficherMessageLikerParPost/66826152ebdc2424c0e5e14f
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ODI1ZTg5OGI2OGE2NjM3ZWIwM2Q2YSIsInJvbGUiOiJ1dGlsaXNhdGV1ciIsImJhbm5pcyI6ZmFsc2UsImlhdCI6MTcxOTgyMDA0MH0._rds6KAjlJsk6dhOpBrnRril-563nzMs0Va4db4Erqo
+
+###
+DELETE   http://localhost:5000/like/supprimerLike/668261f0ebdc2424c0e5e154
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ODI1ZTg5OGI2OGE2NjM3ZWIwM2Q2YSIsInJvbGUiOiJ1dGlsaXNhdGV1ciIsImJhbm5pcyI6ZmFsc2UsImlhdCI6MTcxOTgyMDA0MH0._rds6KAjlJsk6dhOpBrnRril-563nzMs0Va4db4Erqo
+
+
+###
+POST http://localhost:5000/signalement/signalementMessage/668261f0ebdc2424c0e5e154
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ODI1ZTg5OGI2OGE2NjM3ZWIwM2Q2YSIsInJvbGUiOiJ1dGlsaXNhdGV1ciIsImJhbm5pcyI6ZmFsc2UsImlhdCI6MTcxOTgyMDA0MH0._rds6KAjlJsk6dhOpBrnRril-563nzMs0Va4db4Erqo
+
+###
+DELETE  http://localhost:5000/signalement/signalementMessage/668261f0ebdc2424c0e5e154
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ODI1ZTg5OGI2OGE2NjM3ZWIwM2Q2YSIsInJvbGUiOiJ1dGlsaXNhdGV1ciIsImJhbm5pcyI6ZmFsc2UsImlhdCI6MTcxOTgyMDA0MH0._rds6KAjlJsk6dhOpBrnRril-563nzMs0Va4db4Erqo

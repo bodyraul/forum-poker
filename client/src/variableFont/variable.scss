@@ -1,0 +1,14 @@
+$blanc : #ffffff;
+$bleu : #4897d8;
+$vertFoncer : #547981;
+$vertClair : #44ADA8;
+$gris : #e0e3e5;
+$bancGris : #F9FBFD;
+$background : linear-gradient(90deg, #44ADA8 0%, #547981 100%);
+
+@mixin display($direction,$item,$content){
+    display: flex;
+    flex-direction: $direction;
+    align-items: $item;
+    justify-content: $content;
+}

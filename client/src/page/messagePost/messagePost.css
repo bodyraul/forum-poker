@@ -1,0 +1,245 @@
+.ContainerPost {
+  width: 100vw;
+  margin-top: 150px;
+}
+.ContainerPost .titre {
+  text-align: center;
+  font-size: 40px;
+  color: #547981;
+  margin-top: 50px;
+}
+.ContainerPost .affichageDuPost {
+  width: 1400px;
+  margin: 50px auto 0 auto;
+}
+.ContainerPost .affichageDuPost .ligneTitre {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  border: solid 1px #e0e3e5;
+  background-color: white;
+  color: #547981;
+  font-weight: bolder;
+  font-size: 22px;
+}
+.ContainerPost .affichageDuPost .ligneTitre p:nth-child(1) {
+  width: 70%;
+  padding-left: 50px;
+}
+.ContainerPost .affichageDuPost .ligneTitre p:nth-child(2) {
+  width: 10%;
+  text-align: center;
+}
+.ContainerPost .affichageDuPost .ligneTitre p:nth-child(3) {
+  width: 10%;
+  text-align: center;
+}
+.ContainerPost .affichageDuPost .ligneTitre p:nth-child(4) {
+  width: 10%;
+  text-align: center;
+}
+.ContainerPost .affichageDuPost .ligneContenuPost {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  border: solid 1px #E0E3E5;
+  background-color: white;
+  color: #44ADA8;
+  font-size: 18px;
+}
+.ContainerPost .affichageDuPost .ligneContenuPost div {
+  height: 70%;
+  width: 70%;
+  margin-left: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+.ContainerPost .affichageDuPost .ligneContenuPost div span:nth-child(2) {
+  background-color: #EFEFEF;
+  padding: 5px 10px;
+  color: #547981;
+  font-size: 15px;
+}
+.ContainerPost .affichageDuPost .ligneContenuPost p:nth-child(2) {
+  width: 10%;
+  text-align: center;
+  color: #547981;
+}
+.ContainerPost .affichageDuPost .ligneContenuPost p:nth-child(3) {
+  width: 10%;
+  text-align: center;
+  color: #547981;
+}
+.ContainerPost .affichageDuPost .ligneContenuPost p:nth-child(4) {
+  width: 10%;
+  text-align: center;
+  color: #547981;
+}
+.ContainerPost .partieAffichageAllMessage {
+  width: 900px;
+  margin: 50px auto 0 auto;
+}
+.ContainerPost .partieAffichageAllMessage .affichageUnMessage {
+  background-color: white;
+  margin-bottom: 30px;
+  padding: 35px;
+  border: 1px solid #e0e3e5;
+}
+.ContainerPost .partieAffichageAllMessage .affichageUnMessage div:nth-child(1) {
+  padding-bottom: 20px;
+  color: #547981;
+  font-weight: bolder;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.ContainerPost .partieAffichageAllMessage .affichageUnMessage div:nth-child(1) p:nth-child(1) {
+  margin-right: 10px;
+  font-size: 22px;
+  background-color: #547981;
+  color: white;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.ContainerPost .partieAffichageAllMessage .affichageUnMessage div:nth-child(1) p:nth-child(1) span {
+  text-transform: uppercase;
+  font-size: 15px;
+  padding: 0px 1px;
+}
+.ContainerPost .partieAffichageAllMessage .affichageUnMessage div:nth-child(1) span:nth-child(2) {
+  font-size: 18px;
+}
+.ContainerPost .partieAffichageAllMessage .affichageUnMessage p:nth-child(2) {
+  display: block;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin-bottom: 40px;
+  color: #547981;
+  font-size: 18px;
+  height: 45px;
+  padding: 0px 10px;
+}
+.ContainerPost .partieAffichageAllMessage .affichageUnMessage div:nth-child(3) {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.ContainerPost .partieAffichageAllMessage .affichageUnMessage div:nth-child(3) img {
+  padding-right: 10px;
+  transition: all 0.2s ease-in-out;
+  transform-origin: left;
+}
+.ContainerPost .partieAffichageAllMessage .affichageUnMessage div:nth-child(3) img:hover {
+  cursor: pointer;
+  transform: rotate(-7deg);
+}
+.ContainerPost .partieAffichageAllMessage .affichageUnMessage div:nth-child(3) span {
+  padding-right: 50px;
+}
+.ContainerPost .partieAffichageAllMessage .affichageUnMessage div:nth-child(3) #imgLike {
+  padding-bottom: 3px;
+}
+.ContainerPost .partieAffichageAllMessage .affichageUnMessage div:nth-child(3) #imgSignaler {
+  padding-bottom: 5px;
+}
+.ContainerPost .creationMessage {
+  width: 1400px;
+  margin: 150px auto 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+}
+.ContainerPost .creationMessage .partieCreationMessage {
+  background-color: white;
+  padding: 30px 25px;
+  width: 60%;
+  border: #e0e3e5 solid 2px;
+}
+.ContainerPost .creationMessage .partieCreationMessage h1 {
+  color: #547981;
+  padding-bottom: 25px;
+}
+.ContainerPost .creationMessage .partieCreationMessage p {
+  color: #547981;
+  font-size: 17px;
+  padding-bottom: 25px;
+}
+.ContainerPost .creationMessage .partieCreationMessage h3:nth-child(3) {
+  color: #547981;
+  padding: 25px 0px 15px 0px;
+}
+.ContainerPost .creationMessage .partieCreationMessage div {
+  width: 100%;
+  height: 400px;
+  padding: 5px 0;
+}
+.ContainerPost .creationMessage .partieCreationMessage div input {
+  outline-color: #547981;
+  border: 1px solid #547981;
+  color: #547981;
+  padding: 10px 7px;
+  width: 80%;
+  height: 100%;
+}
+.ContainerPost .creationMessage .partieCreationMessage button {
+  margin-top: 25px;
+  padding: 10px 15px;
+  color: #547981;
+  border: 1px solid #547981;
+  background-color: white;
+  border-radius: 7px;
+  transition: all 0.2s ease-in-out;
+}
+.ContainerPost .creationMessage .partieCreationMessage button:hover {
+  cursor: pointer;
+  background-color: #547981;
+  color: white;
+}
+.ContainerPost .creationMessage .partieRemonterMessage {
+  padding: 30px 25px;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.ContainerPost .creationMessage .partieRemonterMessage div {
+  border: solid 2px #e0e3e5;
+  width: 400px;
+  height: 100px;
+}
+.ContainerPost .creationMessage .partieRemonterMessage h2 {
+  padding: 25px 0px;
+  color: #44ADA8;
+}
+.ContainerPost .creationMessage .partieRemonterMessage p {
+  color: #44ADA8;
+  font-size: 17px;
+  padding-bottom: 25px;
+}
+.ContainerPost .creationMessage .partieRemonterMessage button {
+  width: 400px;
+  padding: 20px 0;
+  color: #44ADA8;
+  border: 1px solid #44ADA8;
+  background-color: white;
+  border-radius: 5px;
+  transition: all 0.2s ease-in-out;
+}
+.ContainerPost .creationMessage .partieRemonterMessage button:hover {
+  cursor: pointer;
+  background-color: #44ADA8;
+  color: white;
+}/*# sourceMappingURL=messagePost.css.map */

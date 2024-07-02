@@ -1,0 +1,298 @@
+@import '../../variableFont/variable.scss';
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body{
+    background-color: #F9FBFD;
+    overflow-x: hidden;
+}
+.ContainerForum{
+    width: 100vw;
+    padding-top: 150px;
+    .titre{
+        text-align: center;
+        font-size: 40px;
+        color: $vertFoncer;
+    }
+    .AllBtnRecherchePost{
+        padding: 10px 0;
+        margin: 0 auto;
+        margin-top: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border: solid 1px $gris;
+        background-color: white;
+        width: 1400px;
+        div:nth-child(1){
+            div{
+                padding: 4px 0;
+                width: 130px;
+                margin: 0px 15px;
+                background-color: white;
+                color: $vertFoncer;
+                border: $vertFoncer solid 1px;
+                font-size: 16px;
+                transition: all 0.2s ease-in-out;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                &:hover{
+                    cursor: pointer;
+                }
+                img{
+                    width: 20px;
+                }
+            }
+
+        }
+        div:nth-child(2){
+            display: flex;
+            div{
+                width: 100px;
+                margin: 0px 15px;
+                color: $vertFoncer;
+                border: solid 1px $vertFoncer;
+                padding: 4px ;
+                outline: none;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                &:hover{
+                    cursor: pointer;
+                }
+                img{
+                    width: 20px;
+                }
+            }
+            input{
+                color: $vertFoncer;
+                border: solid 1px $vertFoncer;
+                padding: 5px;
+                margin-left: 15px;
+                outline-color: $vertFoncer;
+                &::placeholder{
+                    color: $vertFoncer;
+                }
+            }
+            button{
+                color: $vertFoncer;
+                border: solid 1px $vertFoncer;
+                background-color: white;
+                padding: 5px;
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+        }
+        div:nth-child(3){
+            button{
+                padding: 10px 15px;
+                border-radius: 8px;
+                background-color: white;
+                color: $vertClair;
+                border: $vertClair solid 1px;
+                font-size: 18px;
+                transition: all 0.3s ease-in-out;
+                &:hover{
+                    background-color: $vertClair;
+                    color: white;
+                    border: white solid 1px;
+                    cursor: pointer;
+                }
+            }
+            button:nth-child(1){
+                margin-right: 15px;
+            }
+            button:nth-child(2){
+                margin-right: 20px;
+            }
+        }
+    }
+    .affichageAllPosts{
+        width: 1400px;
+        margin: 50px auto 0 auto;
+        .ligneTitre{
+            height: 50px;
+            display: flex;
+            align-items: center;
+            border: solid 1px $gris;
+            background-color: white;
+            color: $vertFoncer;
+            font-weight: bolder;
+            font-size: 22px;
+            p:nth-child(1){
+                width: 70%;
+                padding-left: 50px;
+            }
+            p:nth-child(2){
+                width: 10%;
+                text-align: center;
+            }
+            p:nth-child(3){
+                width: 10%;
+                text-align: center;
+            }
+            p:nth-child(4){
+                width: 10%;
+                text-align: center;
+            }
+        }
+        .ligneContenu{
+            height: 100px;
+            display: flex;
+            align-items: center;
+            border: solid 1px #E0E3E5;
+            background-color: white;
+            color: $vertClair;
+            font-size: 18px;
+            &:hover{
+                cursor: pointer;
+                background-color: #F9FBFD;
+            }
+            div{
+                height: 70%;
+                width: 70%;
+                margin-left: 15px;
+                display: flex;
+                flex-direction: column;
+                align-items:flex-start;
+                justify-content: space-around;
+                span:nth-child(2){
+                    background-color:#EFEFEF ;
+                    padding: 5px 10px;
+                    color: $vertFoncer;
+                    font-size: 15px;
+                }
+            }
+            p:nth-child(2){
+                width: 10%;
+                text-align: center;
+                color: $vertFoncer;
+            }
+            p:nth-child(3){
+                width: 10%;
+                text-align: center;
+                color: $vertFoncer;
+            }
+            p:nth-child(4){
+                width: 10%;
+                text-align: center;
+                color: $vertFoncer;
+            }
+        }
+    }
+    
+    .creationPost{
+        width: 1400px;
+        margin: 150px auto 0 auto;
+        @include display(row,flex-start,center);
+        
+        .partieCreation{
+            background-color: white;
+            padding: 30px 25px;
+            width: 60%;
+            border: $gris solid 2px;
+            h1{
+                color: $vertFoncer;
+                padding-bottom: 25px;
+            }
+            p{
+                color: $vertFoncer;
+                font-size: 17px;
+                padding-bottom: 25px;
+            }
+            h3:nth-child(3){
+                color: $vertFoncer;
+                padding-bottom: 15px;
+            }
+            input{
+                outline-color: $vertFoncer ;
+                border: 1px solid $vertFoncer;
+                color:  $vertFoncer;
+                padding: 10px 7px;
+                width: 60%;
+            }
+            h3:nth-child(5){
+                color: $vertFoncer;
+                padding: 25px 0px 15px 0px;
+            }
+            div{
+                @include display(row,center,space-between);
+                border: 1px solid $vertFoncer;
+                width: 60%;
+                padding: 5px 7px;
+                &:hover{
+                    cursor: pointer;
+                }
+                span{
+                    color: $vertFoncer;
+                }
+                img{
+                    width: 20px;
+                }
+            }
+            button{
+                margin-top: 25px;
+                padding: 10px 15px;
+                color: $vertFoncer;
+                border: 1px solid $vertFoncer;
+                background-color: white;
+                border-radius: 7px;
+                transition: all 0.2s ease-in-out;
+                &:hover{
+                    cursor: pointer;
+                    background-color: $vertFoncer;
+                    color: white;
+                }
+            }
+        }
+        .partieRemonter{
+            padding: 30px 25px;
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            div{
+                border: solid 2px $gris;
+                width: 400px;
+                height: 100px;
+            }
+            h2{
+                padding: 25px 0px;
+                color: $vertClair;
+            }
+            p{
+                color: $vertClair;
+                font-size: 17px;
+                padding-bottom: 25px;
+            }
+            button{
+                width: 400px;
+                padding: 20px 0;
+                color: $vertClair;
+                border: 1px solid $vertClair;
+                background-color: white;
+                border-radius: 5px;
+                transition: all 0.2s ease-in-out;
+                &:hover{
+                    cursor: pointer;
+                    background-color: $vertClair;
+                    color: white;
+                }
+            }
+        }
+    }
+    .test{
+        width: 1000px;
+        height: 1000px;
+        border: solid red 1px;
+    }
+
+}
+
