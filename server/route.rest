@@ -21,7 +21,7 @@ Content-Type: application/json
 ###
 POST http://localhost:5000/post/creerPost
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ODI1ZTg5OGI2OGE2NjM3ZWIwM2Q2YSIsInJvbGUiOiJ1dGlsaXNhdGV1ciIsImJhbm5pcyI6ZmFsc2UsImlhdCI6MTcxOTgyMDA0MH0._rds6KAjlJsk6dhOpBrnRril-563nzMs0Va4db4Erqo
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ODQwZDNhMTM4ZDc3NzM4OTc3N2NkYyIsInJvbGUiOiJ1dGlsaXNhdGV1ciIsImJhbm5pcyI6ZmFsc2UsImlhdCI6MTcyMDA4MDkzMH0.hlkZDF-bS36soPInawNO4NSrqV9U6FIP0isqAql9wlk
 
 {
     "categorie":"Stratégie Spin & Go",
@@ -29,9 +29,9 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ODI1ZTg5O
 }
 
 ###
-POST http://localhost:5000/message/creerMessage/66830c1d463d0605820cf90a
+POST http://localhost:5000/message/creerMessage/66865a309534a1f048a27821
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ODI1ZTg5OGI2OGE2NjM3ZWIwM2Q2YSIsInJvbGUiOiJ1dGlsaXNhdGV1ciIsImJhbm5pcyI6ZmFsc2UsImlhdCI6MTcxOTgyMDA0MH0._rds6KAjlJsk6dhOpBrnRril-563nzMs0Va4db4Erqo
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ODQwZDNhMTM4ZDc3NzM4OTc3N2NkYyIsInJvbGUiOiJ1dGlsaXNhdGV1ciIsImJhbm5pcyI6ZmFsc2UsImlhdCI6MTcyMDA4MDkzMH0.hlkZDF-bS36soPInawNO4NSrqV9U6FIP0isqAql9wlk
 
 {
     "titre":"premier message",

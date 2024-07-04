@@ -11,7 +11,7 @@ import { ConfidentialiteContext } from '../../Context/ConfidentialiteContext';
 import { Fragment } from 'react';
 import flecheBas from '../../photo/flecheBas.png'
 
-export default function Accueil() {
+export default function Accueil(props) {
 
 const [listePost, setlistePost] = useState([]);
 const [categories, setcategories] = useState([]);
@@ -26,10 +26,10 @@ const [valueTextarea, setvalueTextarea] = useState("");
 const refListeCategories =useRef();
 const navigate = useNavigate();
 const [file, setfile] = useState("");
-const [allImg, setallImg] = useState([]);   
 
 
 useEffect(() => {
+  console.log("oui")
   const config = {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -38,14 +38,12 @@ useEffect(() => {
 
   axios.get("/post")
   .then((res)=>{
-    console.log(res.data)
     setlistePost(res.data)
   })
   .catch((err)=>console.log(err));
 
   axios.get("/categorie/afficherAllCategories")
   .then((res)=>{
-    console.log(res.data);
     setcategories(res.data);
   })
   .catch((err)=>console.log(err));
@@ -53,7 +51,6 @@ useEffect(() => {
   // const btnCheckbox = document.getElementById("tournois");
   // btnCheckbox.checked=true;
 }, [])
-
 
 const accesPageMessagePost= (idPost)=>{
   navigate(`/messagePost/${idPost}`);
@@ -73,25 +70,6 @@ async function handleimg(){
     .then((res)=>console.log(res))
     .catch((err)=>console.log(err));
 }
-
-useEffect(() => {
-  const config = {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  };
-  async function getAllPhoto (){
-    await axios.get("/photo/getImage",config)
-    .then((res)=>{
-      console.log(res.data)
-      setallImg(res.data)
-    })
-    .catch((err)=>console.log(err));
-  }
-  
-  getAllPhoto();
-
-},[] )
 
   return (
  
@@ -157,15 +135,6 @@ useEffect(() => {
                 <p>Faites une recherche par sujet,auteur ou catégorie.</p>
                 <button>Accéder à la recherche</button>
             </div>
-        </div>
-        <div className='test'>
-          <input type="file" onChange={e=>setfile(e.target.files[0])} />
-          <button  onClick={handleimg}>bonjour</button>
-          {allImg.map((element)=>{
-              return(
-                <img key={element._id}  src={`http://localhost:5000`+element.image} alt="" />
-              )
-          })} 
         </div>
     </div>
     

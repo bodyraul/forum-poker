@@ -114,8 +114,8 @@
   font-size: 15px;
   padding: 0px 1px;
 }
-.ContainerPost .partieAffichageAllMessage .affichageUnMessage div:nth-child(1) span:nth-child(2) {
-  font-size: 18px;
+.ContainerPost .partieAffichageAllMessage .affichageUnMessage div:nth-child(1) p:nth-child(1) span:nth-child(2) {
+  padding-left: 4px;
 }
 .ContainerPost .partieAffichageAllMessage .affichageUnMessage p:nth-child(2) {
   display: block;

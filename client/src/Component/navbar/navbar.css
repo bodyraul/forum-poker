@@ -37,11 +37,41 @@
   transform: scale(0.9);
   opacity: 0.6;
 }
-.containerNav .navbar #pseudonymeNav {
-  border-bottom: 1px solid white;
-  transition: transform 0s ease-in-out;
+.containerNav #nameNav {
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  font-size: 15px;
+  background-color: #547981;
+  color: white;
+  border-radius: 50%;
+  padding: 16px 12px;
+  transform: translateY(-50%);
 }
-.containerNav .navbar #pseudonymeNav:hover {
-  transform: scale(1);
-  opacity: 1;
+.containerNav #nameNav span:nth-child(2) {
+  padding-left: 2px;
+}
+.containerNav #nameNav:hover {
+  cursor: pointer;
+}
+.containerNav #imgPref {
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  border: solid 1px #547981;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  height: 60px;
+  width: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.containerNav #imgPref img {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+}
+.containerNav #imgPref:hover {
+  cursor: pointer;
 }/*# sourceMappingURL=navbar.css.map */

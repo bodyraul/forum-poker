@@ -65,12 +65,11 @@ router.post("/login",async(req,res)=>{
 
 //permet de récupérer le pseudo de l'utilisateur connecté
 //route qui permet de se connecter
-router.get("/recupPseudo",auth,async(req,res)=>{
+router.get("/recupInfoUser",auth,async(req,res)=>{
     try {
         const idUser=req.payload.id;
         const user =await User.findOne({_id:idUser});
-        const pseudo = user.pseudonyme;
-        res.json(pseudo);
+        res.json(user);
 
     } catch (error) {
         res.status(500).json(error.message);

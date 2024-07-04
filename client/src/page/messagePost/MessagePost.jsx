@@ -212,8 +212,7 @@ export default function MessagesPost() {
               <div>
                 <div>
                     <p>
-                      <span>{element.nomCreateurMessage[0]}</span>
-                      <span>.</span>
+                      <span>{element.nomCreateurMessage[0]} . </span>
                       <span>{element.prenomCreateurMessage[0]}</span>
                     </p>
                     <span>{" "+element.pseudoCreateurMessage}</span>

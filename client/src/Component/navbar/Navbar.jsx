@@ -7,12 +7,16 @@ import { useEffect } from 'react';
 import axios from 'axios';
 import { useState } from 'react';
 import "./navbar.css";
+import AffichePhoto from '../affichePhoto/AffichePhoto';
 
 export default function Navbar(props) {
     const { token,settoken } = useContext(AuthContext);
     const { confidentialite,setconfidentialite } = useContext(ConfidentialiteContext);
     const [pseudo, setpseudo] = useState("");
+    const [nom, setnom] = useState("");
+    const [prenom, setPrenom] = useState("");
     const [admin, setadmin] = useState(false);
+    const [bolAffichePhoto, setbolAffichePhoto] = useState(false);
 
     const config = {
       headers: {
@@ -57,14 +61,22 @@ export default function Navbar(props) {
       };
 
       if(token){
-        axios.get("/user/recupPseudo",config)
-        .then((res)=>setpseudo(res.data))
+        axios.get("/user/recupInfoUser",config)
+        .then((res)=>{
+          setpseudo(res.data.pseudonyme)
+          setnom(res.data.nom[0].toUpperCase())
+          setPrenom(res.data.prenom[0].toUpperCase())
+        })
         .catch((err)=>console.log(err));
       }      
       if(!token){
         return;
       }
     }, [token])
+
+    const modifPhoto = ()=>{
+      setbolAffichePhoto(!bolAffichePhoto);
+    }
 
    
     if(token) {
@@ -77,13 +89,15 @@ export default function Navbar(props) {
               localStorage.removeItem("token");
               localStorage.removeItem("confidentialite");
               setconfidentialite("");
+              props.setallImg([]);
               settoken("");
               setadmin(false);
               props.settest(false);
               }} to={"/#/connexion"}>Deconnexion </Link>
             {admin===true? <Link className='AllLink' to={"/admin"}>admin </Link> : ""}
-            <Link className='AllLink' id='pseudonymeNav'>{pseudo} </Link>
           </nav>
+          {props.imgPref ? <p  onClick={modifPhoto}  id='imgPref'><img alt='' src={props.imgPref.src}></img></p> :  <p onClick={modifPhoto} id='nameNav'> <span>{nom} .</span>  <span>{prenom}</span> </p>}
+          {bolAffichePhoto ? <AffichePhoto setallImg= {props.setallImg} allImg = {props.allImg} imgPref={props.imgPref} setimgPref={props.setimgPref} /> : " "}
         </div>
      )
     }if(!token){

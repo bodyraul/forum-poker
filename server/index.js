@@ -6,8 +6,10 @@ const path = require("path");
 const multer = require('multer');
 const PhotoModel = require('./model/Photo');
 require("dotenv").config();
+const cookieParser = require('cookie-parser');
 
 app.use(cors());
+app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(express.static(path.join(__dirname+"/public")));

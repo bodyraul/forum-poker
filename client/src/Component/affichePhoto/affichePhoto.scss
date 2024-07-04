@@ -1,0 +1,42 @@
+@import '../../variableFont/variable.scss';
+
+.containerAffichePhoto{
+    position: absolute;
+    top: 100px;
+    width: 700px;
+    height: 700px;
+    background-color: $blanc;
+    border: solid 1px $vertFoncer;
+    p{
+        height: 50%;
+        width: 100%;
+    }
+    p:nth-child(1){
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: black;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        img{
+            height: 50%;
+        }
+    }
+    p:nth-child(2){
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        background-color: $vertFoncer;
+        img:nth-child(1){
+            border: solid red 1px;
+        }
+        img{
+            height: 50%;
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    }
+}

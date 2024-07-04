@@ -18,9 +18,6 @@ export default function SignUp(props) {
     const [password, setpassword] = useState(""); 
     const {token,settoken}  = useContext(AuthContext);
     const [erreurMsg, seterreurMsg] = useState("");
-    const inputUn = useRef();
-    const inputDeux = useRef();
-
     
 
     const onclickCroix =()=>{
@@ -36,6 +33,8 @@ export default function SignUp(props) {
       }
     }, [props.signIn,props.setSignIn])
 
+
+
     const valideForm = async (e)=>{
       
         e.preventDefault();
@@ -50,17 +49,40 @@ export default function SignUp(props) {
 
         await axios.post("/user/login",connection)
         .then((res)=>{
-            console.log("oui");
             setmail("");
             setpassword("");
-            props.setSignIn(false);
            localStorage.setItem("token",res.data);
            settoken(res.data);
            props.settest(true);
-           navigate("/forum");
         })
         .catch((err)=>seterreurMsg("bonjour"));
     }
+
+    useEffect(() => {
+      if(token){
+        const config = {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        };
+  
+          function getAllPhoto (){
+          axios.get("/photo/getImage",config)
+          .then((res)=>{
+            console.log(res.data)
+            props.setallImg(res.data)
+            props.setSignIn(false);
+            navigate("/");
+          })
+          .catch((err)=>console.log(err));
+        }
+        
+         getAllPhoto();
+      }
+      else{
+        return;
+      }
+    }, [token])
     
 
   return (

@@ -53,5 +53,28 @@ router.get('/getImage',auth,async(req,res)=>{
     }
 })  
 
+router.post('/preferenceImg',auth,async(req,res)=>{
+    try {
+        const img = req.body;
+        res.cookie('prefimg',img,{
+            httpOnly:true,
+        })
+        res.json("ok");
+        
+    } catch (error) {
+        res.status(500).json(error.message);
+    }
+})  
+
+router.get('/preferenceImg',auth,async(req,res)=>{
+    try {
+        imgPref = req.cookies;
+        res.json(imgPref);
+        
+    } catch (error) {
+        res.status(500).json(error.message);
+    }
+}) 
+
 
   module.exports = router;

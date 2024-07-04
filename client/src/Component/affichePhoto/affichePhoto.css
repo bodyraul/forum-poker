@@ -1,0 +1,40 @@
+.containerAffichePhoto {
+  position: absolute;
+  top: 100px;
+  width: 700px;
+  height: 700px;
+  background-color: #ffffff;
+  border: solid 1px #547981;
+}
+.containerAffichePhoto p {
+  height: 50%;
+  width: 100%;
+}
+.containerAffichePhoto p:nth-child(1) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.containerAffichePhoto p:nth-child(1) img {
+  height: 50%;
+}
+.containerAffichePhoto p:nth-child(2) {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #547981;
+}
+.containerAffichePhoto p:nth-child(2) img:nth-child(1) {
+  border: solid red 1px;
+}
+.containerAffichePhoto p:nth-child(2) img {
+  height: 50%;
+}
+.containerAffichePhoto p:nth-child(2) img:hover {
+  cursor: pointer;
+}/*# sourceMappingURL=affichePhoto.css.map */

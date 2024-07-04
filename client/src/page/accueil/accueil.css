@@ -290,13 +290,4 @@ body {
   cursor: pointer;
   background-color: #44ADA8;
   color: white;
-}
-.ContainerForum .test {
-  width: 1000px;
-  height: 1000px;
-  border: solid red 1px;
-  background-color: blueviolet;
-}
-.ContainerForum .test img {
-  width: 50px;
 }/*# sourceMappingURL=accueil.css.map */

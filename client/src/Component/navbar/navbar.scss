@@ -38,13 +38,43 @@
                 opacity: 0.6;
             }
         }
-        #pseudonymeNav{
-            border-bottom:1px solid white ;
-            transition: transform 0s ease-in-out;
-            &:hover{
-                transform: scale(1);
-                opacity: 1;
-            }
+    }
+    #nameNav{
+        position: absolute;
+        top: 50%;
+        right: 5%;
+        font-size: 15px;
+        background-color: $vertFoncer;
+        color: white;
+        border-radius: 50%;
+        padding: 16px 12px;
+        transform: translateY(-50%);
+        span:nth-child(2){
+            padding-left: 2px;
+        }
+        &:hover{
+            cursor: pointer;
+        }
+    }
+    #imgPref{
+        position: absolute;
+        top: 50%;
+        right: 5%;
+        border: solid 1px $vertFoncer;
+        border-radius: 50%;
+        transform: translateY(-50%);
+        height: 60px;
+        width: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img{
+            height: 100%;
+            width: 100%;
+            border-radius: 50%;
+        }
+        &:hover{
+            cursor: pointer;
         }
     }
 }
