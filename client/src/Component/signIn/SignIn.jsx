@@ -69,14 +69,12 @@ export default function SignUp(props) {
           function getAllPhoto (){
           axios.get("/photo/getImage",config)
           .then((res)=>{
-            console.log(res.data)
             props.setallImg(res.data)
             props.setSignIn(false);
             navigate("/");
           })
           .catch((err)=>console.log(err));
-        }
-        
+        }        
          getAllPhoto();
       }
       else{

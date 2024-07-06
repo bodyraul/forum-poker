@@ -29,7 +29,7 @@ const [file, setfile] = useState("");
 
 
 useEffect(() => {
-  console.log("oui")
+
   const config = {
       headers: {
         Authorization: `Bearer ${token}`,

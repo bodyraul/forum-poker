@@ -29,9 +29,6 @@
         align-items: center;
         justify-content: space-evenly;
         background-color: $vertFoncer;
-        img:nth-child(1){
-            border: solid red 1px;
-        }
         img{
             height: 50%;
             &:hover{

@@ -29,9 +29,6 @@
   justify-content: space-evenly;
   background-color: #547981;
 }
-.containerAffichePhoto p:nth-child(2) img:nth-child(1) {
-  border: solid red 1px;
-}
 .containerAffichePhoto p:nth-child(2) img {
   height: 50%;
 }

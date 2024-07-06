@@ -27,11 +27,18 @@ const upload = multer({
 router.post('/upload',auth,upload.single('file'),async(req,res)=>{
     try {
         const idUser = req.payload.id;
+        let booleanPrefImage = false;
         if(!idUser){
-            return res.status(401).json("vous devez être connecté pour envoyer un message sur un post.");
+            return res.status(401).json("vous devez être connecté télécharger une image.");
+        }
+        const allImg = await Photo.find();
+  
+        if(allImg.length===0){
+            booleanPrefImage = true;
         }
         const newPhoto = new Photo({
             image:"/../images/"+req.file.filename,
+            prefimage:booleanPrefImage,
             idUser:idUser,
         })
         await newPhoto.save();
@@ -45,36 +52,24 @@ router.post('/upload',auth,upload.single('file'),async(req,res)=>{
 router.get('/getImage',auth,async(req,res)=>{
     try {
         const idUser = req.payload.id;
-        Photo.find({idUser:idUser})
-        .then(photo=>res.json(photo));
+        const allImg = await  Photo.find({idUser:idUser});
+        res.json(allImg);
         
     } catch (error) {
         res.status(500).json(error.message);
     }
 })  
 
-router.post('/preferenceImg',auth,async(req,res)=>{
+router.get('/prefImage',auth,async(req,res)=>{
     try {
-        const img = req.body;
-        res.cookie('prefimg',img,{
-            httpOnly:true,
-        })
-        res.json("ok");
+        const idUser = req.payload.id;
+        const img = await  Photo.find({idUser:idUser,prefimage:true});
+        res.json(img);
         
     } catch (error) {
         res.status(500).json(error.message);
     }
 })  
-
-router.get('/preferenceImg',auth,async(req,res)=>{
-    try {
-        imgPref = req.cookies;
-        res.json(imgPref);
-        
-    } catch (error) {
-        res.status(500).json(error.message);
-    }
-}) 
 
 
   module.exports = router;
