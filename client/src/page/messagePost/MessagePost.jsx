@@ -11,19 +11,17 @@ import LikeNoActif from '../../photo/likeNoActif.png'
 import signalerNoActif from '../../photo/signalerNoActif.png'
 import signalerActif from '../../photo/signalerActif.png'
 
-export default function MessagesPost() {
+export default function MessagesPost(props) {
   const {id} = useParams();
   const {token,settoken}  = useContext(AuthContext);
-  const [errMsgCreationMsg, seterrMsgCreationMsg] = useState("");
-  const [valueMsgForm, setvalueMsgForm] = useState("");
   const [post, setpost] = useState({});
   const [allMsg, setallMsg] = useState([]);
   const [tailleAllMsg, settailleAllMsg] = useState(false);
   const [messageServer, setmessageServer] = useState("");
   const [listeSignalementUser, setlisteSignalementUser] = useState([]);
   const [listeLikeUser, setlisteLikeUser] = useState([]);
-  const  [nbLikes, setnbLikes] = useState(0);
-  const [arriverListeSignalement, setarriverListeSignalement] = useState(false);
+ 
+
 
 
   //affichage des messages au chargement , du post et des signalements de l'user pour les msg du post
@@ -169,18 +167,8 @@ export default function MessagesPost() {
     }
   }
 
-  const affichageContenu = (contenu)=>{
-    let motUn='bonjour ';
-    let motDeux='bonjour';
-    console.log(motUn.length)
-    console.log(motDeux.length)
-
-    console.log(contenu);
-    const newphrase = contenu.substring(0,205) +"...";
-    return(
-      <p>{newphrase}</p> 
-    )
-  }
+  
+ 
 
   return (
     <div className='ContainerPost'>
@@ -211,10 +199,9 @@ export default function MessagesPost() {
             <div key={element._id} className='affichageUnMessage'>
               <div>
                 <div>
-                    <p>
-                      <span>{element.nomCreateurMessage[0]} . </span>
-                      <span>{element.prenomCreateurMessage[0]}</span>
-                    </p>
+        
+                      {props.imgPref.length>0 ? <p className='pAfficheImg'><img src={props.imgPref} alt="" /> </p>:  <p className='pAfficheInitiale'> <span>{element.nomCreateurMessage[0]} . </span> <span>{element.prenomCreateurMessage[0]}</span></p>}
+              
                     <span>{" "+element.pseudoCreateurMessage}</span>
                 </div>
                 <span>{element.dateCreation}</span>

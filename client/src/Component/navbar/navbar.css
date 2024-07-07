@@ -58,19 +58,17 @@
   position: absolute;
   top: 50%;
   right: 5%;
-  border: solid 1px #547981;
-  border-radius: 50%;
+  border-radius: 8px;
   transform: translateY(-50%);
-  height: 60px;
-  width: 60px;
+  height: 50px;
+  width: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .containerNav #imgPref img {
-  height: 100%;
   width: 100%;
-  border-radius: 50%;
+  border-radius: 8px;
 }
 .containerNav #imgPref:hover {
   cursor: pointer;

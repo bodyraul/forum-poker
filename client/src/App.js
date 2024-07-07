@@ -22,22 +22,22 @@ function App() {
   const [allImg, setallImg] = useState([]);
   const [imgPref, setimgPref] = useState("");
 
-  useEffect(() => {
-    const config = {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    };
+  // useEffect(() => {
+  //   const config = {
+  //     headers: {
+  //       Authorization: `Bearer ${token}`,
+  //     },
+  //   };
 
-    function getPrefImg (){
-      axios.get("/photo/prefImage",config)
-      .then((res)=>{
-        setimgPref(res.data[0].image)
-      })
-      .catch((err)=>console.log(err));
-    }
-    getPrefImg();
-  }, [token])
+  //   function getPrefImg (){
+  //     axios.get("/photo/prefImage",config)
+  //     .then((res)=>{
+  //       setimgPref(res.data);
+  //     })
+  //     .catch((err)=>console.log(err));
+  //   }
+  //   getPrefImg();
+  // }, [token])
 
   return (
     <div className="App">
@@ -49,7 +49,7 @@ function App() {
             <SignUp signUp={signUp} setSignUp={setSignUp} signIn={signIn} setSignIn={setSignIn} ></SignUp>
             <Routes>
                 <Route  path="/"  element={<Accueil setallImg={setallImg} allImg={allImg}/>} />
-                <Route path="/messagePost/:id" element={<MessagePost/>} />
+                <Route path="/messagePost/:id" element={<MessagePost imgPref={imgPref}/>} />
                 {/* <Route path="/confidentialite"  element={<Confidentialite/>} />
                 <Route path="/forum" element={<AccueilForum/>} />
                 <Route path="/admin" element={<Admin/>} />

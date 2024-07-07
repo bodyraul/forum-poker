@@ -33,12 +33,9 @@ router.post('/upload',auth,upload.single('file'),async(req,res)=>{
         }
         const allImg = await Photo.find();
   
-        if(allImg.length===0){
-            booleanPrefImage = true;
-        }
         const newPhoto = new Photo({
             image:"/../images/"+req.file.filename,
-            prefimage:booleanPrefImage,
+            prefimage:false,
             idUser:idUser,
         })
         await newPhoto.save();
@@ -54,6 +51,23 @@ router.get('/getImage',auth,async(req,res)=>{
         const idUser = req.payload.id;
         const allImg = await  Photo.find({idUser:idUser});
         res.json(allImg);
+        
+    } catch (error) {
+        res.status(500).json(error.message);
+    }
+})  
+
+router.post('/prefImage',auth,async(req,res)=>{
+    try {
+        const imgPrefActuelle = await Photo.findOne({prefimage:true});
+        const newImgPreF= await Photo.findOne({_id:req.body._id});
+        if(imgPrefActuelle !== null){
+            imgPrefActuelle.prefimage=false;
+            await imgPrefActuelle.save();
+        }
+        newImgPreF.prefimage=true;
+        await newImgPreF.save();
+        res.json(newImgPreF);
         
     } catch (error) {
         res.status(500).json(error.message);

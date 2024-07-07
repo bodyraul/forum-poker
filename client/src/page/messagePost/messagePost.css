@@ -96,7 +96,24 @@
   align-items: center;
   justify-content: space-between;
 }
-.ContainerPost .partieAffichageAllMessage .affichageUnMessage div:nth-child(1) p:nth-child(1) {
+.ContainerPost .partieAffichageAllMessage .affichageUnMessage div:nth-child(1) .pAfficheImg {
+  margin-right: 10px;
+  font-size: 22px;
+  background-color: white;
+  color: white;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.ContainerPost .partieAffichageAllMessage .affichageUnMessage div:nth-child(1) .pAfficheImg img {
+  width: 100%;
+  max-height: 100px;
+}
+.ContainerPost .partieAffichageAllMessage .affichageUnMessage div:nth-child(1) .pAfficheInitiale {
   margin-right: 10px;
   font-size: 22px;
   background-color: #547981;
@@ -109,12 +126,12 @@
   align-items: center;
   justify-content: center;
 }
-.ContainerPost .partieAffichageAllMessage .affichageUnMessage div:nth-child(1) p:nth-child(1) span {
+.ContainerPost .partieAffichageAllMessage .affichageUnMessage div:nth-child(1) .pAfficheInitiale span {
   text-transform: uppercase;
   font-size: 15px;
   padding: 0px 1px;
 }
-.ContainerPost .partieAffichageAllMessage .affichageUnMessage div:nth-child(1) p:nth-child(1) span:nth-child(2) {
+.ContainerPost .partieAffichageAllMessage .affichageUnMessage div:nth-child(1) .pAfficheInitiale span:nth-child(2) {
   padding-left: 4px;
 }
 .ContainerPost .partieAffichageAllMessage .affichageUnMessage p:nth-child(2) {
