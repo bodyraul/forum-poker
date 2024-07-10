@@ -16,25 +16,28 @@ export default function Accueil(props) {
 const [listePost, setlistePost] = useState([]);
 const [categories, setcategories] = useState([]);
 const {token,settoken}  = useContext(AuthContext);
-const {confidentialite,setconfidentialite}  = useContext(ConfidentialiteContext);
-const [recherchePost, setrecherchePost] = useState("");
-const [categorieBoolean, setcategorieBoolean] = useState(false);
-const [errorMsg, seterrorMsg] = useState("");
+const [radioValue, setradioValue] = useState("");
+const [valueTitrePost, setvalueTitrePost] = useState("");
 const [errorMsgCreerPost, seterrorMsgCreerPost] = useState("");
-const [valueElementCheckbox, setvalueElementCheckbox] = useState("Stratégie tournois");
-const [valueTextarea, setvalueTextarea] = useState("");
-const refListeCategories =useRef();
+const  [boolCategorieSearch, setboolCategorieSearch] = useState(false);
+const [recherchePost, setrecherchePost] = useState("");
+const [errorMessage, seterrorMessage] = useState("");
+const [valueAuteurSujet, setvalueAuteurSujet] = useState("sujet");
+const errorMsgPost = useRef();
+const inputSujet = useRef();
+const inputAuteur = useRef();
+const inputsearchSujetAuteur = useRef();
 const navigate = useNavigate();
-const [file, setfile] = useState("");
+const c = useRef();
+const allCategoriesSearch =useRef();
 
+const config = {
+  headers: {
+    Authorization: `Bearer ${token}`,
+  },
+};
 
 useEffect(() => {
-
-  const config = {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    };
 
   axios.get("/post")
   .then((res)=>{
@@ -56,45 +59,176 @@ const accesPageMessagePost= (idPost)=>{
   navigate(`/messagePost/${idPost}`);
 }
 
-async function handleimg(){
-  const config = {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  };
-
-  const formdata = new FormData();
-  formdata.append('file',file);
-
-  await axios.post("/photo/upload",formdata,config)
-    .then((res)=>console.log(res))
-    .catch((err)=>console.log(err));
+function AllRadioFalse(){
+  const allInputRadio = document.querySelectorAll('.inputRadio');
+    allInputRadio.forEach(element => {
+      element.checked=false;
+  });
 }
+
+async function gestionRadio(e){
+  AllRadioFalse();
+  setradioValue(e.target.value);
+  e.target.checked=true;
+}
+
+const creerPost = async ()=>{
+  errorMsgPost.current.style.color ='#ef4444';
+  if(!token){
+    return seterrorMsgCreerPost("Vous devez être connecté pour pouvoir créer un post.");
+  }
+  if(!radioValue){
+    return seterrorMsgCreerPost("Vous devez choisir une catégorie.");
+  }
+  if(valueTitrePost.length===0){
+    return seterrorMsgCreerPost("le titre ne doit pas être vide.");
+ }
+ if(valueTitrePost.length<10){
+   return  seterrorMsgCreerPost("le titre ne peux pas contenir moins de 10 caractères.");
+ }
+ if(valueTitrePost.length>150){
+   return  seterrorMsgCreerPost("le titre ne peux pas contenir plus de 150 caractères.");
+  }
+
+  const newPost = {};
+  newPost.categorie=radioValue;
+  newPost.titre=valueTitrePost;
+
+  await axios.post("/post/creerPost",newPost,config)
+  .then((res)=>{ 
+      errorMsgPost.current.style.color ='#44ADA8';
+      setlistePost([res.data,...listePost]);
+      seterrorMsgCreerPost("Post créé avec succès.");
+      AllRadioFalse();
+      setradioValue("");
+  })
+  .catch((err)=>console.log(err));
+
+  setvalueTitrePost("");
+ }
+
+ const scroolToSearchPost=()=>{
+  document.querySelector('.titre').scrollIntoView({
+    behavior: 'smooth'
+  });
+ }
+
+ const choiseCategoriesSearch = async(e)=>{
+  await axios.get(`/post/posteParCategorie/${e.target.value}`)
+  .then((res)=>setlistePost(res.data))
+  .catch((err)=>console.log(err));
+ }  
+
+ const cliqueCategories=()=>{
+  setboolCategorieSearch(!boolCategorieSearch);
+ }
+
+ const cliqueSujet =()=>{
+  if(valueAuteurSujet === 'sujet'){
+    return;
+  }
+    inputAuteur.current.style.color ="#547981";
+    inputAuteur.current.style.backgroundColor ="white";
+    inputSujet.current.style.color ="white";
+    inputSujet.current.style.backgroundColor ="#547981";
+    inputsearchSujetAuteur.current.placeholder ="rechercher sujet";
+    setvalueAuteurSujet('sujet');
+ }
+
+ const cliqueAuteur =()=>{
+    if(valueAuteurSujet === 'auteur'){
+      return;
+    }
+    inputAuteur.current.style.color ="white";
+    inputAuteur.current.style.backgroundColor ="#547981";
+    inputSujet.current.style.color ="#547981";
+    inputSujet.current.style.backgroundColor ="white";
+    inputsearchSujetAuteur.current.placeholder ="rechercher auteur";
+    setvalueAuteurSujet('auteur');
+ }
+
+ const valideRecherche = ()=>{
+    if(recherchePost===""){
+      return seterrorMessage("La recherche ne peut être vide");
+      }
+    if(valueAuteurSujet === 'sujet'){
+      const mot = recherchePost;
+        axios.get(`/post/recherchepostesParmot/${mot}`)
+        .then((res)=>{
+            setlistePost(res.data);
+        })
+        .catch((err)=>
+        {
+            seterrorMessage(recherchePost+" "+err.response.data);
+        });
+    }
+    if(valueAuteurSujet === 'auteur'){
+      const pseudoCreateur = recherchePost;
+        axios.get(`/post/recherchepostesParPseudo/${pseudoCreateur}`)
+        .then((res)=>setlistePost(res.data))
+        .catch((err)=>
+        {
+            if(err.response.status === 404){
+                seterrorMessage(recherchePost+" : "+err.response.data);
+            }
+        });
+    }
+    setrecherchePost("");
+ }
+
+ const afficheAllPost =()=>{
+  axios.get("/post")
+  .then((res)=>setlistePost(res.data))
+  .catch((err)=>console.log(err));
+
+    seterrorMessage("");
+ }
+
+ const scrollToNewPost = ()=>{
+    document.querySelector('.creationPost').scrollIntoView({
+         behavior: 'smooth'
+    })
+ }
 
   return (
  
-    <div className='ContainerForum'>
+    <div ref={c} className='ContainerForum'>
         <p className='titre'>Bienvenue sur le forum</p>
         <div className='AllBtnRecherchePost'>
             <div>
-                <div>
+                <div onClick={cliqueCategories}>
+                  {boolCategorieSearch ?  
+                  <div ref={allCategoriesSearch}>
+                      {categories.map((element)=>{
+                        return(
+                          <input key={element._id} onClick={(e)=>choiseCategoriesSearch(e)} type="input" defaultValue={element.titre} />
+                        )
+                      })}
+                  </div>
+                  :
+                  ""}
                   <span>Catégories</span>
                   <img src={flecheBas} alt=''></img>
                 </div>
             </div>
             <div>
-                  <input type='text' placeholder='Rechercher sujet'></input>
-                  <div>
-                    <span>Sujet</span>
-                    <img src={flecheBas} alt=''></img>
-                  </div>
-                  <button>Rechercher</button>
+                  <input ref={inputsearchSujetAuteur}  value={recherchePost} onChange={(e)=>{
+                    setrecherchePost(e.target.value);
+                    seterrorMessage("");
+                    }} type='text' placeholder='Rechercher sujet' 
+                  />
+                  <button ref={inputSujet}  onClick={cliqueSujet} >Sujet</button>
+                  <button ref={inputAuteur} onClick={cliqueAuteur} >Auteur</button>
+                  <button onClick={valideRecherche}>Rechercher</button>
             </div>
             <div>
-                 <button>Posts</button>
-                 <button>Nouveau post</button>
+                 <button onClick={afficheAllPost}>Posts</button>
+                 <button onClick={scrollToNewPost}>Nouveau post</button>
             </div>
         </div>
+
+        <p className='erroMessageRecherche'> {errorMessage} </p>
+
         <div className='affichageAllPosts'>
             <div className='ligneTitre'>
                 <p>Sujet</p>
@@ -119,21 +253,30 @@ async function handleimg(){
         <div className='creationPost'>
             <div className='partieCreation'>
                 <h1>Créer un nouveau Post.</h1>
-                <p>Posez une question ou donnez votre point de vue sur un cas particulier.</p>
-                <h3>Titre</h3>
-                <input placeholder='Entrez votre titre' type="text" />
-                <h3>Catégorie</h3>
+                <p className='pQuestion'>Posez une question ou donnez votre point de vue sur un cas particulier.</p>
+                <h3>Titre : </h3>
+                <input value={valueTitrePost} onChange={(e)=>setvalueTitrePost(e.target.value)} onClick={()=>seterrorMsgCreerPost("")}  placeholder='Entrez votre titre' type="text" />
+                <h3>Catégorie : </h3>
                 <div>
-                  <span>Choisis ton sujet</span>
-                  <img src={flecheBas} alt="" />
+                   {categories.map((element)=>{
+                      return(
+                      <p key={element._id}>
+                        <label htmlFor="" >
+                          - {element.titre}
+                        </label>
+                        <input onClick={(e)=>gestionRadio(e)} className='inputRadio' type="radio" value={element.titre} />
+                      </p>
+                      )
+                   })}
                 </div>
-                <button>Créer</button>
+                <p ref={errorMsgPost} className='errorMsgPost'> {errorMsgCreerPost}  </p>
+                <button onClick={creerPost}>Créer</button>
             </div>
             <div className='partieRemonter'>
                 <div></div>
                 <h2>Post similaire déjà créé?</h2>
                 <p>Faites une recherche par sujet,auteur ou catégorie.</p>
-                <button>Accéder à la recherche</button>
+                <button onClick={scroolToSearchPost}>Accéder à la recherche</button>
             </div>
         </div>
     </div>

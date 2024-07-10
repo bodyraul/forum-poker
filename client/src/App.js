@@ -22,22 +22,24 @@ function App() {
   const [allImg, setallImg] = useState([]);
   const [imgPref, setimgPref] = useState("");
 
-  // useEffect(() => {
-  //   const config = {
-  //     headers: {
-  //       Authorization: `Bearer ${token}`,
-  //     },
-  //   };
+  useEffect(() => {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
 
-  //   function getPrefImg (){
-  //     axios.get("/photo/prefImage",config)
-  //     .then((res)=>{
-  //       setimgPref(res.data);
-  //     })
-  //     .catch((err)=>console.log(err));
-  //   }
-  //   getPrefImg();
-  // }, [token])
+ 
+      axios.get("/photo/prefImage",config)
+      .then((res)=>{
+        console.log(res.data)
+        setimgPref(res.data[0].image
+        );
+      })
+      .catch((err)=>console.log(err));
+
+  
+  },[] )
 
   return (
     <div className="App">

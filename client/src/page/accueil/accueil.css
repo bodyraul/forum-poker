@@ -43,6 +43,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  position: relative;
 }
 .ContainerForum .AllBtnRecherchePost div:nth-child(1) div:hover {
   cursor: pointer;
@@ -50,40 +51,74 @@ body {
 .ContainerForum .AllBtnRecherchePost div:nth-child(1) div img {
   width: 20px;
 }
+.ContainerForum .AllBtnRecherchePost div:nth-child(1) div div {
+  position: absolute;
+  width: 130px;
+  height: 150px;
+  bottom: -150px;
+  padding: 0 0;
+  border-left: 1px solid #44ADA8;
+  border-right: 1px solid #44ADA8;
+  border-top: 1px solid #547981;
+  border-bottom: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.ContainerForum .AllBtnRecherchePost div:nth-child(1) div div input {
+  width: 100%;
+  height: 50px;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-bottom: 1px solid #ffffff;
+  background-color: #44ADA8;
+  color: #ffffff;
+  text-align: center;
+  font-size: 12px;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+}
+.ContainerForum .AllBtnRecherchePost div:nth-child(1) div div input:hover {
+  cursor: pointer;
+  background-color: #ffffff;
+  color: #44ADA8;
+}
 .ContainerForum .AllBtnRecherchePost div:nth-child(2) {
   display: flex;
 }
-.ContainerForum .AllBtnRecherchePost div:nth-child(2) div {
-  width: 100px;
-  margin: 0px 15px;
-  color: #547981;
-  border: solid 1px #547981;
-  padding: 4px;
-  outline: none;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.ContainerForum .AllBtnRecherchePost div:nth-child(2) div:hover {
-  cursor: pointer;
-}
-.ContainerForum .AllBtnRecherchePost div:nth-child(2) div img {
-  width: 20px;
-}
-.ContainerForum .AllBtnRecherchePost div:nth-child(2) input {
+.ContainerForum .AllBtnRecherchePost div:nth-child(2) input:nth-child(1) {
   color: #547981;
   border: solid 1px #547981;
   padding: 5px;
   margin-left: 15px;
   outline-color: #547981;
 }
-.ContainerForum .AllBtnRecherchePost div:nth-child(2) input::-moz-placeholder {
+.ContainerForum .AllBtnRecherchePost div:nth-child(2) input:nth-child(1)::-moz-placeholder {
   color: #547981;
 }
-.ContainerForum .AllBtnRecherchePost div:nth-child(2) input::placeholder {
+.ContainerForum .AllBtnRecherchePost div:nth-child(2) input:nth-child(1)::placeholder {
   color: #547981;
+}
+.ContainerForum .AllBtnRecherchePost div:nth-child(2) button:nth-child(2), .ContainerForum .AllBtnRecherchePost div:nth-child(2) button:nth-child(3) {
+  color: #547981;
+  border: solid 1px #547981;
+  margin-left: 15px;
+  width: 50px;
+  padding-left: 5px;
+  outline-color: #547981;
+  outline: none;
+}
+.ContainerForum .AllBtnRecherchePost div:nth-child(2) button:nth-child(2):hover, .ContainerForum .AllBtnRecherchePost div:nth-child(2) button:nth-child(3):hover {
+  cursor: pointer;
+}
+.ContainerForum .AllBtnRecherchePost div:nth-child(2) button:nth-child(2) {
+  background-color: #547981;
+  color: white;
 }
 .ContainerForum .AllBtnRecherchePost div:nth-child(2) button {
+  margin-left: 15px;
   color: #547981;
   border: solid 1px #547981;
   background-color: white;
@@ -113,9 +148,20 @@ body {
 .ContainerForum .AllBtnRecherchePost div:nth-child(3) button:nth-child(2) {
   margin-right: 20px;
 }
+.ContainerForum .erroMessageRecherche {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 1400px;
+  margin: 0 auto;
+  color: #ef4444;
+  font-size: 20px;
+  height: 50px;
+}
 .ContainerForum .affichageAllPosts {
   width: 1400px;
-  margin: 50px auto 0 auto;
+  margin: 0 auto;
 }
 .ContainerForum .affichageAllPosts .ligneTitre {
   height: 50px;
@@ -204,14 +250,15 @@ body {
   color: #547981;
   padding-bottom: 25px;
 }
-.ContainerForum .creationPost .partieCreation p {
+.ContainerForum .creationPost .partieCreation .pQuestion {
   color: #547981;
   font-size: 17px;
   padding-bottom: 25px;
 }
 .ContainerForum .creationPost .partieCreation h3:nth-child(3) {
   color: #547981;
-  padding-bottom: 15px;
+  padding-bottom: 22px;
+  padding-top: 25px;
 }
 .ContainerForum .creationPost .partieCreation input {
   outline-color: #547981;
@@ -222,28 +269,32 @@ body {
 }
 .ContainerForum .creationPost .partieCreation h3:nth-child(5) {
   color: #547981;
-  padding: 25px 0px 15px 0px;
+  padding: 60px 0px 15px 0px;
 }
 .ContainerForum .creationPost .partieCreation div {
+  padding: 10px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 48%;
+}
+.ContainerForum .creationPost .partieCreation div p {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  border: 1px solid #547981;
-  width: 60%;
-  padding: 5px 7px;
-}
-.ContainerForum .creationPost .partieCreation div:hover {
-  cursor: pointer;
-}
-.ContainerForum .creationPost .partieCreation div span {
+  width: 100%;
   color: #547981;
+  font-size: 17px;
+  padding-bottom: 25px;
 }
-.ContainerForum .creationPost .partieCreation div img {
-  width: 20px;
+.ContainerForum .creationPost .partieCreation .errorMsgPost {
+  height: 50px;
+  color: #ef4444;
+  font-size: 20px;
 }
 .ContainerForum .creationPost .partieCreation button {
-  margin-top: 25px;
   padding: 10px 15px;
   color: #547981;
   border: 1px solid #547981;

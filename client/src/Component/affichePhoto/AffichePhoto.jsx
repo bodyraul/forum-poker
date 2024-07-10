@@ -12,6 +12,7 @@ export default function AffichePhoto(props) {
  const [file, setfile] = useState("");
  const {token,settoken}  = useContext(AuthContext);
  const refImgSolo = useRef();
+ const input =  useRef();
  const [srcImgClique, setsrcImgClique] = useState({});
 
  const config = {
@@ -19,6 +20,10 @@ export default function AffichePhoto(props) {
     Authorization: `Bearer ${token}`,
   },
 };
+
+useEffect(() => {
+  console.log(input);
+}, [])
 
  async function handleimg(){
    
@@ -70,6 +75,10 @@ export default function AffichePhoto(props) {
   }
 
   function ImgCLick(e,id){
+    const allImg =  document.querySelectorAll('.imgChoix');
+    allImg.forEach(element => {
+        element.style.border = "none";
+    });
     e.target.style.border="2px solid red";
     const imgclique ={ src:e.target.src,id:id};
     setsrcImgClique(imgclique);
@@ -80,9 +89,11 @@ export default function AffichePhoto(props) {
     <div className='containerAffichePhoto'>
         <p>
           <img ref={refImgSolo} src='' alt="" />
-          <input type="file" onChange={e=>setfile(e.target.files[0])} />
-          <button  onClick={handleimg}>bonjour</button>
-          <button onClick={choisePrefImg}  >terminé</button>
+          <input id='fileUpload' ref={input} style={{color:"white"}} type="file" onChange={e=>setfile(e.target.files[0])} />
+          <label htmlFor='fileUpload'>bonjour</label>
+          <button  onClick={handleimg}>telecharger</button>
+          <button onClick={choisePrefImg}  >changer l'image de profil</button>
+          <button  >Supprimer l'image</button>
         </p>
         <p>
           {afficheAllImg()}

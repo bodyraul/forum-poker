@@ -42,35 +42,50 @@ body{
                 display: flex;
                 align-items: center;
                 justify-content: space-around;
+                position: relative;
                 &:hover{
                     cursor: pointer;
                 }
                 img{
                     width: 20px;
+                }
+                div{
+                    position: absolute;
+                    width: 130px;
+                    height: 150px;
+                    bottom: -150px;
+                    padding: 0 0;
+                    border-left: 1px solid $vertClair;
+                    border-right: 1px solid $vertClair;
+                    border-top: 1px solid $vertFoncer;
+                    border-bottom: none;
+                    @include display(column,center,center);
+                    input{
+                        width: 100%;
+                        height: 50px;
+                        border-left: none;
+                        border-right: none;
+                        border-top: none;
+                        border-bottom: 1px solid $blanc;
+                        background-color: $vertClair;
+                        color: $blanc;
+                        text-align: center;
+                        font-size: 12px;
+                        outline: none;
+                        transition: all 0.2s ease-in-out;
+                        &:hover{
+                            cursor: pointer;
+                            background-color: $blanc;
+                            color: $vertClair;
+                        }
+                    }
                 }
             }
 
         }
         div:nth-child(2){
             display: flex;
-            div{
-                width: 100px;
-                margin: 0px 15px;
-                color: $vertFoncer;
-                border: solid 1px $vertFoncer;
-                padding: 4px ;
-                outline: none;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                &:hover{
-                    cursor: pointer;
-                }
-                img{
-                    width: 20px;
-                }
-            }
-            input{
+            input:nth-child(1){
                 color: $vertFoncer;
                 border: solid 1px $vertFoncer;
                 padding: 5px;
@@ -80,7 +95,24 @@ body{
                     color: $vertFoncer;
                 }
             }
+            button:nth-child(2),button:nth-child(3){
+                color: $vertFoncer;
+                border: solid 1px $vertFoncer;
+                margin-left: 15px;
+                width: 50px;
+                padding-left: 5px;
+                outline-color: $vertFoncer;
+                outline: none;
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+            button:nth-child(2){
+                background-color: $vertFoncer;
+                color: white;
+            }
             button{
+                margin-left: 15px;
                 color: $vertFoncer;
                 border: solid 1px $vertFoncer;
                 background-color: white;
@@ -114,9 +146,19 @@ body{
             }
         }
     }
+
+    .erroMessageRecherche{
+        @include display(row,center,center);
+        width: 1400px;
+        margin: 0 auto;
+        color: #ef4444;
+        font-size: 20px;
+        height: 50px;
+    }
+
     .affichageAllPosts{
         width: 1400px;
-        margin: 50px auto 0 auto;
+        margin: 0 auto;
         .ligneTitre{
             height: 50px;
             display: flex;
@@ -202,14 +244,15 @@ body{
                 color: $vertFoncer;
                 padding-bottom: 25px;
             }
-            p{
+            .pQuestion{
                 color: $vertFoncer;
                 font-size: 17px;
                 padding-bottom: 25px;
             }
             h3:nth-child(3){
                 color: $vertFoncer;
-                padding-bottom: 15px;
+                padding-bottom: 22px;
+                padding-top: 25px;
             }
             input{
                 outline-color: $vertFoncer ;
@@ -220,25 +263,26 @@ body{
             }
             h3:nth-child(5){
                 color: $vertFoncer;
-                padding: 25px 0px 15px 0px;
+                padding: 60px 0px 15px 0px;
             }
             div{
-                @include display(row,center,space-between);
-                border: 1px solid $vertFoncer;
-                width: 60%;
-                padding: 5px 7px;
-                &:hover{
-                    cursor: pointer;
-                }
-                span{
+                padding: 10px 0 0 0;
+                @include display(column,center,space-between);
+                width: 48%;
+                p{
+                    @include display(row,center,space-between);
+                    width: 100%;
                     color: $vertFoncer;
-                }
-                img{
-                    width: 20px;
+                    font-size: 17px;
+                    padding-bottom: 25px;
                 }
             }
+            .errorMsgPost{
+                height: 50px;
+                color: #ef4444;
+                font-size: 20px;
+            }
             button{
-                margin-top: 25px;
                 padding: 10px 15px;
                 color: $vertFoncer;
                 border: 1px solid $vertFoncer;

@@ -2,6 +2,8 @@ import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useParams } from "react-router-dom";
+import { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useContext } from 'react';
 import { AuthContext } from '../../Context/AuthContext';
@@ -20,17 +22,19 @@ export default function MessagesPost(props) {
   const [messageServer, setmessageServer] = useState("");
   const [listeSignalementUser, setlisteSignalementUser] = useState([]);
   const [listeLikeUser, setlisteLikeUser] = useState([]);
- 
+  const [valueMsgForm, setvalueMsgForm] = useState("");
+  const [messageErreur, setmessageErreur] = useState("");
+  const paraMessageErreur = useRef();
+  const navigate = useNavigate();
 
-
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
 
   //affichage des messages au chargement , du post et des signalements de l'user pour les msg du post
   useEffect(() => {
-    const config = {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    };
 
     async function messages(){
       await  axios.get(`/message/afficherMesMessages/${id}`,config)
@@ -87,11 +91,6 @@ export default function MessagesPost(props) {
   }
 
   async function modifierLike(id,bol){
-    const config = {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      };
     if(bol){
         await  axios.delete(`/like/supprimerLike/${id}`,config)
         .then((res)=>{
@@ -143,11 +142,6 @@ export default function MessagesPost(props) {
   }
   
   async function modifierSignalement(id,bol){
-    const config = {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      };
     if(bol){
         await  axios.delete(`/signalement/signalementMessage/${id}`,config)
         .then((res)=>{
@@ -167,8 +161,39 @@ export default function MessagesPost(props) {
     }
   }
 
+  const valideFormMessage = async()=>{
+    paraMessageErreur.current.style.color="#ef4444";
+    if(!token){
+      return setmessageErreur("Vous devez être connecté pour écrire un message.");
+    }
+    if(valueMsgForm.length===0){
+      return setmessageErreur("le message ne peut pas être vide");
+    }
+    if(valueMsgForm.length>1000){
+      return setmessageErreur("le message ne peut pas dépasser 1000 caractères");
+    }
+
+    const newMessage={};
+    newMessage.contenu=valueMsgForm;
+
+    await axios.post(`/message/creerMessage/${id}`,newMessage,config)
+    .then((res)=>{
+      paraMessageErreur.current.style.color="#44ADA8";
+      setmessageErreur("message Créé.");
+      setvalueMsgForm("");
+    })
+    .catch((err)=>console.log(err));
+
+    await axios.get(`/message/afficherMesMessages/${id}`,config)
+    .then((res)=>{
+      setallMsg(res.data);
+    })
+    .catch((err)=>console.log(err));
+  }
   
- 
+  const onclickTextArea= ()=>{
+    setmessageErreur("");
+  }
 
   return (
     <div className='ContainerPost'>
@@ -190,9 +215,7 @@ export default function MessagesPost(props) {
             <p>{post.dateCreation}</p>
         </div>
     </div>
-    <p  className='titre'>
-        Toutes les réponses
-    </p>
+    {allMsg.length===0 ?  <p  className='titre'>Aucune réponse </p> : <p  className='titre'>Toutes les réponses </p>}
     <div className='partieAffichageAllMessage'>
         {allMsg.map((element)=>{
           return(
@@ -222,15 +245,16 @@ export default function MessagesPost(props) {
             <p>Essayez d'apporter quelque chose de nouveau à la conversation.</p>
             <h3>Description</h3>
             <div>
-              <input type="text" />
+              <textarea onClick={onclickTextArea} value={valueMsgForm} onChange={(e)=>setvalueMsgForm(e.target.value)}  rows={15} cols={80} name="" id="" ></textarea>
             </div>
-            <button>Créer</button>
+            <p ref={paraMessageErreur}> {messageErreur} </p>
+            <button onClick={valideFormMessage}>Créer</button>
         </div>
         <div className='partieRemonterMessage'>
             <div></div>
-            <h2>Post similaire déjà créé?</h2>
-            <p>Faites une recherche par sujet,auteur ou catégorie.</p>
-            <button>Accéder à la recherche</button>
+            <h2>Mauvais Post selectionné?</h2>
+            <p>Cliquez ci-dessous pour revenir à la page des post.</p>
+            <button onClick={()=>navigate('/')}>Retour</button>
         </div>
     </div>
 
