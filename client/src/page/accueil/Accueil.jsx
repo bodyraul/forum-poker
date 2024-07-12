@@ -13,9 +13,9 @@ import flecheBas from '../../photo/flecheBas.png'
 
 export default function Accueil(props) {
 
+const {token,settoken}  = useContext(AuthContext);
 const [listePost, setlistePost] = useState([]);
 const [categories, setcategories] = useState([]);
-const {token,settoken}  = useContext(AuthContext);
 const [radioValue, setradioValue] = useState("");
 const [valueTitrePost, setvalueTitrePost] = useState("");
 const [errorMsgCreerPost, seterrorMsgCreerPost] = useState("");
@@ -23,12 +23,11 @@ const  [boolCategorieSearch, setboolCategorieSearch] = useState(false);
 const [recherchePost, setrecherchePost] = useState("");
 const [errorMessage, seterrorMessage] = useState("");
 const [valueAuteurSujet, setvalueAuteurSujet] = useState("sujet");
+const navigate = useNavigate();
 const errorMsgPost = useRef();
 const inputSujet = useRef();
 const inputAuteur = useRef();
 const inputsearchSujetAuteur = useRef();
-const navigate = useNavigate();
-const c = useRef();
 const allCategoriesSearch =useRef();
 
 const config = {
@@ -192,7 +191,7 @@ const creerPost = async ()=>{
 
   return (
  
-    <div ref={c} className='ContainerForum'>
+    <div   className='ContainerForum'>
         <p className='titre'>Bienvenue sur le forum</p>
         <div className='AllBtnRecherchePost'>
             <div>
@@ -212,7 +211,7 @@ const creerPost = async ()=>{
                 </div>
             </div>
             <div>
-                  <input ref={inputsearchSujetAuteur}  value={recherchePost} onChange={(e)=>{
+                  <input ref={inputsearchSujetAuteur} onClick={()=>seterrorMessage("")}  value={recherchePost} onChange={(e)=>{
                     setrecherchePost(e.target.value);
                     seterrorMessage("");
                     }} type='text' placeholder='Rechercher sujet' 

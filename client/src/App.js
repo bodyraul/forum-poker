@@ -22,6 +22,7 @@ function App() {
   const [allImg, setallImg] = useState([]);
   const [imgPref, setimgPref] = useState("");
 
+
   useEffect(() => {
     const config = {
       headers: {
@@ -37,7 +38,6 @@ function App() {
         );
       })
       .catch((err)=>console.log(err));
-
   
   },[] )
 
@@ -46,12 +46,12 @@ function App() {
         <HashRouter hashType="hashbang">
             <AuthContext.Provider value={{token,settoken}} >
             <ConfidentialiteContext.Provider value={{confidentialite,setconfidentialite}}>
-            <Navbar imgPref={imgPref} setimgPref={setimgPref}  setallImg={setallImg} allImg={allImg} signUp={signUp} signIn={signIn} setSignUp={setSignUp} setSignIn={setSignIn} test={test} settest={settest}/>
+            <Navbar  imgPref={imgPref} setimgPref={setimgPref}  setallImg={setallImg} allImg={allImg} signUp={signUp} signIn={signIn} setSignUp={setSignUp} setSignIn={setSignIn} test={test} settest={settest}/>
             <SignIn imgPref={imgPref} setimgPref={setimgPref} setallImg={setallImg} signIn={signIn} setSignIn={setSignIn}></SignIn>
             <SignUp signUp={signUp} setSignUp={setSignUp} signIn={signIn} setSignIn={setSignIn} ></SignUp>
             <Routes>
                 <Route  path="/"  element={<Accueil setallImg={setallImg} allImg={allImg}/>} />
-                <Route path="/messagePost/:id" element={<MessagePost imgPref={imgPref}/>} />
+                <Route path="/messagePost/:id"  element={<MessagePost imgPref={imgPref}/>} />
                 {/* <Route path="/confidentialite"  element={<Confidentialite/>} />
                 <Route path="/forum" element={<AccueilForum/>} />
                 <Route path="/admin" element={<Admin/>} />

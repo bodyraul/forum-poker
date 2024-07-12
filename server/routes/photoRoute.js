@@ -7,7 +7,7 @@ const Message = require("../model/MessagePost");
 const Post = require("../model/Post");
 const User = require("../model/User");
 const Photo = require("../model/Photo");
-
+var fs = require('fs');
 
 
 const storage = multer.diskStorage({
@@ -61,12 +61,18 @@ router.post('/prefImage',auth,async(req,res)=>{
     try {
         const imgPrefActuelle = await Photo.findOne({prefimage:true});
         const newImgPreF= await Photo.findOne({_id:req.body._id});
+        const allMsgUser = await Message.find({idUser:req.payload.id});
         if(imgPrefActuelle !== null){
             imgPrefActuelle.prefimage=false;
             await imgPrefActuelle.save();
         }
         newImgPreF.prefimage=true;
+        
         await newImgPreF.save();
+        allMsgUser.forEach(element => {
+            element.image = newImgPreF.image;
+            element.save();
+        });
         res.json(newImgPreF);
         
     } catch (error) {
@@ -85,5 +91,22 @@ router.get('/prefImage',auth,async(req,res)=>{
     }
 })  
 
+
+router.post("/delete",auth,async(req,res)=>{
+    try {
+        const img= await Photo.findOne({_id:req.body.id});
+        const allMsg = await MessagePost.find({idUser:req.payload.id})
+        allMsg.forEach(element => {
+            element.image ="";
+            element.save();
+        });
+        const srcImg = img.image.substring(4,img.length);
+        fs.unlinkSync(`./public/${srcImg}`);
+        await img.deleteOne();
+        res.json("good");
+    } catch (error) {
+        res.status(500).json(error.message);
+    }
+})
 
   module.exports = router;

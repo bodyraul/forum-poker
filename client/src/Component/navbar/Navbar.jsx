@@ -89,11 +89,12 @@ export default function Navbar(props) {
               settoken("");
               setadmin(false);
               props.settest(false);
+              props.setimgPref('');
               }} to={"/#/connexion"}>Deconnexion </Link>
             {admin===true? <Link className='AllLink' to={"/admin"}>admin </Link> : ""}
           </nav>
           {props.imgPref.length>0 ? <p  onClick={modifPhoto}  id='imgPref'><img alt='' src={props.imgPref}></img></p> :  <p onClick={modifPhoto} id='nameNav'> <span>{nom} .</span>  <span>{prenom}</span> </p>}
-          {bolAffichePhoto ? <AffichePhoto bolAffichePhoto={bolAffichePhoto} setbolAffichePhoto={setbolAffichePhoto} setallImg= {props.setallImg} allImg = {props.allImg} imgPref={props.imgPref} setimgPref={props.setimgPref} /> : " "}
+          {bolAffichePhoto ? <AffichePhoto changeAllMsgOnImgSup={props.changeAllMsgOnImgSup} setchangeAllMsgOnImgSup={props.setchangeAllMsgOnImgSup} bolAffichePhoto={bolAffichePhoto} setbolAffichePhoto={setbolAffichePhoto} setallImg= {props.setallImg} allImg = {props.allImg} imgPref={props.imgPref} setimgPref={props.setimgPref} /> : " "}
         </div>
      )
     }if(!token){

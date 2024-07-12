@@ -19,6 +19,11 @@ export default function SignUp(props) {
     const {token,settoken}  = useContext(AuthContext);
     const [erreurMsg, seterreurMsg] = useState("");
     
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
 
     const onclickCroix =()=>{
         props.setSignIn(false);
@@ -60,22 +65,18 @@ export default function SignUp(props) {
 
     useEffect(() => {
       if(token){
-        const config = {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        };
-  
-          function getAllPhoto (){
-          axios.get("/photo/getImage",config)
-          .then((res)=>{
-            props.setallImg(res.data)
-            props.setSignIn(false);
-            navigate("/");
-          })
-          .catch((err)=>console.log(err));
-        }        
-         getAllPhoto();
+       
+        axios.get("/photo/getImage",config)
+        .then((res)=>{
+          props.setallImg(res.data)
+          props.setSignIn(false);
+          navigate("/");
+        })
+        .catch((err)=>console.log(err));
+        
+        axios.get('/photo/prefImage',config)
+        .then((res)=>props.setimgPref(res.data[0].image))
+        .catch((err)=>console.log(err));
       }
       else{
         return;

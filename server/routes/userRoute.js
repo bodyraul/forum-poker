@@ -5,7 +5,16 @@ const bcrypt =require("bcrypt");
 const jwt = require("jsonwebtoken");
 const auth = require("../middleware/auth");
 
+router.get("/recupIdUserConnecte",auth,async(req,res)=>{
+    try {
+        const idUser=req.payload.id;
+        res.json(idUser);
 
+    } catch (error) {
+        res.status(500).json(error.message);
+    }
+    
+});
 //route qui permet de créer un compte
 router.post("/register",async(req,res)=>{
     try {

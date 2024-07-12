@@ -18,12 +18,12 @@ export default function MessagesPost(props) {
   const {token,settoken}  = useContext(AuthContext);
   const [post, setpost] = useState({});
   const [allMsg, setallMsg] = useState([]);
-  const [tailleAllMsg, settailleAllMsg] = useState(false);
   const [messageServer, setmessageServer] = useState("");
   const [listeSignalementUser, setlisteSignalementUser] = useState([]);
   const [listeLikeUser, setlisteLikeUser] = useState([]);
   const [valueMsgForm, setvalueMsgForm] = useState("");
   const [messageErreur, setmessageErreur] = useState("");
+  const [idUserConnecte, setidUserConnecte] = useState("");
   const paraMessageErreur = useRef();
   const navigate = useNavigate();
 
@@ -55,7 +55,6 @@ export default function MessagesPost(props) {
     async function allLike(){
         await  axios.get(`/like/AfficherMessageLikerParPost/${id}`,config)
         .then((res)=>{
-          console.log(res)
           setlisteLikeUser(res.data);
         })
         .catch((err)=>console.log(err));
@@ -69,13 +68,22 @@ export default function MessagesPost(props) {
       .catch((err)=>console.log(err));
     }
 
+    async function getIdUser(){
+      await  axios.get(`/user/recupIdUserConnecte`,config)
+      .then((res)=>{
+        setidUserConnecte(res.data);
+      })
+      .catch((err)=>console.log(err));
+    }
     messages();
     monPoste();
     allLike();
     signalements();
-   
+    getIdUser();
 
   }, [])
+
+  
 
   const like = (id)=>{
     for (let index = 0; index < listeLikeUser.length; index++) {
@@ -187,6 +195,10 @@ export default function MessagesPost(props) {
     await axios.get(`/message/afficherMesMessages/${id}`,config)
     .then((res)=>{
       setallMsg(res.data);
+      const updatedValue = post.nombreMessages+1;
+      setpost(post=>({
+        ...post,nombreMessages: updatedValue,
+      }))
     })
     .catch((err)=>console.log(err));
   }
@@ -194,6 +206,32 @@ export default function MessagesPost(props) {
   const onclickTextArea= ()=>{
     setmessageErreur("");
   }
+
+  function afficheImgOnMajImg(element){
+    if(element.image.length>0 && element.idUser===id){
+      return(
+        <p className='pAfficheImg'>
+          <img src={props.imgPref} alt="" />
+        </p>
+      )
+    }
+    if(element.image.length>0 && element.idUser!==id){
+      return(
+        <p className='pAfficheImg'>
+          <img src={element.image} alt="" />
+        </p>
+      )
+    }
+    if(props.imgPref.length===0 ){
+      return(
+        <p className='pAfficheInitiale'> 
+          <span>{element.nomCreateurMessage[0]} . </span> 
+          <span>{element.prenomCreateurMessage[0]}</span>
+        </p>
+      )
+    }
+  }
+
 
   return (
     <div className='ContainerPost'>
@@ -222,9 +260,7 @@ export default function MessagesPost(props) {
             <div key={element._id} className='affichageUnMessage'>
               <div>
                 <div>
-        
-                      {props.imgPref.length>0 ? <p className='pAfficheImg'><img src={props.imgPref} alt="" /> </p>:  <p className='pAfficheInitiale'> <span>{element.nomCreateurMessage[0]} . </span> <span>{element.prenomCreateurMessage[0]}</span></p>}
-              
+                    {afficheImgOnMajImg(element)}
                     <span>{" "+element.pseudoCreateurMessage}</span>
                 </div>
                 <span>{element.dateCreation}</span>

@@ -5,8 +5,8 @@ const app = express();
 const path = require("path");
 const multer = require('multer');
 const PhotoModel = require('./model/Photo');
-require("dotenv").config();
 const cookieParser = require('cookie-parser');
+require("dotenv").config();
 
 app.use(cors());
 app.use(cookieParser());

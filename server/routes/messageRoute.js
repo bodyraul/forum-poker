@@ -5,6 +5,7 @@ const MessagePost = require("../model/MessagePost");
 const Message = require("../model/MessagePost");
 const Post = require("../model/Post");
 const User = require("../model/User");
+const Photo = require("../model/Photo");
 
 
   //route qui permet de récupérer tous les messages, ils sont traités coté front pour faire en sorte que les messages d'un même post
@@ -26,6 +27,12 @@ router.post("/creerMessage/:id",auth,async(req,res)=>{
     try {
         const idUser = req.payload.id;
         const idPost = req.params.id;
+        const PhotoPrefUser = await Photo.findOne({idUser:idUser,prefimage:true});
+        let image = '';
+        if(PhotoPrefUser){
+          image = PhotoPrefUser.image;
+        }
+        console.log(image +"image");
         if(!idUser){
             return res.json("vous devez être connecté pour envoyer un message sur un post.")
         }
@@ -64,6 +71,7 @@ router.post("/creerMessage/:id",auth,async(req,res)=>{
             "idPost" : idPost,
             "nomCreateurMessage" : tab[0].nom,
             "prenomCreateurMessage" : tab[0].prenom,
+            "image" : image,
             "pseudoCreateurMessage" : tab[0].pseudonyme,
             "dateCreation":dateCreation,
             "heureCreation" : heureCreation,

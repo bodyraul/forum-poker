@@ -5,6 +5,7 @@ const messageSChema = new mongoose.Schema({
     idPost:{type: mongoose.Schema.Types.ObjectId,require:true,ref:"Post",},
     titre:{type:String,require:true},
     contenu : {type:String,require:true},
+    image:{type:String,default:""},
     signalement:{type:Boolean,require:true,default:false},
     traiter:{type:Boolean,require:true,default:false},
     nomCreateurMessage : {type:String,require:true},

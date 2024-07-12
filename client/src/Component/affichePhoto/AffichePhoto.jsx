@@ -1,6 +1,6 @@
 import React from 'react'
 import './affichePhoto.css'
-import { useEffect } from 'react'
+import { useEffect } from 'react';
 import { useState } from 'react';
 import axios from 'axios';
 import { useContext } from 'react';
@@ -21,10 +21,6 @@ export default function AffichePhoto(props) {
   },
 };
 
-useEffect(() => {
-  console.log(input);
-}, [])
-
  async function handleimg(){
    
   
@@ -35,7 +31,7 @@ useEffect(() => {
       .then((res)=>console.log(res))
       .catch((err)=>console.log(err));
 
-    await  axios.get("/photo/getImage",config)
+    await axios.get("/photo/getImage",config)
       .then((res)=>{
         console.log(res.data);
         props.setallImg(res.data);
@@ -85,6 +81,30 @@ useEffect(() => {
     refImgSolo.current.src =e.target.src;
   }
 
+  const supImage = async()=>{
+    await axios.post('/photo/delete',srcImgClique,config)
+    .then((res)=>{
+      console.log(res);
+    })
+    .catch((err)=>console.log(err));
+
+    await  axios.get("/photo/getImage",config)
+      .then((res)=>{
+        props.setallImg(res.data);
+        refImgSolo.current.src ="";
+      })
+      .catch((err)=>console.log(err));
+
+    await  axios.get("/photo/prefImage",config)
+    .then((res)=>{
+      props.setimgPref("");
+      console.log(res.data);
+    })
+    .catch((err)=>console.log(err));
+
+
+  }
+
   return (
     <div className='containerAffichePhoto'>
         <p>
@@ -93,7 +113,7 @@ useEffect(() => {
           <label htmlFor='fileUpload'>bonjour</label>
           <button  onClick={handleimg}>telecharger</button>
           <button onClick={choisePrefImg}  >changer l'image de profil</button>
-          <button  >Supprimer l'image</button>
+          <button onClick={supImage} >Supprimer l'image</button>
         </p>
         <p>
           {afficheAllImg()}
