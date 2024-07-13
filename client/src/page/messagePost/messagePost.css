@@ -43,7 +43,7 @@ body {
   text-align: center;
 }
 .ContainerPost .affichageDuPost .ligneContenuPost {
-  height: 100px;
+  height: 130px;
   display: flex;
   align-items: center;
   border: solid 1px #E0E3E5;
@@ -59,6 +59,14 @@ body {
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-around;
+}
+.ContainerPost .affichageDuPost .ligneContenuPost div p {
+  display: block;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 .ContainerPost .affichageDuPost .ligneContenuPost div span:nth-child(2) {
   background-color: #EFEFEF;

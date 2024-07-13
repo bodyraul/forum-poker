@@ -32,10 +32,19 @@
             color: $blanc;
             font-size: 25px;
             text-decoration: none;
+            &:hover{
+                cursor: default;
+            }
+        }
+        .AllLink:not(:last-child){
+            color: $blanc;
+            font-size: 25px;
+            text-decoration: none;
             transition: transform 0.2s ease-in-out;
             &:hover{
                 transform: scale(0.9);
                 opacity: 0.6;
+                cursor: pointer;
             }
         }
     }
@@ -62,14 +71,14 @@
         right: 5%;
         border-radius: 8px;
         transform: translateY(-50%);
-        height: 50px;
-        width: 50px;
+        height: 70px;
+        width: 70px;
         display: flex;
         align-items: center;
         justify-content: center;
+        border-radius: 50%;
         img{
             height: 100%;
-            border-radius: 8px;
         }
         &:hover{
             cursor: pointer;

@@ -17,7 +17,6 @@ export default function MessagesPost(props) {
   const {id} = useParams();
   const {token,settoken}  = useContext(AuthContext);
   const [post, setpost] = useState({});
-  const [allMsg, setallMsg] = useState([]);
   const [messageServer, setmessageServer] = useState("");
   const [listeSignalementUser, setlisteSignalementUser] = useState([]);
   const [listeLikeUser, setlisteLikeUser] = useState([]);
@@ -39,9 +38,9 @@ export default function MessagesPost(props) {
     async function messages(){
       await  axios.get(`/message/afficherMesMessages/${id}`,config)
       .then((res)=>{
-        setallMsg(res.data);
+        props.setallMsg(res.data);
       })
-      .catch((err)=>setmessageServer(err.response.data));
+      .catch((err)=>console.log(err));
     }
 
     async function monPoste(){
@@ -64,6 +63,7 @@ export default function MessagesPost(props) {
       await  axios.get(`/signalement/AfficherMessageSignalerParPost/${id}`,config)
       .then((res)=>{
         setlisteSignalementUser(res.data);
+        console.log(res.data)
       })
       .catch((err)=>console.log(err));
     }
@@ -80,6 +80,7 @@ export default function MessagesPost(props) {
     allLike();
     signalements();
     getIdUser();
+    props.setidPost(id);
 
   }, [])
 
@@ -103,9 +104,9 @@ export default function MessagesPost(props) {
         await  axios.delete(`/like/supprimerLike/${id}`,config)
         .then((res)=>{
             setlisteLikeUser(listeLikeUser.filter(el=>el.idMessage!==id));
-            for (let index = 0; index < allMsg.length; index++) {
-                if(allMsg[index]._id === id){
-                    allMsg[index].nbLike-=1;
+            for (let index = 0; index < props.allMsg.length; index++) {
+                if(props.allMsg[index]._id === id){
+                  props.allMsg[index].nbLike-=1;
                 }
                 
             }
@@ -119,9 +120,9 @@ export default function MessagesPost(props) {
         await  axios.post(`/like/creerLike/${id}`,like,config)
         .then((res)=>{
             setlisteLikeUser(res.data);
-            for (let index = 0; index < allMsg.length; index++) {
-                if(allMsg[index]._id === id){
-                    allMsg[index].nbLike+=1;
+            for (let index = 0; index < props.allMsg.length; index++) {
+                if(props.allMsg[index]._id === id){
+                  props.allMsg[index].nbLike+=1;
                 }
                 
             }
@@ -177,8 +178,8 @@ export default function MessagesPost(props) {
     if(valueMsgForm.length===0){
       return setmessageErreur("le message ne peut pas être vide");
     }
-    if(valueMsgForm.length>1000){
-      return setmessageErreur("le message ne peut pas dépasser 1000 caractères");
+    if(valueMsgForm.length>400){
+      return setmessageErreur("le message ne peut pas dépasser 400 caractères");
     }
 
     const newMessage={};
@@ -194,7 +195,7 @@ export default function MessagesPost(props) {
 
     await axios.get(`/message/afficherMesMessages/${id}`,config)
     .then((res)=>{
-      setallMsg(res.data);
+      props.setallMsg(res.data);
       const updatedValue = post.nombreMessages+1;
       setpost(post=>({
         ...post,nombreMessages: updatedValue,
@@ -209,6 +210,7 @@ export default function MessagesPost(props) {
 
   function afficheImgOnMajImg(element){
     if(element.image.length>0 && element.idUser===id){
+      console.log("oui");
       return(
         <p className='pAfficheImg'>
           <img src={props.imgPref} alt="" />
@@ -253,9 +255,9 @@ export default function MessagesPost(props) {
             <p>{post.dateCreation}</p>
         </div>
     </div>
-    {allMsg.length===0 ?  <p  className='titre'>Aucune réponse </p> : <p  className='titre'>Toutes les réponses </p>}
+    {props.allMsg.length===0 ?  <p  className='titre'>Aucune réponse </p> : <p  className='titre'>Toutes les réponses </p>}
     <div className='partieAffichageAllMessage'>
-        {allMsg.map((element)=>{
+        {props.allMsg.map((element)=>{
           return(
             <div key={element._id} className='affichageUnMessage'>
               <div>

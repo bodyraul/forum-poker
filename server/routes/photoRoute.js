@@ -59,7 +59,7 @@ router.get('/getImage',auth,async(req,res)=>{
 
 router.post('/prefImage',auth,async(req,res)=>{
     try {
-        const imgPrefActuelle = await Photo.findOne({prefimage:true});
+        const imgPrefActuelle = await Photo.findOne({prefimage:true,idUser:req.payload.id});
         const newImgPreF= await Photo.findOne({_id:req.body._id});
         const allMsgUser = await Message.find({idUser:req.payload.id});
         if(imgPrefActuelle !== null){

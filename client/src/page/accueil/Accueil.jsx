@@ -72,6 +72,7 @@ async function gestionRadio(e){
 }
 
 const creerPost = async ()=>{
+  console.log(valueTitrePost.length);
   errorMsgPost.current.style.color ='#ef4444';
   if(!token){
     return seterrorMsgCreerPost("Vous devez être connecté pour pouvoir créer un post.");
@@ -85,7 +86,7 @@ const creerPost = async ()=>{
  if(valueTitrePost.length<10){
    return  seterrorMsgCreerPost("le titre ne peux pas contenir moins de 10 caractères.");
  }
- if(valueTitrePost.length>150){
+ if(valueTitrePost.length>300){
    return  seterrorMsgCreerPost("le titre ne peux pas contenir plus de 150 caractères.");
   }
 

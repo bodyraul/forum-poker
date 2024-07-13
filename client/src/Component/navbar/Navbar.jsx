@@ -92,9 +92,10 @@ export default function Navbar(props) {
               props.setimgPref('');
               }} to={"/#/connexion"}>Deconnexion </Link>
             {admin===true? <Link className='AllLink' to={"/admin"}>admin </Link> : ""}
+            <Link className='AllLink' to={"/forum"}>{pseudo} </Link>
           </nav>
           {props.imgPref.length>0 ? <p  onClick={modifPhoto}  id='imgPref'><img alt='' src={props.imgPref}></img></p> :  <p onClick={modifPhoto} id='nameNav'> <span>{nom} .</span>  <span>{prenom}</span> </p>}
-          {bolAffichePhoto ? <AffichePhoto changeAllMsgOnImgSup={props.changeAllMsgOnImgSup} setchangeAllMsgOnImgSup={props.setchangeAllMsgOnImgSup} bolAffichePhoto={bolAffichePhoto} setbolAffichePhoto={setbolAffichePhoto} setallImg= {props.setallImg} allImg = {props.allImg} imgPref={props.imgPref} setimgPref={props.setimgPref} /> : " "}
+          {bolAffichePhoto ? <AffichePhoto idPost={props.idPost} setidPost={props.setidPost} allMsg={props.allMsg} setallMsg={props.setallMsg} bolAffichePhoto={bolAffichePhoto} setbolAffichePhoto={setbolAffichePhoto} setallImg= {props.setallImg} allImg = {props.allImg} imgPref={props.imgPref} setimgPref={props.setimgPref} /> : " "}
         </div>
      )
     }if(!token){

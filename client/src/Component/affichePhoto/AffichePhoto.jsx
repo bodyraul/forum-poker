@@ -50,6 +50,12 @@ export default function AffichePhoto(props) {
       })
       .catch((err)=>console.log(err));
 
+      await  axios.get(`/message/afficherMesMessages/${props.idPost}`,config)
+      .then((res)=>{
+        props.setallMsg(res.data);
+      })
+      .catch((err)=>console.log(err));
+
   }
 
 
@@ -102,6 +108,12 @@ export default function AffichePhoto(props) {
     })
     .catch((err)=>console.log(err));
 
+    await  axios.get(`/message/afficherMesMessages/${props.idPost}`,config)
+    .then((res)=>{
+      props.setallMsg(res.data);
+    })
+    .catch((err)=>console.log(err));
+  
 
   }
 
