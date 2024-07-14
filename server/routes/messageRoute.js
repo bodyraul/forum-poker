@@ -97,9 +97,6 @@ router.post("/creerMessage/:id",auth,async(req,res)=>{
         return res.status(401).json("Ce post n'existe pas");
     }
     const allMessagePost = await MessagePost.find({idPost:idPost});
-    if(allMessagePost.length === 0){
-      return res.status(404).json("aucun message de disponible pour ce post.");
-    }
       res.json(allMessagePost);
     } catch (error) {
       res.status(500).json(error.message);

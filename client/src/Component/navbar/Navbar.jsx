@@ -8,6 +8,7 @@ import axios from 'axios';
 import { useState } from 'react';
 import "./navbar.css";
 import AffichePhoto from '../affichePhoto/AffichePhoto';
+import { useMediaQuery } from 'react-responsive';
 
 export default function Navbar(props) {
     const { token,settoken } = useContext(AuthContext);
@@ -17,6 +18,7 @@ export default function Navbar(props) {
     const [prenom, setPrenom] = useState("");
     const [admin, setadmin] = useState(false);
     const [bolAffichePhoto, setbolAffichePhoto] = useState(false);
+    const newNavPhone = useMediaQuery({ query: '(max-width: 990px)' });
 
     const config = {
       headers: {
@@ -24,6 +26,7 @@ export default function Navbar(props) {
       },
     };
 
+    console.log(newNavPhone);
 
     const onclickConnexion = ()=>{
       props.setSignIn(true);
@@ -75,12 +78,11 @@ export default function Navbar(props) {
     }
 
    
-    if(token) {
+    if(token && newNavPhone===false) {
       return(
         <div className='containerNav'>
           <nav className='navbar'>
               <Link className='AllLink' to={"/"}>Accueil </Link>
-              <Link className='AllLink' to={"/forum"}>forum </Link>
               <Link className='AllLink' onClick={()=>{
               localStorage.removeItem("token");
               localStorage.removeItem("confidentialite");
@@ -98,7 +100,7 @@ export default function Navbar(props) {
           {bolAffichePhoto ? <AffichePhoto idPost={props.idPost} setidPost={props.setidPost} allMsg={props.allMsg} setallMsg={props.setallMsg} bolAffichePhoto={bolAffichePhoto} setbolAffichePhoto={setbolAffichePhoto} setallImg= {props.setallImg} allImg = {props.allImg} imgPref={props.imgPref} setimgPref={props.setimgPref} /> : " "}
         </div>
      )
-    }if(!token){
+    }if(!token && newNavPhone===false){
       return(
         <div className='containerNav'>
           <nav className='navbar'>
@@ -109,6 +111,12 @@ export default function Navbar(props) {
            </nav>
         </div>
      )
+    }
+
+    if(token && newNavPhone){
+      return(
+        <p>bonjour</p>
+      )
     }
       
   }

@@ -31,10 +31,15 @@
 .containerAffichePhoto div:nth-child(1) .imgClassBase img {
   height: 100%;
 }
-.containerAffichePhoto div:nth-child(1) p:nth-child(2) input {
+.containerAffichePhoto div:nth-child(1) .erroMessageAffichePhoto {
+  color: #ef4444;
+  font-size: 19px;
+  height: 19px;
+}
+.containerAffichePhoto div:nth-child(1) p:nth-child(3) input {
   color: #547981;
 }
-.containerAffichePhoto div:nth-child(1) p:nth-child(2) input[type=file]::file-selector-button {
+.containerAffichePhoto div:nth-child(1) p:nth-child(3) input[type=file]::file-selector-button {
   margin-right: 8px;
   border: solid 1px #547981;
   background: #547981;
@@ -42,26 +47,26 @@
   color: white;
   transition: all 0.3s ease-in-out;
 }
-.containerAffichePhoto div:nth-child(1) p:nth-child(2) input[type=file]::file-selector-button:hover {
+.containerAffichePhoto div:nth-child(1) p:nth-child(3) input[type=file]::file-selector-button:hover {
   cursor: pointer;
   background-color: white;
   color: #547981;
 }
-.containerAffichePhoto div:nth-child(1) p:nth-child(3) {
+.containerAffichePhoto div:nth-child(1) p:nth-child(4) {
   width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
 }
-.containerAffichePhoto div:nth-child(1) p:nth-child(3) button {
+.containerAffichePhoto div:nth-child(1) p:nth-child(4) button {
   border: solid 1px #547981;
   background: #547981;
   padding: 8px 12px;
   color: white;
   transition: all 0.3s ease-in-out;
 }
-.containerAffichePhoto div:nth-child(1) p:nth-child(3) button:hover {
+.containerAffichePhoto div:nth-child(1) p:nth-child(4) button:hover {
   cursor: pointer;
   background-color: white;
   color: #547981;

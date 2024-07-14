@@ -104,14 +104,16 @@ body{
                 .pAfficheImg{
                     margin-right: 10px;
                     font-size: 22px;
-                    background-color: white;
                     color: white;
-                    width: 80px;
-                    height: 80px;
+                    width: auto;
+                    height: auto;
+                    border: double  $vertClair 3px;
+                    border-radius: 50%;
                     @include display(row,center,center);
                     img{
-                        max-height: 80px;
+                        height: 80px;
                         max-width: 80px;
+                        border-radius: 50%;
                     }
                 }
                 .pAfficheInitiale{
@@ -122,6 +124,7 @@ body{
                     border-radius: 50%;
                     width: 50px;
                     height: 50px;
+
                     @include display(row,center,center);
                     span{
                         text-transform: uppercase;
@@ -206,7 +209,7 @@ body{
                 }
             }
             p:nth-child(5){
-                color: red;
+                color: #ef4444;
                 font-size: 20px;
                 padding-bottom: 25px;
             }

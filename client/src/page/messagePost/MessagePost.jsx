@@ -37,7 +37,6 @@ export default function MessagesPost(props) {
 
   //affichage des messages au chargement , du post et des signalements de l'user pour les msg du post
   useEffect(() => {
-
     async function messages(){
       await  axios.get(`/message/afficherMesMessages/${id}`,config)
       .then((res)=>{
@@ -212,7 +211,6 @@ export default function MessagesPost(props) {
 
   function afficheImgOnMajImg(element){
     if(element.image.length>0 && element.idUser===id){
-      console.log("oui");
       return(
         <p className='pAfficheImg'>
           <img src={props.imgPref} alt="" />

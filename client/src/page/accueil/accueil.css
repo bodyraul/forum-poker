@@ -15,23 +15,27 @@ body {
   width: 100vw;
   padding-top: 150px;
 }
-.ContainerForum .titre {
+
+.titre {
   text-align: center;
   font-size: 40px;
   color: #547981;
 }
-.ContainerForum .AllBtnRecherchePost {
+
+.AllBtnRecherchePost {
   padding: 10px 0;
+  height: auto;
   margin: 0 auto;
   margin-top: 100px;
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
   border: solid 1px #e0e3e5;
   background-color: white;
   width: 1400px;
 }
-.ContainerForum .AllBtnRecherchePost div:nth-child(1) div {
+.AllBtnRecherchePost div:nth-child(1) div {
   padding: 4px 0;
   width: 130px;
   margin: 0px 15px;
@@ -41,17 +45,18 @@ body {
   font-size: 16px;
   transition: all 0.2s ease-in-out;
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-around;
   position: relative;
 }
-.ContainerForum .AllBtnRecherchePost div:nth-child(1) div:hover {
+.AllBtnRecherchePost div:nth-child(1) div:hover {
   cursor: pointer;
 }
-.ContainerForum .AllBtnRecherchePost div:nth-child(1) div img {
+.AllBtnRecherchePost div:nth-child(1) div img {
   width: 20px;
 }
-.ContainerForum .AllBtnRecherchePost div:nth-child(1) div div {
+.AllBtnRecherchePost div:nth-child(1) div div {
   position: absolute;
   width: 130px;
   height: 150px;
@@ -66,7 +71,8 @@ body {
   align-items: center;
   justify-content: center;
 }
-.ContainerForum .AllBtnRecherchePost div:nth-child(1) div div input {
+.AllBtnRecherchePost div:nth-child(1) div div input {
+  font-size: 16px;
   width: 100%;
   height: 50px;
   border-left: none;
@@ -80,75 +86,91 @@ body {
   outline: none;
   transition: all 0.2s ease-in-out;
 }
-.ContainerForum .AllBtnRecherchePost div:nth-child(1) div div input:hover {
+.AllBtnRecherchePost div:nth-child(1) div div input:hover {
   cursor: pointer;
   background-color: #ffffff;
   color: #44ADA8;
 }
-.ContainerForum .AllBtnRecherchePost div:nth-child(2) {
+.AllBtnRecherchePost div:nth-child(2) {
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: auto;
 }
-.ContainerForum .AllBtnRecherchePost div:nth-child(2) input:nth-child(1) {
+.AllBtnRecherchePost div:nth-child(2) input:nth-child(1) {
+  font-size: 16px;
   color: #547981;
   border: solid 1px #547981;
   padding: 5px;
   margin-left: 15px;
   outline-color: #547981;
 }
-.ContainerForum .AllBtnRecherchePost div:nth-child(2) input:nth-child(1)::-moz-placeholder {
+.AllBtnRecherchePost div:nth-child(2) input:nth-child(1)::-moz-placeholder {
   color: #547981;
 }
-.ContainerForum .AllBtnRecherchePost div:nth-child(2) input:nth-child(1)::placeholder {
+.AllBtnRecherchePost div:nth-child(2) input:nth-child(1)::placeholder {
   color: #547981;
 }
-.ContainerForum .AllBtnRecherchePost div:nth-child(2) button:nth-child(2), .ContainerForum .AllBtnRecherchePost div:nth-child(2) button:nth-child(3) {
+.AllBtnRecherchePost div:nth-child(2) button:nth-child(2), .AllBtnRecherchePost div:nth-child(2) button:nth-child(3) {
+  font-size: 16px;
   color: #547981;
   border: solid 1px #547981;
   margin-left: 15px;
-  width: 50px;
+  width: 60px;
   padding-left: 5px;
   outline-color: #547981;
   outline: none;
 }
-.ContainerForum .AllBtnRecherchePost div:nth-child(2) button:nth-child(2):hover, .ContainerForum .AllBtnRecherchePost div:nth-child(2) button:nth-child(3):hover {
+.AllBtnRecherchePost div:nth-child(2) button:nth-child(2):hover, .AllBtnRecherchePost div:nth-child(2) button:nth-child(3):hover {
   cursor: pointer;
 }
-.ContainerForum .AllBtnRecherchePost div:nth-child(2) button:nth-child(2) {
+.AllBtnRecherchePost div:nth-child(2) button:nth-child(2) {
+  font-size: 16px;
   background-color: #547981;
   color: white;
 }
-.ContainerForum .AllBtnRecherchePost div:nth-child(2) button {
+.AllBtnRecherchePost div:nth-child(2) button {
+  font-size: 16px;
   margin-left: 15px;
   color: #547981;
   border: solid 1px #547981;
   background-color: white;
   padding: 5px;
 }
-.ContainerForum .AllBtnRecherchePost div:nth-child(2) button:hover {
+.AllBtnRecherchePost div:nth-child(2) button:hover {
   cursor: pointer;
 }
-.ContainerForum .AllBtnRecherchePost div:nth-child(3) button {
+.AllBtnRecherchePost div:nth-child(3) {
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.AllBtnRecherchePost div:nth-child(3) button {
   padding: 10px 15px;
   border-radius: 8px;
   background-color: white;
   color: #44ADA8;
   border: #44ADA8 solid 1px;
-  font-size: 18px;
-  transition: all 0.3s ease-in-out;
+  font-size: 16px;
+  transition: color, background-color, border 0.3s ease-in-out;
 }
-.ContainerForum .AllBtnRecherchePost div:nth-child(3) button:hover {
+.AllBtnRecherchePost div:nth-child(3) button:hover {
   background-color: #44ADA8;
   color: white;
   border: white solid 1px;
   cursor: pointer;
 }
-.ContainerForum .AllBtnRecherchePost div:nth-child(3) button:nth-child(1) {
+.AllBtnRecherchePost div:nth-child(3) button:nth-child(1) {
   margin-right: 15px;
 }
-.ContainerForum .AllBtnRecherchePost div:nth-child(3) button:nth-child(2) {
+.AllBtnRecherchePost div:nth-child(3) button:nth-child(2) {
   margin-right: 20px;
 }
-.ContainerForum .erroMessageRecherche {
+
+.erroMessageRecherche {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -159,11 +181,12 @@ body {
   font-size: 20px;
   height: 50px;
 }
-.ContainerForum .affichageAllPosts {
+
+.affichageAllPosts {
   width: 1400px;
   margin: 0px auto 100px auto;
 }
-.ContainerForum .affichageAllPosts .ligneTitre {
+.affichageAllPosts .ligneTitre {
   height: 50px;
   display: flex;
   align-items: center;
@@ -173,27 +196,27 @@ body {
   font-weight: bolder;
   font-size: 22px;
 }
-.ContainerForum .affichageAllPosts .ligneTitre div:nth-child(1) {
+.affichageAllPosts .ligneTitre div:nth-child(1) {
   width: 70%;
 }
-.ContainerForum .affichageAllPosts .ligneTitre div:nth-child(1) p {
+.affichageAllPosts .ligneTitre div:nth-child(1) p {
   margin-left: 40px;
   width: 150px;
   text-align: center;
 }
-.ContainerForum .affichageAllPosts .ligneTitre p:nth-child(2) {
+.affichageAllPosts .ligneTitre p:nth-child(2) {
   width: 10%;
   text-align: center;
 }
-.ContainerForum .affichageAllPosts .ligneTitre p:nth-child(3) {
+.affichageAllPosts .ligneTitre p:nth-child(3) {
   width: 10%;
   text-align: center;
 }
-.ContainerForum .affichageAllPosts .ligneTitre p:nth-child(4) {
+.affichageAllPosts .ligneTitre p:nth-child(4) {
   width: 10%;
   text-align: center;
 }
-.ContainerForum .affichageAllPosts .ligneContenu {
+.affichageAllPosts .ligneContenu {
   height: 140px;
   display: flex;
   flex-direction: column;
@@ -201,7 +224,10 @@ body {
   background-color: white;
   font-size: 18px;
 }
-.ContainerForum .affichageAllPosts .ligneContenu .partieCatMsgPost {
+.affichageAllPosts .ligneContenu:hover {
+  cursor: pointer;
+}
+.affichageAllPosts .ligneContenu .partieCatMsgPost {
   height: 50%;
   width: 100%;
   display: flex;
@@ -209,10 +235,10 @@ body {
   align-items: center;
   justify-content: center;
 }
-.ContainerForum .affichageAllPosts .ligneContenu .partieCatMsgPost div:nth-child(1) {
+.affichageAllPosts .ligneContenu .partieCatMsgPost div:nth-child(1) {
   width: 70%;
 }
-.ContainerForum .affichageAllPosts .ligneContenu .partieCatMsgPost div:nth-child(1) p {
+.affichageAllPosts .ligneContenu .partieCatMsgPost div:nth-child(1) p {
   margin-left: 40px;
   width: 150px;
   background-color: #EFEFEF;
@@ -221,23 +247,23 @@ body {
   font-size: 15px;
   text-align: center;
 }
-.ContainerForum .affichageAllPosts .ligneContenu .partieCatMsgPost div:nth-child(2) {
+.affichageAllPosts .ligneContenu .partieCatMsgPost div:nth-child(2) {
   width: 30%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
 }
-.ContainerForum .affichageAllPosts .ligneContenu .partieCatMsgPost div:nth-child(2) p {
+.affichageAllPosts .ligneContenu .partieCatMsgPost div:nth-child(2) p {
   width: 33.3%;
   color: #44ADA8;
   text-align: center;
 }
-.ContainerForum .affichageAllPosts .ligneContenu .partieTitrePost {
+.affichageAllPosts .ligneContenu .partieTitrePost {
   height: 50%;
   width: 70%;
 }
-.ContainerForum .affichageAllPosts .ligneContenu .partieTitrePost p {
+.affichageAllPosts .ligneContenu .partieTitrePost p {
   margin: 0px 40px 0px 40px;
   color: #547981;
   display: block;
@@ -248,7 +274,8 @@ body {
   text-overflow: ellipsis;
   overflow: hidden;
 }
-.ContainerForum .creationPost {
+
+.creationPost {
   width: 1400px;
   margin: 100px auto 0 auto;
   display: flex;
@@ -256,39 +283,39 @@ body {
   align-items: flex-start;
   justify-content: center;
 }
-.ContainerForum .creationPost .partieCreation {
+.creationPost .partieCreation {
   background-color: white;
   padding: 30px 25px;
   width: 60%;
   border: #e0e3e5 solid 2px;
 }
-.ContainerForum .creationPost .partieCreation h1 {
+.creationPost .partieCreation h1 {
   color: #547981;
   padding-bottom: 25px;
   font-size: 38px;
 }
-.ContainerForum .creationPost .partieCreation .pQuestion {
+.creationPost .partieCreation .pQuestion {
   color: #547981;
-  font-size: 17px;
+  font-size: 19px;
   padding-bottom: 25px;
 }
-.ContainerForum .creationPost .partieCreation h3:nth-child(3) {
+.creationPost .partieCreation h3:nth-child(3) {
   color: #547981;
   padding-bottom: 22px;
   padding-top: 25px;
 }
-.ContainerForum .creationPost .partieCreation input:nth-child(4) {
+.creationPost .partieCreation input:nth-child(4) {
   outline-color: #547981;
   border: 1px solid #547981;
   color: #547981;
   padding: 10px 7px;
-  width: 500px;
+  width: 380px;
 }
-.ContainerForum .creationPost .partieCreation h3:nth-child(5) {
+.creationPost .partieCreation h3:nth-child(5) {
   color: #547981;
   padding: 60px 0px 15px 0px;
 }
-.ContainerForum .creationPost .partieCreation div {
+.creationPost .partieCreation div {
   padding: 10px 0 0 0;
   display: flex;
   flex-direction: column;
@@ -296,7 +323,7 @@ body {
   justify-content: space-between;
   width: 380px;
 }
-.ContainerForum .creationPost .partieCreation div p {
+.creationPost .partieCreation div p {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -306,12 +333,12 @@ body {
   font-size: 17px;
   padding-bottom: 25px;
 }
-.ContainerForum .creationPost .partieCreation .errorMsgPost {
+.creationPost .partieCreation .errorMsgPost {
   height: 50px;
   color: #ef4444;
   font-size: 20px;
 }
-.ContainerForum .creationPost .partieCreation button {
+.creationPost .partieCreation button {
   padding: 10px 15px;
   color: #547981;
   border: 1px solid #547981;
@@ -319,34 +346,34 @@ body {
   border-radius: 7px;
   transition: all 0.2s ease-in-out;
 }
-.ContainerForum .creationPost .partieCreation button:hover {
+.creationPost .partieCreation button:hover {
   cursor: pointer;
   background-color: #547981;
   color: white;
 }
-.ContainerForum .creationPost .partieRemonter {
+.creationPost .partieRemonter {
   padding: 30px 25px;
   width: 40%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.ContainerForum .creationPost .partieRemonter div {
+.creationPost .partieRemonter div {
   border: solid 2px #e0e3e5;
   width: 400px;
   height: 100px;
 }
-.ContainerForum .creationPost .partieRemonter h2 {
+.creationPost .partieRemonter h2 {
   font-size: 25px;
   padding: 25px 0px;
   color: #44ADA8;
 }
-.ContainerForum .creationPost .partieRemonter p {
+.creationPost .partieRemonter p {
   color: #44ADA8;
   font-size: 17px;
   padding-bottom: 25px;
 }
-.ContainerForum .creationPost .partieRemonter button {
+.creationPost .partieRemonter button {
   width: 400px;
   padding: 20px 0;
   color: #44ADA8;
@@ -355,182 +382,238 @@ body {
   border-radius: 5px;
   transition: all 0.2s ease-in-out;
 }
-.ContainerForum .creationPost .partieRemonter button:hover {
+.creationPost .partieRemonter button:hover {
   cursor: pointer;
   background-color: #44ADA8;
   color: white;
 }
 
 @media (max-width: 1600px) {
-  .ContainerForum .AllBtnRecherchePost {
+  .AllBtnRecherchePost {
     width: 90%;
   }
-  .ContainerForum .affichageAllPosts {
+  .affichageAllPosts {
     width: 90%;
   }
-  .ContainerForum .creationPost {
+  .creationPost {
     width: 90%;
   }
 }
 @media (max-width: 1256px) {
-  .ContainerForum .affichageAllPosts .ligneTitre div:nth-child(1) {
+  .AllBtnRecherchePost div:nth-child(2) input:nth-child(1) {
+    padding: 5px 0px 5px 5px;
+    margin-left: 0px;
+  }
+  .AllBtnRecherchePost div:nth-child(3) button {
+    padding: 10px 10px;
+    border-radius: 8px;
+  }
+  .affichageAllPosts .ligneTitre div:nth-child(1) {
     width: 61%;
   }
-  .ContainerForum .affichageAllPosts .ligneTitre p:nth-child(2), .ContainerForum .affichageAllPosts .ligneTitre p:nth-child(3), .ContainerForum .affichageAllPosts .ligneTitre p:nth-child(4) {
+  .affichageAllPosts .ligneTitre p:nth-child(2), .affichageAllPosts .ligneTitre p:nth-child(3), .affichageAllPosts .ligneTitre p:nth-child(4) {
     width: 13%;
   }
-  .ContainerForum .affichageAllPosts .ligneContenu .partieCatMsgPost div:nth-child(1) {
+  .affichageAllPosts .ligneContenu .partieCatMsgPost div:nth-child(1) {
     width: 61%;
   }
-  .ContainerForum .affichageAllPosts .ligneContenu .partieCatMsgPost div:nth-child(2) {
+  .affichageAllPosts .ligneContenu .partieCatMsgPost div:nth-child(2) {
     width: 39%;
   }
-  .ContainerForum .affichageAllPosts .ligneContenu .partieTitrePost {
+  .affichageAllPosts .ligneContenu .partieTitrePost {
     width: 100%;
   }
-  .ContainerForum .creationPost {
+  .creationPost {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
-  .ContainerForum .creationPost .partieCreation {
+  .creationPost .partieCreation {
     width: 100%;
   }
-  .ContainerForum .creationPost .partieRemonter {
+  .creationPost .partieRemonter {
     width: 100%;
   }
 }
 @media (max-width: 990px) {
-  .ContainerForum .titre {
-    font-size: 30px;
+  .AllBtnRecherchePost {
+    height: 300px;
+    width: 450px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: space-evenly;
   }
-  .ContainerForum .affichageAllPosts {
+  .AllBtnRecherchePost div:nth-child(1) div {
+    font-size: 12px;
+  }
+  .AllBtnRecherchePost div:nth-child(2) input:nth-child(1) {
+    font-size: 12px;
+  }
+  .AllBtnRecherchePost div:nth-child(2) button:nth-child(2), .AllBtnRecherchePost div:nth-child(2) button:nth-child(3) {
+    font-size: 12px;
+  }
+  .AllBtnRecherchePost div:nth-child(2) button:nth-child(2) {
+    font-size: 12px;
+  }
+  .AllBtnRecherchePost div:nth-child(2) button {
+    font-size: 12px;
+  }
+  .AllBtnRecherchePost div:nth-child(3) {
     width: 100%;
   }
-  .ContainerForum .affichageAllPosts .ligneTitre div:nth-child(1) {
+  .AllBtnRecherchePost div:nth-child(3) button {
+    padding: 5px 30px;
+    font-size: 12px;
+  }
+  .AllBtnRecherchePost div:nth-child(3) button:nth-child(1) {
+    margin-left: 20px;
+  }
+  .titre {
+    font-size: 30px;
+  }
+  .affichageAllPosts {
+    width: 100%;
+  }
+  .affichageAllPosts .ligneTitre div:nth-child(1) {
     width: 25%;
     font-size: 18px;
   }
-  .ContainerForum .affichageAllPosts .ligneTitre div:nth-child(1) p {
+  .affichageAllPosts .ligneTitre div:nth-child(1) p {
     margin-left: 0px;
     width: 100%;
   }
-  .ContainerForum .affichageAllPosts .ligneTitre p:nth-child(2), .ContainerForum .affichageAllPosts .ligneTitre p:nth-child(3), .ContainerForum .affichageAllPosts .ligneTitre p:nth-child(4) {
+  .affichageAllPosts .ligneTitre p:nth-child(2), .affichageAllPosts .ligneTitre p:nth-child(3), .affichageAllPosts .ligneTitre p:nth-child(4) {
     width: 25%;
     font-size: 18px;
   }
-  .ContainerForum .affichageAllPosts .ligneContenu .partieCatMsgPost div:nth-child(1) {
+  .affichageAllPosts .ligneContenu .partieCatMsgPost div:nth-child(1) {
     width: 25%;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
   }
-  .ContainerForum .affichageAllPosts .ligneContenu .partieCatMsgPost div:nth-child(1) p {
+  .affichageAllPosts .ligneContenu .partieCatMsgPost div:nth-child(1) p {
     margin-left: 0px;
     padding: 5px 10px;
     font-size: 13px;
   }
-  .ContainerForum .affichageAllPosts .ligneContenu .partieCatMsgPost div:nth-child(2) {
+  .affichageAllPosts .ligneContenu .partieCatMsgPost div:nth-child(2) {
     width: 75%;
   }
-  .ContainerForum .affichageAllPosts .ligneContenu .partieCatMsgPost div:nth-child(2) p {
+  .affichageAllPosts .ligneContenu .partieCatMsgPost div:nth-child(2) p {
     width: 33.3%;
     text-align: center;
     font-size: 13px;
   }
-  .ContainerForum .affichageAllPosts .ligneContenu .partieTitrePost p {
+  .affichageAllPosts .ligneContenu .partieTitrePost p {
     font-size: 15px;
   }
 }
 @media (max-width: 670px) {
-  .ContainerForum .affichageAllPosts {
+  .AllBtnRecherchePost {
     width: 100%;
   }
-  .ContainerForum .affichageAllPosts .ligneTitre {
+  .AllBtnRecherchePost div:nth-child(2) input {
+    width: 100px;
+  }
+  .AllBtnRecherchePost div:nth-child(2) input::-moz-placeholder {
+    font-size: 11px;
+  }
+  .AllBtnRecherchePost div:nth-child(2) input::placeholder {
+    font-size: 11px;
+  }
+  .affichageAllPosts {
+    width: 100%;
+  }
+  .affichageAllPosts .ligneTitre {
     font-size: 5px;
   }
-  .ContainerForum .affichageAllPosts .ligneTitre div:nth-child(1) {
+  .affichageAllPosts .ligneTitre div:nth-child(1) {
     padding-left: 0px;
     text-align: center;
     width: 35%;
     font-size: 13px;
   }
-  .ContainerForum .affichageAllPosts .ligneTitre p:nth-child(2) {
+  .affichageAllPosts .ligneTitre p:nth-child(2) {
     text-align: center;
     width: 15%;
     font-size: 13px;
   }
-  .ContainerForum .affichageAllPosts .ligneTitre p:nth-child(3) {
+  .affichageAllPosts .ligneTitre p:nth-child(3) {
     text-align: center;
     width: 15%;
     font-size: 13px;
   }
-  .ContainerForum .affichageAllPosts .ligneTitre p:nth-child(4) {
+  .affichageAllPosts .ligneTitre p:nth-child(4) {
     text-align: center;
     width: 35%;
     font-size: 13px;
   }
-  .ContainerForum .affichageAllPosts .ligneContenu .partieCatMsgPost div:nth-child(1) {
+  .affichageAllPosts .ligneContenu .partieCatMsgPost div:nth-child(1) {
     width: 35%;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
   }
-  .ContainerForum .affichageAllPosts .ligneContenu .partieCatMsgPost div:nth-child(1) p {
+  .affichageAllPosts .ligneContenu .partieCatMsgPost div:nth-child(1) p {
     padding: 5px 10px;
     font-size: 12px;
     margin-left: 0px;
   }
-  .ContainerForum .affichageAllPosts .ligneContenu .partieCatMsgPost div:nth-child(2) {
+  .affichageAllPosts .ligneContenu .partieCatMsgPost div:nth-child(2) {
     width: 65%;
   }
-  .ContainerForum .affichageAllPosts .ligneContenu .partieCatMsgPost div:nth-child(2) p {
+  .affichageAllPosts .ligneContenu .partieCatMsgPost div:nth-child(2) p {
     width: 22.75%;
     text-align: center;
     font-size: 12px;
   }
-  .ContainerForum .affichageAllPosts .ligneContenu .partieCatMsgPost div:nth-child(2) p:nth-child(3) {
+  .affichageAllPosts .ligneContenu .partieCatMsgPost div:nth-child(2) p:nth-child(3) {
     width: 54.5%;
   }
-  .ContainerForum .affichageAllPosts .ligneContenu .partieTitrePost p {
+  .affichageAllPosts .ligneContenu .partieTitrePost p {
     font-size: 13px;
     margin: 0 15px 0 15px;
   }
-  .ContainerForum .creationPost .partieCreation h1 {
-    font-size: 25px;
+  .creationPost .partieCreation h1 {
+    font-size: 22px;
   }
-  .ContainerForum .creationPost .partieCreation .pQuestion {
+  .creationPost .partieCreation .pQuestion {
     font-size: 15px;
   }
-  .ContainerForum .creationPost .partieCreation input:nth-child(4) {
+  .creationPost .partieCreation input:nth-child(4) {
     width: 100%;
   }
-  .ContainerForum .creationPost .partieCreation div {
+  .creationPost .partieCreation div {
     padding: 10px 10px 0 0;
     width: 100%;
   }
-  .ContainerForum .creationPost .partieCreation .errorMsgPost {
+  .creationPost .partieCreation div p {
     font-size: 15px;
   }
-  .ContainerForum .creationPost .partieRemonter {
+  .creationPost .partieCreation .errorMsgPost {
+    font-size: 15px;
+  }
+  .creationPost .partieRemonter {
     padding: 30px 0px;
     width: 100%;
   }
-  .ContainerForum .creationPost .partieRemonter div {
+  .creationPost .partieRemonter div {
     width: 80%;
     height: 100px;
   }
-  .ContainerForum .creationPost .partieRemonter h2 {
+  .creationPost .partieRemonter h2 {
     font-size: 20px;
   }
-  .ContainerForum .creationPost .partieRemonter p {
+  .creationPost .partieRemonter p {
     font-size: 15px;
     padding-bottom: 25px;
   }
-  .ContainerForum .creationPost .partieRemonter button {
+  .creationPost .partieRemonter button {
     width: 180px;
     padding: 15px 0;
   }

@@ -3,7 +3,6 @@ import { useState } from 'react'
 import { useContext } from 'react';
 import { useEffect } from 'react';
 import { useRef } from 'react';
-import { useMediaQuery } from 'react-responsive'
 import { AuthContext } from '../../Context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import flecheBas from '../../photo/flecheBas.png'
@@ -13,7 +12,7 @@ import PaginationPost from '../../Component/paginationPost/PaginationPost';
 
 export default function Accueil(props) {
 
-const {token,settoken}  = useContext(AuthContext);
+const {token}  = useContext(AuthContext);
 const [listePost, setlistePost] = useState([]);
 const [categories, setcategories] = useState([]);
 const [radioValue, setradioValue] = useState("");
@@ -24,7 +23,7 @@ const [recherchePost, setrecherchePost] = useState("");
 const [errorMessage, seterrorMessage] = useState("");
 const [valueAuteurSujet, setvalueAuteurSujet] = useState("sujet");
 const [currentPage, setcurrentPage] = useState(1);
-const [postPerPage, setpostPerPage] = useState(5);
+const [postPerPage] = useState(5);
 const errorMsgPost = useRef();
 const inputSujet = useRef();
 const inputAuteur = useRef();
@@ -270,7 +269,7 @@ const creerPost = async ()=>{
         <div className='creationPost'>
             <div className='partieCreation'>
                 <h1>Créer un nouveau Post.</h1>
-                <p className='pQuestion'>Posez une question ou donnez votre point de vue sur un cas particulier.</p>
+                <p className='pQuestion'>Donnez votre point de vue sur un cas particulier.</p>
                 <h3>Titre : </h3>
                 <input value={valueTitrePost} onChange={(e)=>setvalueTitrePost(e.target.value)} onClick={()=>seterrorMsgCreerPost("")}  placeholder='Entrez votre titre' type="text" />
                 <h3>Catégorie : </h3>

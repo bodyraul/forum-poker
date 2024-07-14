@@ -18,72 +18,94 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    .navbar{
+}
+
+
+.navbar{
+    height: 80px;
+    width: 1200px;
+    background-color: yellow;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border-bottom-left-radius: 50px;
+    border-top-right-radius: 50px;
+    background : $background;
+    .AllLink{
+        color: $blanc;
+        font-size: 25px;
+        text-decoration: none;
+        &:hover{
+            cursor: default;
+        }
+    }
+    .AllLink:not(:last-child){
+        color: $blanc;
+        font-size: 25px;
+        text-decoration: none;
+        transition: transform 0.2s ease-in-out;
+        &:hover{
+            transform: scale(0.9);
+            opacity: 0.6;
+            cursor: pointer;
+        }
+    }
+}
+
+
+#nameNav{
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    font-size: 15px;
+    background-color: $vertFoncer;
+    color: white;
+    border-radius: 50%;
+    padding: 16px 12px;
+    transform: translateY(-50%);
+    span:nth-child(2){
+        padding-left: 2px;
+    }
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+#imgPref{
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    border-radius: 8px;
+    transform: translateY(-50%);
+    height: 70px;
+    width: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: auto;
+    height: auto;
+    border: double  $vertClair 3px;
+    border-radius: 50%;
+    @include display(row,center,center);
+    img{
         height: 80px;
-        width: 1200px;
-        background-color: yellow;
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-        border-bottom-left-radius: 50px;
-        border-top-right-radius: 50px;
-        background : $background;
+        max-width: 80px;
+        border-radius: 50%;
+    }
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+@media (max-width: 1600px) {
+    .navbar{
+        width: 75%;
         .AllLink{
-            color: $blanc;
-            font-size: 25px;
-            text-decoration: none;
-            &:hover{
-                cursor: default;
-            }
+            font-size: 20px;
         }
         .AllLink:not(:last-child){
-            color: $blanc;
-            font-size: 25px;
-            text-decoration: none;
-            transition: transform 0.2s ease-in-out;
-            &:hover{
-                transform: scale(0.9);
-                opacity: 0.6;
-                cursor: pointer;
-            }
-        }
-    }
-    #nameNav{
-        position: absolute;
-        top: 50%;
-        right: 5%;
-        font-size: 15px;
-        background-color: $vertFoncer;
-        color: white;
-        border-radius: 50%;
-        padding: 16px 12px;
-        transform: translateY(-50%);
-        span:nth-child(2){
-            padding-left: 2px;
-        }
-        &:hover{
-            cursor: pointer;
-        }
-    }
-    #imgPref{
-        position: absolute;
-        top: 50%;
-        right: 5%;
-        border-radius: 8px;
-        transform: translateY(-50%);
-        height: 70px;
-        width: 70px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        img{
-            height: 100%;
-            max-width: 150px;
-            border-radius: 10px;
-        }
-        &:hover{
-            cursor: pointer;
+            font-size: 20px;
         }
     }
 }

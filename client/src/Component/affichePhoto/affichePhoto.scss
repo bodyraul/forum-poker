@@ -28,7 +28,12 @@
                 height: 100%;
             };
         }
-        p:nth-child(2){
+        .erroMessageAffichePhoto{
+            color: #ef4444;
+            font-size: 19px;
+            height: 19px;
+        }
+        p:nth-child(3){
             input{
                 color: $vertFoncer;
             }
@@ -46,7 +51,7 @@
                 }
               }
         }
-        p:nth-child(3){
+        p:nth-child(4){
             width: 100%;
             @include display(row,center,space-evenly);
             button{

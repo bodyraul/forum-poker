@@ -15,6 +15,7 @@ export default function AffichePhoto(props) {
  const input =  useRef();
  const containerImgSolo =  useRef();
  const [srcImgClique, setsrcImgClique] = useState({});
+ const [erroMessageAffichePhoto, seterroMessageAffichePhoto] = useState("");
 
  const config = {
   headers: {
@@ -24,7 +25,10 @@ export default function AffichePhoto(props) {
 
  async function handleimg(){
    
-  
+  if(file.length===0){
+    return seterroMessageAffichePhoto("Selectionnez l'image à télécharger");
+  }
+
     const formdata = new FormData();
     formdata.append('file',file);
   
@@ -41,7 +45,11 @@ export default function AffichePhoto(props) {
   }
 
   async function choisePrefImg(){
+
     const newtab = props.allImg.filter((element)=>element._id === srcImgClique.id);
+    if(newtab.length ===0){
+      return seterroMessageAffichePhoto("Selectionnez l'image à afficher")
+    }
     
     await  axios.post("/photo/prefImage",newtab[0],config)
       .then((res)=>{
@@ -90,9 +98,12 @@ export default function AffichePhoto(props) {
   }
 
   const supImage = async()=>{
+    if(!srcImgClique.hasOwnProperty("src") ){
+      return seterroMessageAffichePhoto("Selectionnez l'image à supprimer");
+    }
+
     await axios.post('/photo/delete',srcImgClique,config)
     .then((res)=>{
-      console.log(res);
     })
     .catch((err)=>console.log(err));
 
@@ -106,17 +117,17 @@ export default function AffichePhoto(props) {
     await  axios.get("/photo/prefImage",config)
     .then((res)=>{
       props.setimgPref("");
-      console.log(res.data);
     })
     .catch((err)=>console.log(err));
 
-    await  axios.get(`/message/afficherMesMessages/${props.idPost}`,config)
-    .then((res)=>{
-      props.setallMsg(res.data);
-    })
-    .catch((err)=>console.log(err));
-  
-
+    if(props.idPost.length > 0){
+      await  axios.get(`/message/afficherMesMessages/${props.idPost}`,config)
+      .then((res)=>{
+        props.setallMsg(res.data);
+      })
+      .catch((err)=>console.log(err));
+    }
+    setsrcImgClique({});
   }
 
   return (
@@ -124,6 +135,9 @@ export default function AffichePhoto(props) {
         <div>
           <p ref={containerImgSolo} className='imgClassBase'>
             <img  ref={refImgSolo} src='' alt="" />
+          </p>
+          <p className='erroMessageAffichePhoto'>
+            {erroMessageAffichePhoto}
           </p>
           <p>
             <input id='fileUpload' ref={input}  type="file" onChange={e=>setfile(e.target.files[0])} />
