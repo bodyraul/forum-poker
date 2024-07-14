@@ -6,32 +6,80 @@
   background-color: #ffffff;
   border: solid 1px #547981;
 }
-.containerAffichePhoto p {
+.containerAffichePhoto div {
   height: 50%;
   width: 100%;
 }
-.containerAffichePhoto p:nth-child(1) {
+.containerAffichePhoto div:nth-child(1) {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: black;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
 }
-.containerAffichePhoto p:nth-child(1) img {
+.containerAffichePhoto div:nth-child(1) .imgClassBase {
   height: 50%;
+  border: solid 1px #547981;
+  width: 30%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
-.containerAffichePhoto p:nth-child(2) {
+.containerAffichePhoto div:nth-child(1) .imgClassBase img {
+  height: 100%;
+}
+.containerAffichePhoto div:nth-child(1) p:nth-child(2) input {
+  color: #547981;
+}
+.containerAffichePhoto div:nth-child(1) p:nth-child(2) input[type=file]::file-selector-button {
+  margin-right: 8px;
+  border: solid 1px #547981;
+  background: #547981;
+  padding: 8px 12px;
+  color: white;
+  transition: all 0.3s ease-in-out;
+}
+.containerAffichePhoto div:nth-child(1) p:nth-child(2) input[type=file]::file-selector-button:hover {
+  cursor: pointer;
+  background-color: white;
+  color: #547981;
+}
+.containerAffichePhoto div:nth-child(1) p:nth-child(3) {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.containerAffichePhoto div:nth-child(1) p:nth-child(3) button {
+  border: solid 1px #547981;
+  background: #547981;
+  padding: 8px 12px;
+  color: white;
+  transition: all 0.3s ease-in-out;
+}
+.containerAffichePhoto div:nth-child(1) p:nth-child(3) button:hover {
+  cursor: pointer;
+  background-color: white;
+  color: #547981;
+}
+.containerAffichePhoto div:nth-child(2) {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   background-color: #547981;
 }
-.containerAffichePhoto p:nth-child(2) img {
-  height: 50%;
+.containerAffichePhoto div:nth-child(2) .messageNoPhoto {
+  color: white;
+  font-size: 20px;
 }
-.containerAffichePhoto p:nth-child(2) img:hover {
+.containerAffichePhoto div:nth-child(2) img {
+  height: 50%;
+  max-width: 33%;
+}
+.containerAffichePhoto div:nth-child(2) img:hover {
   cursor: pointer;
 }/*# sourceMappingURL=affichePhoto.css.map */

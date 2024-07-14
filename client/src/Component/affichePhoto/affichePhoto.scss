@@ -7,30 +7,74 @@
     height: 700px;
     background-color: $blanc;
     border: solid 1px $vertFoncer;
-    p{
+    div{
         height: 50%;
         width: 100%;
     }
-    p:nth-child(1){
+    div:nth-child(1){
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: black;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-evenly;
-        img{
+       .imgClassBase{
             height: 50%;
+            border: solid 1px $vertFoncer;
+            width: 30%;
+            @include display(row,center,center);
+            img{
+                height: 100%;
+            };
+        }
+        p:nth-child(2){
+            input{
+                color: $vertFoncer;
+            }
+            input[type=file]::file-selector-button {
+                margin-right: 8px;
+                border: solid 1px $vertFoncer;
+                background: $vertFoncer;
+                padding: 8px 12px;
+                color: white;
+                transition: all 0.3s ease-in-out;
+                &:hover{
+                    cursor: pointer;
+                    background-color: white;
+                    color: $vertFoncer;
+                }
+              }
+        }
+        p:nth-child(3){
+            width: 100%;
+            @include display(row,center,space-evenly);
+            button{
+                border: solid 1px $vertFoncer;
+                background: $vertFoncer;
+                padding: 8px 12px;
+                color: white;
+                transition: all 0.3s ease-in-out;
+                &:hover{
+                    cursor: pointer;
+                    background-color: white;
+                    color: $vertFoncer;
+                }
+            }
         }
     }
-    p:nth-child(2){
+    div:nth-child(2){
         display: flex;
         align-items: center;
         justify-content: space-evenly;
         background-color: $vertFoncer;
+        .messageNoPhoto{
+            color: white;
+            font-size: 20px;
+        }
         img{
             height: 50%;
+            max-width: 33%;
             &:hover{
                 cursor: pointer;
             }

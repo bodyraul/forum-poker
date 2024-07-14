@@ -1,15 +1,15 @@
 import React from 'react'
 import { useState } from 'react'
-import axios from 'axios';
 import { useContext } from 'react';
-import { AuthContext } from '../../Context/AuthContext';
 import { useEffect } from 'react';
 import { useRef } from 'react';
-import "./accueil.css";
+import { useMediaQuery } from 'react-responsive'
+import { AuthContext } from '../../Context/AuthContext';
 import { useNavigate } from 'react-router-dom';
-import { ConfidentialiteContext } from '../../Context/ConfidentialiteContext';
-import { Fragment } from 'react';
 import flecheBas from '../../photo/flecheBas.png'
+import axios from 'axios';
+import "./accueil.css";
+import PaginationPost from '../../Component/paginationPost/PaginationPost';
 
 export default function Accueil(props) {
 
@@ -23,12 +23,15 @@ const  [boolCategorieSearch, setboolCategorieSearch] = useState(false);
 const [recherchePost, setrecherchePost] = useState("");
 const [errorMessage, seterrorMessage] = useState("");
 const [valueAuteurSujet, setvalueAuteurSujet] = useState("sujet");
-const navigate = useNavigate();
+const [currentPage, setcurrentPage] = useState(1);
+const [postPerPage, setpostPerPage] = useState(5);
 const errorMsgPost = useRef();
 const inputSujet = useRef();
 const inputAuteur = useRef();
 const inputsearchSujetAuteur = useRef();
 const allCategoriesSearch =useRef();
+const navigate = useNavigate();
+// const  affichePostResponsive= useMediaQuery({ query: '(max-width: 900px)' })
 
 const config = {
   headers: {
@@ -36,11 +39,12 @@ const config = {
   },
 };
 
+
 useEffect(() => {
 
   axios.get("/post")
   .then((res)=>{
-    setlistePost(res.data)
+    setlistePost(res.data);
   })
   .catch((err)=>console.log(err));
 
@@ -50,8 +54,6 @@ useEffect(() => {
   })
   .catch((err)=>console.log(err));
 
-  // const btnCheckbox = document.getElementById("tournois");
-  // btnCheckbox.checked=true;
 }, [])
 
 const accesPageMessagePost= (idPost)=>{
@@ -190,6 +192,12 @@ const creerPost = async ()=>{
     })
  }
 
+ const lastPostIndex = currentPage * postPerPage;
+ const firstPostIndex = lastPostIndex - postPerPage;
+ const allPostPerPage = listePost.slice(firstPostIndex,lastPostIndex);
+ const paginate = pageNumber=>setcurrentPage(pageNumber);
+ 
+
   return (
  
     <div   className='ContainerForum'>
@@ -226,30 +234,39 @@ const creerPost = async ()=>{
                  <button onClick={scrollToNewPost}>Nouveau post</button>
             </div>
         </div>
-
         <p className='erroMessageRecherche'> {errorMessage} </p>
-
         <div className='affichageAllPosts'>
             <div className='ligneTitre'>
-                <p>Sujet</p>
+                <div>
+                  <p>Sujet</p>
+                </div>
                 <p>Réponses</p>
                 <p>Auteur</p>
                 <p>Date</p>
             </div>
-            {listePost.map((element)=>{
+            {allPostPerPage.map((element)=>{
                         return(
                           <div key={element._id} onClick={()=>accesPageMessagePost(element._id)} className='ligneContenu'>
-                            <div>
-                              <p>{element.titre}</p>
-                              <span>{element.categorie}</span>
+                            <div className='partieCatMsgPost'>
+                                <div>
+                                  <p>
+                                    {element.categorie}
+                                  </p>
+                                </div>
+                                <div>
+                                  <p>{element.nombreMessages}</p>
+                                  <p>{element.pseudoCreateur}</p>
+                                  <p>{element.dateCreation}</p>
+                                </div>
                             </div>
-                            <p>{element.nombreMessages}</p>
-                            <p>{element.pseudoCreateur}</p>
-                            <p>{element.dateCreation}</p>
+                            <div className='partieTitrePost'>
+                              <p>{element.titre}</p>
+                            </div>
                           </div>
                         )
                     })}
-        </div>
+        </div>          
+        <PaginationPost postsPerPage={postPerPage} totalPosts={listePost.length} paginate={paginate}/>
         <div className='creationPost'>
             <div className='partieCreation'>
                 <h1>Créer un nouveau Post.</h1>

@@ -1,0 +1,37 @@
+@import '../../variableFont//variable.scss';
+
+
+.partiePagination{
+    width: 1400px;
+    margin: 0 auto;
+    @include display(row,center,center);
+    button{
+        border: 1px solid $vertFoncer;
+        padding: 10px;
+        color: $vertFoncer;
+        background-color:$blanc;
+        margin-right: 10px;
+        transition: all 0.3s ease-in-out;
+        &:hover{
+            cursor: pointer;
+            background-color: $vertFoncer;
+            color: white;
+        }
+    }
+}
+
+@media (max-width: 1600px) {
+    .partiePagination{
+        width: 90%;
+    }
+}
+
+
+@media (max-width: 990px) {
+    .partiePagination{
+        button{
+            padding: 3px;
+        }
+    }
+}
+

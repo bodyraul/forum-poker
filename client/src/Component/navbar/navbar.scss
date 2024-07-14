@@ -79,6 +79,8 @@
         border-radius: 50%;
         img{
             height: 100%;
+            max-width: 150px;
+            border-radius: 10px;
         }
         &:hover{
             cursor: pointer;

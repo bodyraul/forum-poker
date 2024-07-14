@@ -1,0 +1,32 @@
+.partiePagination {
+  width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.partiePagination button {
+  border: 1px solid #547981;
+  padding: 10px;
+  color: #547981;
+  background-color: #ffffff;
+  margin-right: 10px;
+  transition: all 0.3s ease-in-out;
+}
+.partiePagination button:hover {
+  cursor: pointer;
+  background-color: #547981;
+  color: white;
+}
+
+@media (max-width: 1600px) {
+  .partiePagination {
+    width: 90%;
+  }
+}
+@media (max-width: 990px) {
+  .partiePagination button {
+    padding: 3px;
+  }
+}/*# sourceMappingURL=pagination.css.map */

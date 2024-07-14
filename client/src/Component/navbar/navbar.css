@@ -78,6 +78,8 @@
 }
 .containerNav #imgPref img {
   height: 100%;
+  max-width: 150px;
+  border-radius: 10px;
 }
 .containerNav #imgPref:hover {
   cursor: pointer;

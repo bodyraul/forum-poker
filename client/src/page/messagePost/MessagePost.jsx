@@ -12,6 +12,7 @@ import LikeActif from '../../photo/likeActif.png'
 import LikeNoActif from '../../photo/likeNoActif.png'
 import signalerNoActif from '../../photo/signalerNoActif.png'
 import signalerActif from '../../photo/signalerActif.png'
+import PaginationPost from '../../Component/paginationPost/PaginationPost';
 
 export default function MessagesPost(props) {
   const {id} = useParams();
@@ -23,6 +24,8 @@ export default function MessagesPost(props) {
   const [valueMsgForm, setvalueMsgForm] = useState("");
   const [messageErreur, setmessageErreur] = useState("");
   const [idUserConnecte, setidUserConnecte] = useState("");
+  const [currentPage, setcurrentPage] = useState(1);
+  const [postPerPage, setpostPerPage] = useState(4);
   const paraMessageErreur = useRef();
   const navigate = useNavigate();
 
@@ -63,7 +66,6 @@ export default function MessagesPost(props) {
       await  axios.get(`/signalement/AfficherMessageSignalerParPost/${id}`,config)
       .then((res)=>{
         setlisteSignalementUser(res.data);
-        console.log(res.data)
       })
       .catch((err)=>console.log(err));
     }
@@ -234,6 +236,28 @@ export default function MessagesPost(props) {
     }
   }
 
+  const lastPostIndex = currentPage * postPerPage;
+  const firstPostIndex = lastPostIndex - postPerPage;
+  const allPostPerPage = props.allMsg.slice(firstPostIndex,lastPostIndex);
+  const paginate = pageNumber=>setcurrentPage(pageNumber);
+
+  function afficheMsgNbMessages(){
+    if(allPostPerPage.length===0){
+      return (
+        <p  className='titre'>Aucune réponse </p>
+      )
+    }
+    if(allPostPerPage.length===1){
+      return(
+        <p  className='titre'>une réponse </p>
+      )
+    }
+    if(allPostPerPage.length>=1){
+      return(
+        <p  className='titre'> {post.nombreMessages} réponses  </p>
+      )
+    }
+  }
 
   return (
     <div className='ContainerPost'>
@@ -255,9 +279,9 @@ export default function MessagesPost(props) {
             <p>{post.dateCreation}</p>
         </div>
     </div>
-    {props.allMsg.length===0 ?  <p  className='titre'>Aucune réponse </p> : <p  className='titre'>Toutes les réponses </p>}
+    {afficheMsgNbMessages()}
     <div className='partieAffichageAllMessage'>
-        {props.allMsg.map((element)=>{
+        {allPostPerPage.map((element)=>{
           return(
             <div key={element._id} className='affichageUnMessage'>
               <div>
@@ -267,7 +291,7 @@ export default function MessagesPost(props) {
                 </div>
                 <span>{element.dateCreation}</span>
               </div>
-              <p on>{element.contenu}</p>
+              <p>{element.contenu}</p>
               <div>
                 {like(element._id)}
                 <span>{element.nbLike}</span>
@@ -277,6 +301,7 @@ export default function MessagesPost(props) {
           )
         })}
     </div>
+    <PaginationPost postsPerPage={postPerPage} totalPosts={props.allMsg.length} paginate={paginate}/>
     <div className='creationMessage'>
         <div className='partieCreationMessage'>
             <h1>Créer un nouveau Message.</h1>

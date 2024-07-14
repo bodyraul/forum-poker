@@ -48,7 +48,7 @@ body {
   align-items: center;
   border: solid 1px #E0E3E5;
   background-color: white;
-  color: #44ADA8;
+  color: #547981;
   font-size: 18px;
 }
 .ContainerPost .affichageDuPost .ligneContenuPost div {
@@ -71,7 +71,7 @@ body {
 .ContainerPost .affichageDuPost .ligneContenuPost div span:nth-child(2) {
   background-color: #EFEFEF;
   padding: 5px 10px;
-  color: #547981;
+  color: #44ADA8;
   font-size: 15px;
 }
 .ContainerPost .affichageDuPost .ligneContenuPost p:nth-child(2) {
@@ -101,7 +101,7 @@ body {
 }
 .ContainerPost .partieAffichageAllMessage .affichageUnMessage div:nth-child(1) {
   padding-bottom: 20px;
-  color: #547981;
+  color: #44ADA8;
   font-weight: bolder;
   display: flex;
   flex-direction: row;
@@ -175,6 +175,7 @@ body {
 }
 .ContainerPost .partieAffichageAllMessage .affichageUnMessage div:nth-child(3) span {
   padding-right: 50px;
+  color: #44ADA8;
 }
 .ContainerPost .partieAffichageAllMessage .affichageUnMessage div:nth-child(3) #imgLike {
   padding-bottom: 3px;

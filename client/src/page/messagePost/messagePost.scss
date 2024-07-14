@@ -46,7 +46,7 @@ body{
             align-items: center;
             border: solid 1px #E0E3E5;
             background-color: white;
-            color: $vertClair;
+            color: $vertFoncer;
             font-size: 18px;
             div{
                 height: 70%;
@@ -67,7 +67,7 @@ body{
                 span:nth-child(2){
                     background-color:#EFEFEF ;
                     padding: 5px 10px;
-                    color: $vertFoncer;
+                    color: $vertClair;
                     font-size: 15px;
                 }
             }
@@ -98,7 +98,7 @@ body{
             border: 1px solid $gris;
             div:nth-child(1){
                 padding-bottom: 20px;
-                color: $vertFoncer;
+                color: $vertClair;
                 font-weight: bolder;
                 @include display(row,center,space-between);
                 .pAfficheImg{
@@ -159,6 +159,7 @@ body{
                 }
                 span{
                     padding-right: 50px;
+                    color: $vertClair;
                 }
                 #imgLike{
                     padding-bottom: 3px;

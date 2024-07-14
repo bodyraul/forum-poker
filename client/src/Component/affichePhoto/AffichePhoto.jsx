@@ -13,6 +13,7 @@ export default function AffichePhoto(props) {
  const {token,settoken}  = useContext(AuthContext);
  const refImgSolo = useRef();
  const input =  useRef();
+ const containerImgSolo =  useRef();
  const [srcImgClique, setsrcImgClique] = useState({});
 
  const config = {
@@ -62,7 +63,7 @@ export default function AffichePhoto(props) {
   function afficheAllImg(){
     if(props.allImg.length===0){
       return(
-        "vous n'avez aucune photo"
+        <p className='messageNoPhoto'>Vous n'avez aucune photo</p>
       )
     }
     if(props.allImg.length>0){
@@ -81,10 +82,11 @@ export default function AffichePhoto(props) {
     allImg.forEach(element => {
         element.style.border = "none";
     });
-    e.target.style.border="2px solid red";
+    e.target.style.border="3px solid #44ADA8";
     const imgclique ={ src:e.target.src,id:id};
     setsrcImgClique(imgclique);
     refImgSolo.current.src =e.target.src;
+    containerImgSolo.current.style.border = "0px ";
   }
 
   const supImage = async()=>{
@@ -119,17 +121,22 @@ export default function AffichePhoto(props) {
 
   return (
     <div className='containerAffichePhoto'>
-        <p>
-          <img ref={refImgSolo} src='' alt="" />
-          <input id='fileUpload' ref={input} style={{color:"white"}} type="file" onChange={e=>setfile(e.target.files[0])} />
-          <label htmlFor='fileUpload'>bonjour</label>
-          <button  onClick={handleimg}>telecharger</button>
-          <button onClick={choisePrefImg}  >changer l'image de profil</button>
-          <button onClick={supImage} >Supprimer l'image</button>
-        </p>
-        <p>
+        <div>
+          <p ref={containerImgSolo} className='imgClassBase'>
+            <img  ref={refImgSolo} src='' alt="" />
+          </p>
+          <p>
+            <input id='fileUpload' ref={input}  type="file" onChange={e=>setfile(e.target.files[0])} />
+          </p>
+          <p>
+            <button  onClick={handleimg}>telecharger</button>
+            <button onClick={choisePrefImg}  >changer l'image de profil</button>
+            <button onClick={supImage} >Supprimer l'image</button>
+          </p>
+        </div>
+        <div>
           {afficheAllImg()}
-        </p>
+        </div>
     </div>
   )
 }
