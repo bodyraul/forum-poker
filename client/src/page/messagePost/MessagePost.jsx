@@ -16,17 +16,17 @@ import PaginationPost from '../../Component/paginationPost/PaginationPost';
 
 export default function MessagesPost(props) {
   const {id} = useParams();
-  const {token,settoken}  = useContext(AuthContext);
+  const {token}  = useContext(AuthContext);
   const [post, setpost] = useState({});
-  const [messageServer, setmessageServer] = useState("");
   const [listeSignalementUser, setlisteSignalementUser] = useState([]);
   const [listeLikeUser, setlisteLikeUser] = useState([]);
   const [valueMsgForm, setvalueMsgForm] = useState("");
   const [messageErreur, setmessageErreur] = useState("");
   const [idUserConnecte, setidUserConnecte] = useState("");
   const [currentPage, setcurrentPage] = useState(1);
-  const [postPerPage, setpostPerPage] = useState(4);
+  const [postPerPage] = useState(4);
   const paraMessageErreur = useRef();
+  const titrecontenu = useRef();
   const navigate = useNavigate();
 
   const config = {
@@ -34,6 +34,7 @@ export default function MessagesPost(props) {
       Authorization: `Bearer ${token}`,
     },
   };
+
 
   //affichage des messages au chargement , du post et des signalements de l'user pour les msg du post
   useEffect(() => {
@@ -83,9 +84,12 @@ export default function MessagesPost(props) {
     getIdUser();
     props.setidPost(id);
 
+    majScrollMessage();
   }, [])
 
-  
+  useEffect(() => {
+    majScrollMessage();
+  }, [props.allMsg,currentPage])
 
   const like = (id)=>{
     for (let index = 0; index < listeLikeUser.length; index++) {
@@ -242,84 +246,110 @@ export default function MessagesPost(props) {
   function afficheMsgNbMessages(){
     if(allPostPerPage.length===0){
       return (
-        <p  className='titre'>Aucune réponse </p>
+        <p  className='titrePartieMonPost'>Aucune réponse </p>
       )
     }
     if(allPostPerPage.length===1){
       return(
-        <p  className='titre'>une réponse </p>
+        <p  className='titrePartieMonPost'>une réponse </p>
       )
     }
     if(allPostPerPage.length>=1){
       return(
-        <p  className='titre'> {post.nombreMessages} réponses  </p>
+        <p  className='titrePartieMonPost'> {post.nombreMessages} réponses  </p>
       )
     }
   }
 
+  function majScrollMessage(){
+    const allparaVisible = document.querySelectorAll('.VisibleContenu');
+    const allparaCacher = document.querySelectorAll('.NoVisibleContenu');
+
+    allparaCacher.forEach((element,index) => {
+      if(element.clientHeight>allparaVisible[index].clientHeight){
+        allparaVisible[index].classList.remove('noActive');
+        allparaVisible[index].classList.add('active');
+      }
+    });
+  }
   return (
     <div className='ContainerPost'>
-    <p className='titre'> Post selectionné</p>
-    <div className='affichageDuPost'>
-        <div className='ligneTitre'>
-            <p>Sujet</p>
-            <p>Réponses</p>
-            <p>Auteur</p>
-            <p>Date</p>
-        </div>
-        <div  className='ligneContenuPost'>
-            <div>
-              <p>{post.titre}</p>
-              <span>{post.categorie}</span>
-            </div>
-            <p>{post.nombreMessages}</p>
-            <p>{post.pseudoCreateur}</p>
-            <p>{post.dateCreation}</p>
-        </div>
-    </div>
-    {afficheMsgNbMessages()}
-    <div className='partieAffichageAllMessage'>
-        {allPostPerPage.map((element)=>{
-          return(
-            <div key={element._id} className='affichageUnMessage'>
-              <div>
+      <p className='titrePartieMonPost'> Post selectionné</p>
+      <div id='affichageDuPost' className='affichageAllPosts'>
+            <div className='ligneTitre'>
                 <div>
-                    {afficheImgOnMajImg(element)}
-                    <span>{" "+element.pseudoCreateurMessage}</span>
+                  <p>Sujet</p>
                 </div>
-                <span>{element.dateCreation}</span>
-              </div>
-              <p>{element.contenu}</p>
-              <div>
-                {like(element._id)}
-                <span>{element.nbLike}</span>
-                {signaler(element._id)}
-              </div>
-          </div>
-          )
-        })}
-    </div>
-    <PaginationPost postsPerPage={postPerPage} totalPosts={props.allMsg.length} paginate={paginate}/>
-    <div className='creationMessage'>
-        <div className='partieCreationMessage'>
-            <h1>Créer un nouveau Message.</h1>
-            <p>Essayez d'apporter quelque chose de nouveau à la conversation.</p>
-            <h3>Description</h3>
-            <div>
-              <textarea onClick={onclickTextArea} value={valueMsgForm} onChange={(e)=>setvalueMsgForm(e.target.value)}  rows={15} cols={80} name="" id="" ></textarea>
+                <p>Réponses</p>
+                <p>Auteur</p>
+                <p>Date</p>
             </div>
-            <p ref={paraMessageErreur}> {messageErreur} </p>
-            <button onClick={valideFormMessage}>Créer</button>
-        </div>
-        <div className='partieRemonterMessage'>
-            <div></div>
-            <h2>Mauvais Post selectionné?</h2>
-            <p>Cliquez ci-dessous pour revenir à la page des post.</p>
-            <button onClick={()=>navigate('/')}>Retour</button>
-        </div>
-    </div>
+            <div key={post._id} className='ligneContenu'>
+              <div className='partieCatMsgPost'>
+                  <div>
+                    <p>
+                      {post.categorie}
+                    </p>
+                  </div>
+                  <div>
+                    <p>{post.nombreMessages}</p>
+                    <p>{post.pseudoCreateur}</p>
+                    <p>{post.dateCreation}</p>
+                  </div>
+              </div>
+              <div className='partieTitrePost'>
+                <p>
+                  {post.titre}
+                </p>
+              </div>
+            </div>
+        </div>   
+      {afficheMsgNbMessages()}
+      <div className='partieAffichageAllMessage'>
+          {allPostPerPage.map((element)=>{
+            return(
+              <div key={element._id} className='affichageUnMessage'>
+                <div className='partieDescriptionUnMsg'>
+                  <div>
+                      {afficheImgOnMajImg(element)}
+                      <span id='pseudoCreateur'>{" "+element.pseudoCreateurMessage}</span>
+                  </div>
+                  <span span id='dateCreation'>{element.dateCreation}</span>
+                </div>
+                <p className='VisibleContenu noActive' ref={titrecontenu}>
+                  {element.contenu} 
+                  <span className='NoVisibleContenu'> {element.contenu}  </span>
+                </p>
+                <div className='partieSignalLikeMsg'>
+                  {like(element._id)}
+                  <span>{element.nbLike}</span>
+                  {signaler(element._id)}
+                </div>
+            </div>
+            )
+          })}
+      </div>
+      <PaginationPost postsPerPage={postPerPage} totalPosts={props.allMsg.length} paginate={paginate}/>
+      <div className='creationMessage'>
+          <div className='partieCreationMessage'>
+              <h1>Créer un nouveau Message.</h1>
+              <p>Essayez d'apporter quelque chose de nouveau à la conversation.</p>
+              <h3>Description</h3>
+              <div>
+                <textarea onClick={onclickTextArea} value={valueMsgForm} onChange={(e)=>setvalueMsgForm(e.target.value)}  rows={15} cols={80} name="" id="" ></textarea>
+              </div>
+              <p ref={paraMessageErreur}> {messageErreur} </p>
+              <button onClick={valideFormMessage}>Créer</button>
+          </div>
+          <div className='partieRemonterMessage'>
+              <div></div>
+              <h2>Mauvais Post selectionné?</h2>
+              <p>Cliquez ci-dessous pour revenir à la page des post.</p>
+              <button onClick={()=>navigate('/')}>Retour</button>
+          </div>
+      </div>
 
-</div>
+    </div>
   
   )
 }

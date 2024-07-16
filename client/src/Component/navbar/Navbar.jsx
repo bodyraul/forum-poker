@@ -26,7 +26,6 @@ export default function Navbar(props) {
       },
     };
 
-    console.log(newNavPhone);
 
     const onclickConnexion = ()=>{
       props.setSignIn(true);

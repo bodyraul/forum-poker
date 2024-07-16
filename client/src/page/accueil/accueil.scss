@@ -17,7 +17,7 @@ body{
     padding-top: 150px;
 }
 
-.titre{
+.titrePageAccueil{
     text-align: center;
     font-size: 40px;
     color: $vertFoncer;
@@ -424,6 +424,9 @@ body{
 
 
  @media (max-width: 990px) { 
+    .titrePageAccueil{
+        font-size: 30px;
+    }
     .AllBtnRecherchePost{
         height: 300px;
         width: 450px;
@@ -458,9 +461,6 @@ body{
                 margin-left: 20px;
             }
         }
-    }
-    .titre{
-        font-size: 30px;
     }
     .affichageAllPosts{
         width: 100%;

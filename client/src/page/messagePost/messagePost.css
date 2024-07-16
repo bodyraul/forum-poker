@@ -4,102 +4,33 @@ body {
 
 .ContainerPost {
   width: 100vw;
-  margin-top: 150px;
+  margin-top: 200px;
 }
-.ContainerPost .titre {
+
+.titrePartieMonPost {
   text-align: center;
   font-size: 40px;
   color: #547981;
   margin-top: 50px;
 }
-.ContainerPost .affichageDuPost {
-  width: 1400px;
-  margin: 50px auto 0 auto;
+
+#affichageDuPost {
+  margin-top: 50px;
 }
-.ContainerPost .affichageDuPost .ligneTitre {
-  height: 50px;
-  display: flex;
-  align-items: center;
-  border: solid 1px #e0e3e5;
-  background-color: white;
-  color: #547981;
-  font-weight: bolder;
-  font-size: 22px;
-}
-.ContainerPost .affichageDuPost .ligneTitre p:nth-child(1) {
-  width: 70%;
-  padding-left: 50px;
-}
-.ContainerPost .affichageDuPost .ligneTitre p:nth-child(2) {
-  width: 10%;
-  text-align: center;
-}
-.ContainerPost .affichageDuPost .ligneTitre p:nth-child(3) {
-  width: 10%;
-  text-align: center;
-}
-.ContainerPost .affichageDuPost .ligneTitre p:nth-child(4) {
-  width: 10%;
-  text-align: center;
-}
-.ContainerPost .affichageDuPost .ligneContenuPost {
-  height: 130px;
-  display: flex;
-  align-items: center;
-  border: solid 1px #E0E3E5;
-  background-color: white;
-  color: #547981;
-  font-size: 18px;
-}
-.ContainerPost .affichageDuPost .ligneContenuPost div {
-  height: 70%;
-  width: 70%;
-  margin-left: 15px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-around;
-}
-.ContainerPost .affichageDuPost .ligneContenuPost div p {
-  display: block;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-.ContainerPost .affichageDuPost .ligneContenuPost div span:nth-child(2) {
-  background-color: #EFEFEF;
-  padding: 5px 10px;
-  color: #44ADA8;
-  font-size: 15px;
-}
-.ContainerPost .affichageDuPost .ligneContenuPost p:nth-child(2) {
-  width: 10%;
-  text-align: center;
-  color: #44ADA8;
-}
-.ContainerPost .affichageDuPost .ligneContenuPost p:nth-child(3) {
-  width: 10%;
-  text-align: center;
-  color: #44ADA8;
-}
-.ContainerPost .affichageDuPost .ligneContenuPost p:nth-child(4) {
-  width: 10%;
-  text-align: center;
-  color: #44ADA8;
-}
-.ContainerPost .partieAffichageAllMessage {
+
+.partieAffichageAllMessage {
   width: 900px;
   margin: 50px auto 0 auto;
 }
-.ContainerPost .partieAffichageAllMessage .affichageUnMessage {
+
+.affichageUnMessage {
   background-color: white;
   margin-bottom: 30px;
   padding: 35px;
   border: 1px solid #e0e3e5;
 }
-.ContainerPost .partieAffichageAllMessage .affichageUnMessage div:nth-child(1) {
+
+.partieDescriptionUnMsg {
   padding-bottom: 20px;
   color: #44ADA8;
   font-weight: bolder;
@@ -108,7 +39,19 @@ body {
   align-items: center;
   justify-content: space-between;
 }
-.ContainerPost .partieAffichageAllMessage .affichageUnMessage div:nth-child(1) .pAfficheImg {
+.partieDescriptionUnMsg div:nth-child(1) {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.partieDescriptionUnMsg #pseudoCreateur {
+  font-size: 15px;
+}
+.partieDescriptionUnMsg #dateCreation {
+  font-size: 15px;
+}
+.partieDescriptionUnMsg .pAfficheImg {
   margin-right: 10px;
   font-size: 22px;
   color: white;
@@ -121,12 +64,12 @@ body {
   align-items: center;
   justify-content: center;
 }
-.ContainerPost .partieAffichageAllMessage .affichageUnMessage div:nth-child(1) .pAfficheImg img {
+.partieDescriptionUnMsg .pAfficheImg img {
   height: 80px;
   max-width: 80px;
   border-radius: 50%;
 }
-.ContainerPost .partieAffichageAllMessage .affichageUnMessage div:nth-child(1) .pAfficheInitiale {
+.partieDescriptionUnMsg .pAfficheInitiale {
   margin-right: 10px;
   font-size: 22px;
   background-color: #547981;
@@ -139,83 +82,120 @@ body {
   align-items: center;
   justify-content: center;
 }
-.ContainerPost .partieAffichageAllMessage .affichageUnMessage div:nth-child(1) .pAfficheInitiale span {
+.partieDescriptionUnMsg .pAfficheInitiale span {
   text-transform: uppercase;
   font-size: 15px;
   padding: 0px 1px;
 }
-.ContainerPost .partieAffichageAllMessage .affichageUnMessage div:nth-child(1) .pAfficheInitiale span:nth-child(2) {
+.partieDescriptionUnMsg .pAfficheInitiale span:nth-child(2) {
   padding-left: 4px;
 }
-.ContainerPost .partieAffichageAllMessage .affichageUnMessage p:nth-child(2) {
+
+.VisibleContenu {
   display: block;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  text-overflow: ellipsis;
+  position: relative;
   overflow: hidden;
+  overflow-y: scroll;
   margin-bottom: 40px;
   color: #547981;
   font-size: 18px;
   height: 45px;
   padding: 0px 10px;
 }
-.ContainerPost .partieAffichageAllMessage .affichageUnMessage div:nth-child(3) {
+.VisibleContenu .NoVisibleContenu {
+  overflow: visible;
+  overflow-y: visible;
+  display: block;
+  top: 0%;
+  position: absolute;
+  width: 100%;
+  height: auto;
+  opacity: 0;
+  z-index: -1;
+}
+
+.VisibleContenu.active::-webkit-scrollbar {
+  width: 12px;
+}
+
+.VisibleContenu.noActive::-webkit-scrollbar {
+  width: 0px;
+}
+
+.VisibleContenu::-webkit-scrollbar-track {
+  background: #44ADA8;
+  border-radius: 5px;
+}
+
+.VisibleContenu::-webkit-scrollbar-thumb {
+  background-color: #ffffff;
+  border-radius: 20px;
+  border: 3px solid #44ADA8;
+}
+
+.partieSignalLikeMsg {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
 }
-.ContainerPost .partieAffichageAllMessage .affichageUnMessage div:nth-child(3) img {
+.partieSignalLikeMsg .signalement {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.partieSignalLikeMsg img {
   padding-right: 10px;
   transition: all 0.2s ease-in-out;
   transform-origin: left;
 }
-.ContainerPost .partieAffichageAllMessage .affichageUnMessage div:nth-child(3) img:hover {
+.partieSignalLikeMsg img:hover {
   cursor: pointer;
   transform: rotate(-7deg);
 }
-.ContainerPost .partieAffichageAllMessage .affichageUnMessage div:nth-child(3) span {
+.partieSignalLikeMsg span {
   padding-right: 50px;
   color: #44ADA8;
 }
-.ContainerPost .partieAffichageAllMessage .affichageUnMessage div:nth-child(3) #imgLike {
+.partieSignalLikeMsg #imgLike {
   padding-bottom: 3px;
 }
-.ContainerPost .partieAffichageAllMessage .affichageUnMessage div:nth-child(3) #imgSignaler {
+.partieSignalLikeMsg #imgSignaler {
   padding-bottom: 5px;
 }
-.ContainerPost .creationMessage {
+
+.creationMessage {
   width: 1400px;
-  margin: 150px auto 0 auto;
+  margin: 100px auto 0 auto;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   justify-content: center;
 }
-.ContainerPost .creationMessage .partieCreationMessage {
+.creationMessage .partieCreationMessage {
   background-color: white;
   padding: 30px 25px;
   width: 60%;
   border: #e0e3e5 solid 2px;
 }
-.ContainerPost .creationMessage .partieCreationMessage h1 {
+.creationMessage .partieCreationMessage h1 {
   color: #547981;
   padding-bottom: 25px;
 }
-.ContainerPost .creationMessage .partieCreationMessage p:nth-child(2) {
+.creationMessage .partieCreationMessage p:nth-child(2) {
   color: #547981;
   font-size: 17px;
   padding-bottom: 25px;
 }
-.ContainerPost .creationMessage .partieCreationMessage h3:nth-child(3) {
+.creationMessage .partieCreationMessage h3:nth-child(3) {
   color: #547981;
   padding: 25px 0px 25px 0px;
 }
-.ContainerPost .creationMessage .partieCreationMessage div {
+.creationMessage .partieCreationMessage div {
   padding: 5px 0px 25px 0px;
 }
-.ContainerPost .creationMessage .partieCreationMessage div textarea {
+.creationMessage .partieCreationMessage div textarea {
   outline-color: #547981;
   border: 1px solid #547981;
   color: #547981;
@@ -223,12 +203,12 @@ body {
   resize: none;
   font-size: 16px;
 }
-.ContainerPost .creationMessage .partieCreationMessage p:nth-child(5) {
+.creationMessage .partieCreationMessage p:nth-child(5) {
   color: #ef4444;
   font-size: 20px;
   padding-bottom: 25px;
 }
-.ContainerPost .creationMessage .partieCreationMessage button {
+.creationMessage .partieCreationMessage button {
   padding: 10px 15px;
   color: #547981;
   border: 1px solid #547981;
@@ -236,33 +216,33 @@ body {
   border-radius: 7px;
   transition: all 0.2s ease-in-out;
 }
-.ContainerPost .creationMessage .partieCreationMessage button:hover {
+.creationMessage .partieCreationMessage button:hover {
   cursor: pointer;
   background-color: #547981;
   color: white;
 }
-.ContainerPost .creationMessage .partieRemonterMessage {
+.creationMessage .partieRemonterMessage {
   padding: 30px 25px;
   width: 40%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.ContainerPost .creationMessage .partieRemonterMessage div {
+.creationMessage .partieRemonterMessage div {
   border: solid 2px #e0e3e5;
   width: 400px;
   height: 100px;
 }
-.ContainerPost .creationMessage .partieRemonterMessage h2 {
+.creationMessage .partieRemonterMessage h2 {
   padding: 25px 0px;
   color: #44ADA8;
 }
-.ContainerPost .creationMessage .partieRemonterMessage p {
+.creationMessage .partieRemonterMessage p {
   color: #44ADA8;
   font-size: 17px;
   padding-bottom: 25px;
 }
-.ContainerPost .creationMessage .partieRemonterMessage button {
+.creationMessage .partieRemonterMessage button {
   width: 400px;
   padding: 20px 0;
   color: #44ADA8;
@@ -271,8 +251,128 @@ body {
   border-radius: 5px;
   transition: all 0.2s ease-in-out;
 }
-.ContainerPost .creationMessage .partieRemonterMessage button:hover {
+.creationMessage .partieRemonterMessage button:hover {
   cursor: pointer;
   background-color: #44ADA8;
   color: white;
+}
+
+@media (max-width: 1600px) {
+  .creationMessage {
+    width: 100vw;
+  }
+  .creationMessage .partieCreationMessage div textarea {
+    width: 80%;
+  }
+  .creationMessage .partieRemonterMessage {
+    width: 100%;
+  }
+}
+@media (max-width: 1256px) {
+  .creationMessage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .creationMessage .partieCreationMessage {
+    width: 80%;
+  }
+  .creationMessage .partieCreationMessage div textarea {
+    width: 100%;
+  }
+}
+@media (max-width: 990px) {
+  .titrePartieMonPost {
+    font-size: 30px;
+  }
+  .partieAffichageAllMessage {
+    width: 100%;
+  }
+  #affichageDuPost {
+    margin-top: 50px;
+  }
+  .partieDescriptionUnMsg #pseudoCreateur {
+    font-size: 12px;
+  }
+  .partieDescriptionUnMsg #dateCreation {
+    font-size: 12px;
+  }
+  .partieDescriptionUnMsg .pAfficheImg {
+    font-size: 12px;
+  }
+  .partieDescriptionUnMsg .pAfficheImg img {
+    height: 60px;
+    max-width: 60px;
+  }
+  .partieDescriptionUnMsg .pAfficheInitiale {
+    font-size: 12px;
+  }
+  .partieDescriptionUnMsg .pAfficheInitiale span {
+    font-size: 12px;
+  }
+  .VisibleContenu {
+    font-size: 15px;
+    height: 35px;
+  }
+}
+@media (max-width: 670px) {
+  .partieDescriptionUnMsg #pseudoCreateur {
+    font-size: 11px;
+  }
+  .partieDescriptionUnMsg #dateCreation {
+    font-size: 11px;
+  }
+  .partieDescriptionUnMsg .pAfficheImg {
+    font-size: 11px;
+  }
+  .partieDescriptionUnMsg .pAfficheImg img {
+    height: 50px;
+    max-width: 50px;
+  }
+  .partieDescriptionUnMsg .pAfficheInitiale {
+    font-size: 11px;
+  }
+  .partieDescriptionUnMsg .pAfficheInitiale span {
+    font-size: 11px;
+  }
+  .VisibleContenu {
+    font-size: 13px;
+    height: 35px;
+  }
+  .creationMessage .partieCreationMessage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .creationMessage .partieCreationMessage h1 {
+    font-size: 20px;
+    text-align: center;
+  }
+  .creationMessage .partieCreationMessage p:nth-child(2) {
+    font-size: 13px;
+    text-align: center;
+  }
+  .creationMessage .partieCreationMessage div textarea {
+    font-size: 13px;
+  }
+  .creationMessage .partieCreationMessage p:nth-child(5) {
+    font-size: 13px;
+    text-align: center;
+  }
+  .creationMessage .partieRemonterMessage div {
+    width: 60%;
+  }
+  .creationMessage .partieRemonterMessage h2 {
+    font-size: 20px;
+    text-align: center;
+  }
+  .creationMessage .partieRemonterMessage p {
+    font-size: 13px;
+    text-align: center;
+  }
+  .creationMessage .partieRemonterMessage button {
+    width: 300px;
+  }
 }/*# sourceMappingURL=messagePost.css.map */

@@ -200,7 +200,7 @@ const creerPost = async ()=>{
   return (
  
     <div   className='ContainerForum'>
-        <p className='titre'>Bienvenue sur le forum</p>
+        <p className='titrePageAccueil'>Bienvenue sur le forum</p>
         <div className='AllBtnRecherchePost'>
             <div>
                 <div onClick={cliqueCategories}>

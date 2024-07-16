@@ -38,7 +38,6 @@ export default function AffichePhoto(props) {
 
     await axios.get("/photo/getImage",config)
       .then((res)=>{
-        console.log(res.data);
         props.setallImg(res.data);
       })
       .catch((err)=>console.log(err));
@@ -53,7 +52,6 @@ export default function AffichePhoto(props) {
     
     await  axios.post("/photo/prefImage",newtab[0],config)
       .then((res)=>{
-        console.log(res);
         props.setimgPref(res.data.image);
         props.setbolAffichePhoto(false);
       })

@@ -4,264 +4,397 @@ body{
 }
 .ContainerPost{
     width: 100vw;
-    margin-top: 150px;
-    .titre{
-        text-align: center;
-        font-size: 40px;
-        color: $vertFoncer;
-        margin-top: 50px;
-    }
-    .affichageDuPost{
-        width: 1400px;
-        margin: 50px auto 0 auto;
-        .ligneTitre{
-            height: 50px;
-            display: flex;
-            align-items: center;
-            border: solid 1px $gris;
-            background-color: white;
-            color: $vertFoncer;
-            font-weight: bolder;
-            font-size: 22px;
-            p:nth-child(1){
-                width: 70%;
-                padding-left: 50px;
-            }
-            p:nth-child(2){
-                width: 10%;
-                text-align: center;
-            }
-            p:nth-child(3){
-                width: 10%;
-                text-align: center;
-            }
-            p:nth-child(4){
-                width: 10%;
-                text-align: center;
-            }
-        }
-        .ligneContenuPost{
-            height: 130px;
-            display: flex;
-            align-items: center;
-            border: solid 1px #E0E3E5;
-            background-color: white;
-            color: $vertFoncer;
-            font-size: 18px;
-            div{
-                height: 70%;
-                width: 70%;
-                margin-left: 15px;
-                display: flex;
-                flex-direction: column;
-                align-items:flex-start;
-                justify-content: space-around;
-                p{
-                    display: block;
-                    display: -webkit-box;
-                    -webkit-box-orient: vertical;
-                    -webkit-line-clamp: 2;
-                    text-overflow: ellipsis;
-                    overflow: hidden;
-                }
-                span:nth-child(2){
-                    background-color:#EFEFEF ;
-                    padding: 5px 10px;
-                    color: $vertClair;
-                    font-size: 15px;
-                }
-            }
-            p:nth-child(2){
-                width: 10%;
-                text-align: center;
-                color: $vertClair;
-            }
-            p:nth-child(3){
-                width: 10%;
-                text-align: center;
-                color: $vertClair;
-            }
-            p:nth-child(4){
-                width: 10%;
-                text-align: center;
-                color: $vertClair;
-            }
-        }
-    }
-    .partieAffichageAllMessage{
-        width: 900px;
-        margin: 50px auto 0 auto;
-        .affichageUnMessage{
-            background-color: white;
-            margin-bottom: 30px;
-            padding: 35px;
-            border: 1px solid $gris;
-            div:nth-child(1){
-                padding-bottom: 20px;
-                color: $vertClair;
-                font-weight: bolder;
-                @include display(row,center,space-between);
-                .pAfficheImg{
-                    margin-right: 10px;
-                    font-size: 22px;
-                    color: white;
-                    width: auto;
-                    height: auto;
-                    border: double  $vertClair 3px;
-                    border-radius: 50%;
-                    @include display(row,center,center);
-                    img{
-                        height: 80px;
-                        max-width: 80px;
-                        border-radius: 50%;
-                    }
-                }
-                .pAfficheInitiale{
-                    margin-right: 10px;
-                    font-size: 22px;
-                    background-color: $vertFoncer;
-                    color: white;
-                    border-radius: 50%;
-                    width: 50px;
-                    height: 50px;
+    margin-top: 200px;
+}
 
-                    @include display(row,center,center);
-                    span{
-                        text-transform: uppercase;
-                        font-size: 15px;
-                        padding: 0px 1px;
-                    }
-                    span:nth-child(2){
-                        padding-left: 4px;
-                    }
-                }
+.titrePartieMonPost{
+    text-align: center;
+    font-size: 40px;
+    color: $vertFoncer;
+    margin-top: 50px;
+}
+
+#affichageDuPost{
+    margin-top: 50px;
+}
+
+.partieAffichageAllMessage{
+    width: 900px;
+    margin: 50px auto 0 auto;
+}
+
+.affichageUnMessage{
+    background-color: white;
+    margin-bottom: 30px;
+    padding: 35px;
+    border: 1px solid $gris;
+}
+
+
+
+
+
+.partieDescriptionUnMsg{
+    padding-bottom: 20px;
+    color: $vertClair;
+    font-weight: bolder;
+    @include display(row,center,space-between);
+    div:nth-child(1){
+        @include display(row,center,space-between);
+    }
+    #pseudoCreateur{
+        font-size: 15px;
+    }
+    #dateCreation{
+        font-size: 15px;
+    }
+    .pAfficheImg{
+        margin-right: 10px;
+        font-size: 22px;
+        color: white;
+        width: auto;
+        height: auto;
+        border: double  $vertClair 3px;
+        border-radius: 50%;
+        @include display(row,center,center);
+        img{
+            height: 80px;
+            max-width: 80px;
+            border-radius: 50%;
+        }
+    }
+    .pAfficheInitiale{
+        margin-right: 10px;
+        font-size: 22px;
+        background-color: $vertFoncer;
+        color: white;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+
+        @include display(row,center,center);
+        span{
+            text-transform: uppercase;
+            font-size: 15px;
+            padding: 0px 1px;
+        }
+        span:nth-child(2){
+            padding-left: 4px;
+        }
+    }
+}
+
+
+.VisibleContenu{
+    display: block;
+    position: relative;
+    overflow: hidden;
+    overflow-y: scroll;
+    margin-bottom: 40px;
+    color: $vertFoncer;
+    font-size: 18px;
+    height: 45px;
+    padding: 0px 10px;
+    .NoVisibleContenu{
+        overflow: visible;
+        overflow-y: visible;
+        display: block;
+        top: 0%;
+        position: absolute;
+        width: 100%;
+        height: auto;
+        opacity: 0;
+        z-index: -1;
+    }
+}
+.VisibleContenu.active::-webkit-scrollbar {
+    width: 12px; 
+  }
+.VisibleContenu.noActive::-webkit-scrollbar {
+width: 0px; 
+}
+  
+.VisibleContenu::-webkit-scrollbar-track{
+background: $vertClair; 
+border-radius: 5px;
+}
+
+.VisibleContenu::-webkit-scrollbar-thumb {
+background-color: $blanc; 
+border-radius: 20px;
+border:3px solid $vertClair; 
+}
+
+
+.partieSignalLikeMsg{
+    @include display(row,center,flex-start);
+    .signalement{
+        @include display(row,center,flex-start);
+    }
+    img{
+        padding-right: 10px;
+        transition: all 0.2s ease-in-out;
+        transform-origin: left;
+        &:hover{
+            cursor: pointer;
+            transform: rotate(-7deg);
+        }
+    }
+    span{
+        padding-right: 50px;
+        color: $vertClair;
+    }
+    #imgLike{
+        padding-bottom: 3px;
+    }
+    #imgSignaler{
+        padding-bottom: 5px;
+    }
+}
+
+
+
+.creationMessage{
+    width: 1400px;
+    margin: 100px auto 0 auto;
+    @include display(row,flex-start,center);
+    
+    .partieCreationMessage{
+        background-color: white;
+        padding: 30px 25px;
+        width: 60%;
+        border: $gris solid 2px;
+        h1{
+            color: $vertFoncer;
+            padding-bottom: 25px;
+        }
+        p:nth-child(2){
+            color: $vertFoncer;
+            font-size: 17px;
+            padding-bottom: 25px;
+        }
+        h3:nth-child(3){
+            color: $vertFoncer;
+            padding: 25px 0px 25px 0px;
+        }
+        div{
+            padding: 5px 0px 25px 0px;
+          
+            textarea{
+                outline-color: $vertFoncer ;
+                border: 1px solid $vertFoncer;
+                color:  $vertFoncer;
+                padding: 10px 7px;
+                resize: none;
+                font-size: 16px;
             }
-            p:nth-child(2){
-                display: block;
-                display: -webkit-box;
-                -webkit-box-orient: vertical;
-                -webkit-line-clamp: 2;
-                text-overflow: ellipsis;
-                overflow: hidden;
-                margin-bottom: 40px;
-                color: $vertFoncer;
-                font-size: 18px;
-                height: 45px;
-                padding: 0px 10px;
-            }
-            div:nth-child(3){
-                @include display(row,center,flex-start);
-                img{
-                    padding-right: 10px;
-                    transition: all 0.2s ease-in-out;
-                    transform-origin: left;
-                    &:hover{
-                        cursor: pointer;
-                        transform: rotate(-7deg);
-                    }
-                }
-                span{
-                    padding-right: 50px;
-                    color: $vertClair;
-                }
-                #imgLike{
-                    padding-bottom: 3px;
-                }
-                #imgSignaler{
-                    padding-bottom: 5px;
-                }
+        }
+        p:nth-child(5){
+            color: #ef4444;
+            font-size: 20px;
+            padding-bottom: 25px;
+        }
+        button{
+            padding: 10px 15px;
+            color: $vertFoncer;
+            border: 1px solid $vertFoncer;
+            background-color: white;
+            border-radius: 7px;
+            transition: all 0.2s ease-in-out;
+            &:hover{
+                cursor: pointer;
+                background-color: $vertFoncer;
+                color: white;
             }
         }
     }
-    .creationMessage{
-        width: 1400px;
-        margin: 150px auto 0 auto;
-        @include display(row,flex-start,center);
-        
-        .partieCreationMessage{
+    .partieRemonterMessage{
+        padding: 30px 25px;
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        div{
+            border: solid 2px $gris;
+            width: 400px;
+            height: 100px;
+        }
+        h2{
+            padding: 25px 0px;
+            color: $vertClair;
+        }
+        p{
+            color: $vertClair;
+            font-size: 17px;
+            padding-bottom: 25px;
+        }
+        button{
+            width: 400px;
+            padding: 20px 0;
+            color: $vertClair;
+            border: 1px solid $vertClair;
             background-color: white;
-            padding: 30px 25px;
-            width: 60%;
-            border: $gris solid 2px;
-            h1{
-                color: $vertFoncer;
-                padding-bottom: 25px;
+            border-radius: 5px;
+            transition: all 0.2s ease-in-out;
+            &:hover{
+                cursor: pointer;
+                background-color: $vertClair;
+                color: white;
             }
-            p:nth-child(2){
-                color: $vertFoncer;
-                font-size: 17px;
-                padding-bottom: 25px;
-            }
-            h3:nth-child(3){
-                color: $vertFoncer;
-                padding: 25px 0px 25px 0px;
-            }
+        }
+    }
+}
+
+@media(max-width:1600px){
+    .creationMessage{
+        width: 100vw; 
+        .partieCreationMessage{
             div{
-                padding: 5px 0px 25px 0px;
               
                 textarea{
-                    outline-color: $vertFoncer ;
-                    border: 1px solid $vertFoncer;
-                    color:  $vertFoncer;
-                    padding: 10px 7px;
-                    resize: none;
-                    font-size: 16px;
+                    width: 80%;
                 }
             }
-            p:nth-child(5){
-                color: #ef4444;
-                font-size: 20px;
-                padding-bottom: 25px;
-            }
-            button{
-                padding: 10px 15px;
-                color: $vertFoncer;
-                border: 1px solid $vertFoncer;
-                background-color: white;
-                border-radius: 7px;
-                transition: all 0.2s ease-in-out;
-                &:hover{
-                    cursor: pointer;
-                    background-color: $vertFoncer;
-                    color: white;
-                }
-            }
+       
         }
         .partieRemonterMessage{
-            padding: 30px 25px;
-            width: 40%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            width: 100%;
+        }
+    }
+}
+
+@media(max-width:1256px){
+    .creationMessage{
+        @include display(column,center,center);
+        .partieCreationMessage{
+            width: 80%;
             div{
-                border: solid 2px $gris;
-                width: 400px;
-                height: 100px;
-            }
-            h2{
-                padding: 25px 0px;
-                color: $vertClair;
-            }
-            p{
-                color: $vertClair;
-                font-size: 17px;
-                padding-bottom: 25px;
-            }
-            button{
-                width: 400px;
-                padding: 20px 0;
-                color: $vertClair;
-                border: 1px solid $vertClair;
-                background-color: white;
-                border-radius: 5px;
-                transition: all 0.2s ease-in-out;
-                &:hover{
-                    cursor: pointer;
-                    background-color: $vertClair;
-                    color: white;
+              
+                textarea{
+                    width: 100%;
                 }
             }
         }
     }
 }
 
+
+
+@media (max-width: 990px) { 
+   .titrePartieMonPost{
+    font-size: 30px;
+   }
+
+   .partieAffichageAllMessage{
+    width: 100%;
+    }
+
+    #affichageDuPost{
+        margin-top: 50px;
+    }
+        
+    .partieDescriptionUnMsg{
+        #pseudoCreateur{
+            font-size: 12px;
+        }
+        #dateCreation{
+            font-size: 12px;
+        }
+        .pAfficheImg{
+            font-size: 12px;    
+            img{
+                height: 60px;
+                max-width: 60px;
+            }
+        }
+        .pAfficheInitiale{
+            font-size: 12px;       
+            span{
+               font-size: 12px;
+            }
+        }
+    }
+    
+    
+    .VisibleContenu{
+        font-size: 15px;
+        height: 35px;
+    }
+    
+ }
+
+
+ @media (max-width: 670px) { 
+         
+     .partieDescriptionUnMsg{
+         #pseudoCreateur{
+             font-size: 11px;
+         }
+         #dateCreation{
+             font-size: 11px;
+         }
+         .pAfficheImg{
+            font-size: 11px;    
+            img{
+                height: 50px;
+                max-width: 50px;
+            }
+        }
+         .pAfficheInitiale{
+             font-size: 11px;       
+             span{
+                font-size: 11px;
+             }
+         }
+     }
+     
+     
+     .VisibleContenu{
+         font-size: 13px;
+         height: 35px;
+     }
+
+     .creationMessage{
+        .partieCreationMessage{
+            @include display(column,center,center);
+            h1{
+                font-size: 20px;
+                text-align: center;
+            }
+            p:nth-child(2){
+                font-size: 13px;
+                text-align: center;
+            }
+            div{              
+                textarea{
+                    font-size: 13px;
+                }
+            }
+            p:nth-child(5){
+                font-size: 13px;
+                text-align: center;
+            }
+        }
+        .partieRemonterMessage{
+            div{
+                width: 60%;
+            }
+            h2{
+                font-size: 20px;
+                text-align: center;
+            }
+            p{
+                font-size: 13px;
+                text-align: center;
+            }
+            button{
+                width: 300px;
+            }
+        }
+    }
+     
+  }
+
+
+
+ 

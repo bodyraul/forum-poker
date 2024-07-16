@@ -35,7 +35,6 @@ function App() {
  
       axios.get("/photo/prefImage",config)
       .then((res)=>{
-        console.log(res.data);
         setimgPref(res.data[0].image);
       })
       .catch((err)=>console.log(err));

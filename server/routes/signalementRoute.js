@@ -78,7 +78,6 @@ router.delete("/signalementMessage/:id",auth,async(req,res)=>{
        const allSignalementDuMsg = await SignalementMessage.find({idMessage:idMessage});
        if(allSignalementDuMsg.length === 0){
             const msg = await Message.findOne({_id:idMessage});
-            console.log(msg);
             msg.signalement =false;
             await msg.save();
        }
@@ -328,25 +327,23 @@ router.delete("/supprimerSignalementMsg/:id",role,async(req,res)=>{
 //route qui permet de supprimer  les signalement d'un post lorsqu'il a été traité et de mettre signalement à false s'il n'y a plus 
 //de signalement sur ce message
 
-router.delete("/supprimerSignalementPost/:id",role,async(req,res)=>{
-    try {
-        const idPost= req.params.id;
-        const listSignalementPost = await SignalementPost.find({idPost:idPost});
-        console.log(listSignalementPost);
-        if(listSignalementPost.length===0){
-            return res.json("Il n'y a aucun signalement pour ce post");
-        }
-        listSignalementPost.forEach(async element =>await element.remove());
-        const post = await Post.findById(idPost);
-        console.log(post);
-        post.signalement=false;
-        post.traiter=true;
-        await post.save();
-        res.json("signalements supprimés");
-    } catch (error) {
-        res.status(500).json(error.message);
-    }
-})
+// router.delete("/supprimerSignalementPost/:id",role,async(req,res)=>{
+//     try {
+//         const idPost= req.params.id;
+//         const listSignalementPost = await SignalementPost.find({idPost:idPost});
+//         if(listSignalementPost.length===0){
+//             return res.json("Il n'y a aucun signalement pour ce post");
+//         }
+//         listSignalementPost.forEach(async element =>await element.remove());
+//         const post = await Post.findById(idPost);
+//         post.signalement=false;
+//         post.traiter=true;
+//         await post.save();
+//         res.json("signalements supprimés");
+//     } catch (error) {
+//         res.status(500).json(error.message);
+//     }
+// })
 
 
 
