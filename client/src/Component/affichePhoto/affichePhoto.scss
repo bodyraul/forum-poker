@@ -1,88 +1,147 @@
 @import '../../variableFont/variable.scss';
 
-.containerAffichePhoto{
-    position: absolute;
-    top: 100px;
-    width: 700px;
-    height: 700px;
-    background-color: $blanc;
-    border: solid 1px $vertFoncer;
-    div{
-        height: 50%;
-        width: 100%;
-    }
-    div:nth-child(1){
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-evenly;
-       .imgClassBase{
-            height: 50%;
-            border: solid 1px $vertFoncer;
-            width: 30%;
-            @include display(row,center,center);
-            img{
-                height: 100%;
-            };
-        }
-        .erroMessageAffichePhoto{
-            color: #ef4444;
-            font-size: 19px;
-            height: 19px;
-        }
-        p:nth-child(3){
-            input{
-                color: $vertFoncer;
+    .containerAffichePhoto{
+        position: absolute;
+        top: 300px;
+        width: 600px;
+        height: 500px;
+        background-color: $blanc;
+        border: solid 1px $vertFoncer;
+        z-index: 2;
+        div:nth-child(1){
+            height: 70%;
+            @include display(column,center,space-evenly);
+           .imgClassBase{
+                height: 40%;
+                border: dashed 1px $vertFoncer;
+                width: 30%;
+                @include display(row,center,center);
+                img{
+                    height: 100%;
+                };
             }
-            input[type=file]::file-selector-button {
-                margin-right: 8px;
-                border: solid 1px $vertFoncer;
-                background: $vertFoncer;
-                padding: 8px 12px;
-                color: white;
-                transition: all 0.3s ease-in-out;
-                &:hover{
-                    cursor: pointer;
-                    background-color: white;
+            .erroMessageAffichePhoto{
+                color: #ef4444;
+                font-size: 19px;
+                height: 19px;
+            }
+            p:nth-child(3){
+                input{
                     color: $vertFoncer;
                 }
-              }
+                input[type=file]::file-selector-button {
+                    margin-right: 8px;
+                    border: solid 1px $vertFoncer;
+                    background: $vertFoncer;
+                    padding: 8px 12px;
+                    color: white;
+                    transition: all 0.3s ease-in-out;
+                    &:hover{
+                        cursor: pointer;
+                        background-color: white;
+                        color: $vertFoncer;
+                    }
+                  }
+            }
+            p:nth-child(4){
+                width: 100%;
+                @include display(row,center,space-evenly);
+                button{
+                    border: solid 1px $vertFoncer;
+                    background: $vertFoncer;
+                    padding: 8px 12px;
+                    color: white;
+                    transition: all 0.3s ease-in-out;
+                    &:hover{
+                        cursor: pointer;
+                        background-color: white;
+                        color: $vertFoncer;
+                    }
+                }
+            }
         }
-        p:nth-child(4){
-            width: 100%;
+        div:nth-child(2){
+            height: 30%;
             @include display(row,center,space-evenly);
-            button{
-                border: solid 1px $vertFoncer;
-                background: $vertFoncer;
-                padding: 8px 12px;
+            background-color: $vertFoncer;
+            .messageNoPhoto{
                 color: white;
-                transition: all 0.3s ease-in-out;
+                font-size: 20px;
+            }
+            img{
+                height: 70%;
+                max-width: 33%;
+                border-radius: 5px;
                 &:hover{
                     cursor: pointer;
-                    background-color: white;
-                    color: $vertFoncer;
                 }
             }
         }
     }
-    div:nth-child(2){
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-        background-color: $vertFoncer;
-        .messageNoPhoto{
-            color: white;
-            font-size: 20px;
-        }
-        img{
-            height: 50%;
-            max-width: 33%;
-            &:hover{
-                cursor: pointer;
+    
+
+    @media (max-width: 990px) {
+        .containerAffichePhoto{
+            width: 450px;
+            height: 500px;
+            div:nth-child(1){
+                .erroMessageAffichePhoto{
+                    font-size: 12px;
+                }
+                p:nth-child(3){
+                    input{
+                        font-size: 12px;
+                    }
+                }
+                p:nth-child(4){
+                    button{
+                        font-size: 12px;
+                    }
+                }
             }
         }
     }
-}
+
+
+    @media (max-width: 670px) {
+        .containerAffichePhoto{
+            width: 300px;
+            height: 800px;
+            div:nth-child(1){
+                height: 50%;
+               .imgClassBase{
+                    height: 40%;
+                    width: 50%;
+                    @include display(row,center,center);
+                    img{
+                        height: 50%;
+                        max-width: 100%;
+                    };
+                }
+                p:nth-child(3){
+                    @include display(row,center,center);
+                    height: 10%;
+                    input{
+                        width: 80%;
+                    }
+                }
+                p:nth-child(4){
+                    height: 50%;
+                    width: 100%;
+                    @include display(column,center,space-evenly);
+                }
+            }
+            div:nth-child(2){
+                height: 50%;
+                @include display(column,center,space-evenly);
+                .messageNoPhoto{
+                    font-size: 12px;
+                }
+                img{
+                    height: 25%;
+                    max-width: 100%;
+                   
+                }
+            }
+        }
+    }

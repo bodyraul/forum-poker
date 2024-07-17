@@ -1,27 +1,22 @@
 .containerAffichePhoto {
   position: absolute;
-  top: 100px;
-  width: 700px;
-  height: 700px;
+  top: 300px;
+  width: 600px;
+  height: 500px;
   background-color: #ffffff;
   border: solid 1px #547981;
-}
-.containerAffichePhoto div {
-  height: 50%;
-  width: 100%;
+  z-index: 2;
 }
 .containerAffichePhoto div:nth-child(1) {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 70%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
 }
 .containerAffichePhoto div:nth-child(1) .imgClassBase {
-  height: 50%;
-  border: solid 1px #547981;
+  height: 40%;
+  border: dashed 1px #547981;
   width: 30%;
   display: flex;
   flex-direction: row;
@@ -72,7 +67,9 @@
   color: #547981;
 }
 .containerAffichePhoto div:nth-child(2) {
+  height: 30%;
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
   background-color: #547981;
@@ -82,9 +79,79 @@
   font-size: 20px;
 }
 .containerAffichePhoto div:nth-child(2) img {
-  height: 50%;
+  height: 70%;
   max-width: 33%;
+  border-radius: 5px;
 }
 .containerAffichePhoto div:nth-child(2) img:hover {
   cursor: pointer;
+}
+
+@media (max-width: 990px) {
+  .containerAffichePhoto {
+    width: 450px;
+    height: 500px;
+  }
+  .containerAffichePhoto div:nth-child(1) .erroMessageAffichePhoto {
+    font-size: 12px;
+  }
+  .containerAffichePhoto div:nth-child(1) p:nth-child(3) input {
+    font-size: 12px;
+  }
+  .containerAffichePhoto div:nth-child(1) p:nth-child(4) button {
+    font-size: 12px;
+  }
+}
+@media (max-width: 670px) {
+  .containerAffichePhoto {
+    width: 300px;
+    height: 800px;
+  }
+  .containerAffichePhoto div:nth-child(1) {
+    height: 50%;
+  }
+  .containerAffichePhoto div:nth-child(1) .imgClassBase {
+    height: 40%;
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  .containerAffichePhoto div:nth-child(1) .imgClassBase img {
+    height: 50%;
+    max-width: 100%;
+  }
+  .containerAffichePhoto div:nth-child(1) p:nth-child(3) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 10%;
+  }
+  .containerAffichePhoto div:nth-child(1) p:nth-child(3) input {
+    width: 80%;
+  }
+  .containerAffichePhoto div:nth-child(1) p:nth-child(4) {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  .containerAffichePhoto div:nth-child(2) {
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  .containerAffichePhoto div:nth-child(2) .messageNoPhoto {
+    font-size: 12px;
+  }
+  .containerAffichePhoto div:nth-child(2) img {
+    height: 25%;
+    max-width: 100%;
+  }
 }/*# sourceMappingURL=affichePhoto.css.map */

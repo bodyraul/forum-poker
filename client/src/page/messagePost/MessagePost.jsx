@@ -314,7 +314,7 @@ export default function MessagesPost(props) {
                       {afficheImgOnMajImg(element)}
                       <span id='pseudoCreateur'>{" "+element.pseudoCreateurMessage}</span>
                   </div>
-                  <span span id='dateCreation'>{element.dateCreation}</span>
+                  <span  id='dateCreation'>{element.dateCreation}</span>
                 </div>
                 <p className='VisibleContenu noActive' ref={titrecontenu}>
                   {element.contenu} 

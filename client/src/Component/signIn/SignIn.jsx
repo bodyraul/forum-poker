@@ -101,6 +101,7 @@ export default function SignUp(props) {
         <div className='SignInLogIn'>
             <button onClick={valideForm}>Connexion</button>
         </div>
+        <p className='erorMsgSignIn'></p>
         <div className='SignInCreateAccount'>
             <p>Vous n'avez toujours pas de compte? Créer</p>
         </div>

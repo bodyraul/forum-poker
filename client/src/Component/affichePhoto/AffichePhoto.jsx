@@ -22,6 +22,9 @@ export default function AffichePhoto(props) {
     Authorization: `Bearer ${token}`,
   },
 };
+  useEffect(() => {
+    console.log(input);
+  }, [input])
 
  async function handleimg(){
    
@@ -84,6 +87,7 @@ export default function AffichePhoto(props) {
   }
 
   function ImgCLick(e,id){
+    seterroMessageAffichePhoto("");
     const allImg =  document.querySelectorAll('.imgChoix');
     allImg.forEach(element => {
         element.style.border = "none";
@@ -129,7 +133,8 @@ export default function AffichePhoto(props) {
   }
 
   return (
-    <div className='containerAffichePhoto'>
+
+     <div className='containerAffichePhoto'>
         <div>
           <p ref={containerImgSolo} className='imgClassBase'>
             <img  ref={refImgSolo} src='' alt="" />
@@ -138,7 +143,7 @@ export default function AffichePhoto(props) {
             {erroMessageAffichePhoto}
           </p>
           <p>
-            <input id='fileUpload' ref={input}  type="file" onChange={e=>setfile(e.target.files[0])} />
+            <input id='fileUpload' ref={input} onClick={()=>  seterroMessageAffichePhoto("")}  type="file" onChange={e=>setfile(e.target.files[0])} />
           </p>
           <p>
             <button  onClick={handleimg}>telecharger</button>
@@ -150,5 +155,6 @@ export default function AffichePhoto(props) {
           {afficheAllImg()}
         </div>
     </div>
+  
   )
 }
