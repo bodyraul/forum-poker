@@ -1,5 +1,5 @@
 .containerAffichePhoto {
-  position: absolute;
+  position: fixed;
   top: 300px;
   width: 600px;
   height: 500px;

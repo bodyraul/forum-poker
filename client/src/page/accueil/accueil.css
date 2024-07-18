@@ -13,7 +13,7 @@ body {
 
 .ContainerForum {
   width: 100vw;
-  padding-top: 100px;
+  padding-top: 200px;
 }
 
 .titrePageAccueil {
@@ -439,6 +439,9 @@ body {
   }
 }
 @media (max-width: 990px) {
+  .ContainerForum {
+    padding-top: 100px;
+  }
   .titrePageAccueil {
     font-size: 30px;
   }
@@ -518,14 +521,29 @@ body {
   .AllBtnRecherchePost {
     width: 100%;
   }
+  .AllBtnRecherchePost div:nth-child(2) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 80%;
+  }
   .AllBtnRecherchePost div:nth-child(2) input {
+    margin-left: 0px;
     width: 100px;
+    margin-left: 0px;
   }
   .AllBtnRecherchePost div:nth-child(2) input::-moz-placeholder {
     font-size: 11px;
   }
   .AllBtnRecherchePost div:nth-child(2) input::placeholder {
     font-size: 11px;
+  }
+  .AllBtnRecherchePost div:nth-child(2) button:nth-child(2), .AllBtnRecherchePost div:nth-child(2) button:nth-child(3) {
+    margin-left: 0px;
+  }
+  .AllBtnRecherchePost div:nth-child(2) button {
+    margin-left: 0px;
   }
   .affichageAllPosts {
     width: 100%;
@@ -618,5 +636,23 @@ body {
   .creationPost .partieRemonter button {
     width: 180px;
     padding: 15px 0;
+  }
+}
+@media (max-width: 460px) {
+  .AllBtnRecherchePost div:nth-child(2) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 95%;
+  }
+  .AllBtnRecherchePost div:nth-child(2) input {
+    width: 80px;
+  }
+  .AllBtnRecherchePost div:nth-child(2) input::-moz-placeholder {
+    font-size: 9px;
+  }
+  .AllBtnRecherchePost div:nth-child(2) input::placeholder {
+    font-size: 9px;
   }
 }/*# sourceMappingURL=accueil.css.map */

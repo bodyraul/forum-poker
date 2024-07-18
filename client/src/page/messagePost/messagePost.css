@@ -276,13 +276,22 @@ body {
     justify-content: center;
   }
   .creationMessage .partieCreationMessage {
-    width: 80%;
+    width: 90%;
   }
   .creationMessage .partieCreationMessage div textarea {
     width: 100%;
   }
 }
 @media (max-width: 990px) {
+  .creationMessage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .creationMessage .partieCreationMessage {
+    width: 100%;
+  }
   .titrePartieMonPost {
     font-size: 30px;
   }
@@ -353,6 +362,7 @@ body {
   .creationMessage .partieCreationMessage p:nth-child(2) {
     font-size: 13px;
     text-align: center;
+    padding-bottom: 0px;
   }
   .creationMessage .partieCreationMessage div textarea {
     font-size: 13px;

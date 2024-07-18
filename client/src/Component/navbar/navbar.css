@@ -29,25 +29,25 @@
   background: linear-gradient(90deg, #44ADA8 0%, #547981 100%);
 }
 
-.AllLink {
-  color: #ffffff;
-  font-size: 25px;
-  text-decoration: none;
-}
-.AllLink:hover {
-  cursor: default;
-}
-
-.AllLink:not(:last-child) {
+.AllLink:not(#pseudoNav) {
   color: #ffffff;
   font-size: 25px;
   text-decoration: none;
   transition: transform 0.2s ease-in-out;
 }
-.AllLink:not(:last-child):hover {
+.AllLink:not(#pseudoNav):hover {
   transform: scale(0.9);
   opacity: 0.6;
   cursor: pointer;
+}
+
+#pseudoNav {
+  color: #ffffff;
+  font-size: 25px;
+  text-decoration: none;
+}
+#pseudoNav:hover {
+  cursor: default;
 }
 
 #nameNav {
@@ -102,14 +102,14 @@
   .navbar {
     width: 75%;
   }
-  .navbar .AllLink {
-    font-size: 20px;
-  }
-  .navbar .AllLink:not(:last-child) {
-    font-size: 20px;
-  }
   #nameNav {
     right: 2%;
+  }
+  .AllLink:not(#pseudoNav) {
+    font-size: 20px;
+  }
+  #pseudoNav {
+    font-size: 20px;
   }
 }
 .containerNavResponsive {
@@ -132,7 +132,7 @@
   justify-content: space-between;
 }
 .containerNavResponsive .navbarResponsive img {
-  height: 50px;
+  height: 40px;
   max-width: 80px;
   margin-left: 50px;
 }
@@ -177,21 +177,31 @@
   align-items: center;
   justify-content: space-evenly;
 }
+.affichierLien nav .AllLink {
+  font-size: 20px;
+}
 .affichierLien nav .closeNavResponsive {
   position: absolute;
   top: 5%;
-  right: 5%;
-  width: 40px;
+  right: 7%;
+  width: 30px;
+  height: 30px;
 }
 .affichierLien nav .closeNavResponsive:hover {
   cursor: pointer;
 }
 
 .affichePseudoNavResponsive {
+  width: 30px;
+  height: 30px;
   position: absolute;
   top: 5%;
-  left: 5%;
+  left: 7%;
   color: #ffffff;
   font-size: 25px;
   text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }/*# sourceMappingURL=navbar.css.map */

@@ -97,7 +97,7 @@ export default function Navbar(props) {
               }} to={"/#/connexion"}>Deconnexion </Link>
             {admin===true? <Link className='AllLink' to={"/admin"}>admin </Link> : ""}
             <Link className='AllLink' >Support </Link>
-            <Link className='AllLink' >{pseudo} </Link>
+            <Link id='pseudoNav' className='AllLink' >{pseudo} </Link>
           </nav>
           {props.imgPref.length>0 ? <p  onClick={modifPhoto}  id='imgPref'><img alt='' src={props.imgPref}></img></p> :  <p onClick={modifPhoto} id='nameNav'> <span>{nom} .</span>  <span>{prenom}</span> </p>}
           {bolAffichePhoto ? <AffichePhoto idPost={props.idPost} setidPost={props.setidPost} allMsg={props.allMsg} setallMsg={props.setallMsg} bolAffichePhoto={bolAffichePhoto} setbolAffichePhoto={setbolAffichePhoto} setallImg= {props.setallImg} allImg = {props.allImg} imgPref={props.imgPref} setimgPref={props.setimgPref} /> : " "}

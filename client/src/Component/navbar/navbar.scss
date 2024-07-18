@@ -33,15 +33,8 @@
     background : $background;
 }
 
-.AllLink{
-    color: $blanc;
-    font-size: 25px;
-    text-decoration: none;
-    &:hover{
-        cursor: default;
-    }
-}
-.AllLink:not(:last-child){
+
+.AllLink:not(#pseudoNav){
     color: $blanc;
     font-size: 25px;
     text-decoration: none;
@@ -53,6 +46,14 @@
     }
 }
 
+#pseudoNav{
+    color: $blanc;
+    font-size: 25px;
+    text-decoration: none;
+    &:hover{
+        cursor: default;
+    }
+}
 
 #nameNav{
     position: fixed;
@@ -102,16 +103,18 @@
 @media (max-width: 1600px) {
     .navbar{
         width: 75%;
-        .AllLink{
-            font-size: 20px;
-        }
-        .AllLink:not(:last-child){
-            font-size: 20px;
-        }
     }
 
     #nameNav{
         right: 2%;
+    }
+
+    .AllLink:not(#pseudoNav){
+        font-size: 20px;
+    }
+    
+    #pseudoNav{
+        font-size: 20px;
     }
 }
 
@@ -130,7 +133,7 @@
         height: 150px;
         @include display(row,center,space-between);
         img{
-            height: 50px;
+            height: 40px;
             max-width: 80px;
             margin-left: 50px;
             &:hover{
@@ -172,11 +175,15 @@
         width: 100%;
         height: 100%;
         @include display(column,center,space-evenly);
+        .AllLink{
+            font-size: 20px;
+        }
         .closeNavResponsive{
             position: absolute;
             top: 5%;
-            right: 5%;
-            width: 40px;
+            right: 7%;
+            width: 30px;
+            height: 30px;
             &:hover{
                 cursor: pointer;
             }
@@ -185,10 +192,13 @@
 }
 
 .affichePseudoNavResponsive{
+    width: 30px;
+    height: 30px;
     position: absolute;
     top: 5%;
-    left: 5%;
+    left: 7%;
     color: $blanc;
     font-size: 25px;
     text-decoration: none;
+    @include display(row,center,center);
 }

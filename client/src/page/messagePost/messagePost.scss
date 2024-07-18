@@ -267,7 +267,7 @@ border:3px solid $vertClair;
     .creationMessage{
         @include display(column,center,center);
         .partieCreationMessage{
-            width: 80%;
+            width: 90%;
             div{
               
                 textarea{
@@ -281,6 +281,14 @@ border:3px solid $vertClair;
 
 
 @media (max-width: 990px) { 
+    .creationMessage{
+        @include display(column,center,center);
+        .partieCreationMessage{
+            width: 100%;
+        }
+    }
+
+
    .titrePartieMonPost{
     font-size: 30px;
    }
@@ -364,6 +372,7 @@ border:3px solid $vertClair;
             p:nth-child(2){
                 font-size: 13px;
                 text-align: center;
+                padding-bottom: 0px;
             }
             div{              
                 textarea{
