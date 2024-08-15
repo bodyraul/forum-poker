@@ -4,7 +4,6 @@ import { useEffect } from 'react'
 import { useRef } from 'react'
 import croix from '../../photo/croix.png'
 import { useContext } from 'react';
-import { ConfidentialiteContext } from '../../Context/ConfidentialiteContext';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthContext';
 import { useState } from 'react'
@@ -12,7 +11,6 @@ import axios from 'axios'
 
 export default function SignUp(props) {
     const navigate = useNavigate();
-    const {confidentialite,setconfidentialite}  = useContext(ConfidentialiteContext);
     const ContainerSignIn = useRef();
     const [mail, setmail] = useState("");
     const [password, setpassword] = useState(""); 

@@ -108,6 +108,7 @@ router.get("/",async(req,res)=>{
 //route qui permet de créer un post
 router.post("/creerPost",auth,async(req,res)=>{
    try {
+    console.log(req.body);
     const user = req.payload.id;
     if(!user){
         return res.json("vous devez être connecté pour créer un post");

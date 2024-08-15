@@ -1,10 +1,7 @@
 import React from 'react'
 import './signUp.css'
-import { useContext } from 'react';
 import { useState } from 'react'
-import {useNavigate} from "react-router-dom";
 import { useEffect } from 'react';
-import { ConfidentialiteContext } from '../../Context/ConfidentialiteContext';
 import croix from '../../photo/croix.png'
 import { useRef } from 'react';
 import axios from 'axios';
@@ -18,54 +15,49 @@ export default function SignUp(props) {
   const [password, setpassword] = useState("");
   const [confirmPassword, setconfirmPassword] = useState("");
   const [errorMsg, seterrorMsg] = useState("");
-  const [btnDonnes, setbtnDonnes] = useState(false);
-  const {confidentialite,setconfidentialite}  = useContext(ConfidentialiteContext);
-  const navigate = useNavigate();
 
-
-
-  const validerForm = (e)=>{
+  function validerForm(e) {
     e.preventDefault();
     const notNombre = new RegExp("^[^0-9]+$");
-    const mailRegex = new RegExp(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
-    if(nom.length===0){
+    const mailRegex = new RegExp(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+    if (nom.length === 0) {
       return seterrorMsg("le nom ne peut pas être vide.");
     }
-    if(!notNombre.test(nom)){
+    if (!notNombre.test(nom)) {
       return seterrorMsg("le nom ne peut pas contenir de chiffre.");
     }
-    if(prenom.length===0){
+    if (prenom.length === 0) {
       return seterrorMsg("le prénom ne peut pas être vide.");
     }
-    if(!notNombre.test(prenom)){
+    if (!notNombre.test(prenom)) {
       return seterrorMsg("le prénom ne peut pas contenir de chiffre.");
     }
-    if(pseudonyme.length===0){
+    if (pseudonyme.length === 0) {
       return seterrorMsg("le pseudonyme ne peut pas être vide.");
     }
-    if(pseudonyme.length>15){
+    if (pseudonyme.length > 15) {
       return seterrorMsg("le pseudonyme ne peut contenir plus de 15 caractères.");
     }
-    if(email.length===0){
+    if (email.length === 0) {
       return seterrorMsg("l'email ne peut pas être vide.");
     }
-    if(!mailRegex.test(email)){
+    if (!mailRegex.test(email)) {
       return seterrorMsg("Cela ne correspond pas à un email.");
     }
-    if(password.length===0){
+    if (password.length === 0) {
       return seterrorMsg("Le mot de passe ne peut pas être vide");
     }
-    if(confirmPassword!==password){
+    if (confirmPassword !== password) {
       return seterrorMsg("Les deux mots de passe sont différents.");
     }
-    const user ={nom,prenom,pseudonyme,email,password};
-    axios.post("/user/register",user)
-    .then((res)=>{
-      props.setSignUp(false);
-      props.setSignIn(true);
-    })
-    .catch((err)=>seterrorMsg(err.response.data));
-    
+    const user = { nom, prenom, pseudonyme, email, password };
+    axios.post("/user/register", user)
+      .then((res) => {
+        props.setSignUp(false);
+        props.setSignIn(true);
+      })
+      .catch((err) => seterrorMsg(err.response.data));
+
   }
 
   const ContainerSignUp = useRef();
@@ -103,7 +95,7 @@ export default function SignUp(props) {
            
         </div>
         <div className='SignUpInput'>
-            <input value={nom} onChange={(e)=>{setnom(e.target.value);seterrorMsg("")}} placeholder='exemple : Peria' type="text" />
+            <input name='nom' value={nom}  onChange={(e)=>{setnom(e.target.value);seterrorMsg("")}} placeholder='exemple : Peria' type="text" />
             <input value={prenom} onChange={(e)=>{setprenom(e.target.value);seterrorMsg("")}} placeholder='exemple : Aurelien' type="text" />
         </div>
         <div className='SignUpLabel'>
