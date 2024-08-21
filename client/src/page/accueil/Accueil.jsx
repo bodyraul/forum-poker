@@ -206,14 +206,21 @@ export default function Accueil(props) {
   return (
     <div class="w-screen pt-44 ">
       <p class="text-center text-5xl text-vertFoncer">Forum</p>
-      <div className="AllBtnRecherchePost">
+      <div class="py-2.5 px-0 h-auto mx-auto my-0 mt-24 flex items-center justify-between border-solid border border-gris w-1400">
         <div>
-          <div onClick={cliqueCategories}>
+          <div
+            class="py-1 px-0 w-32 my-0 mx-4 bg-blanc text-vertFoncer border-solid border border-vertFoncer text-base transition-all duration-200 ease-in-out flex items-center justify-around relative hover:cursor-pointer"
+            onClick={cliqueCategories}
+          >
             {boolCategorieSearch ? (
-              <div ref={allCategoriesSearch}>
+              <div
+                class="absolute bg-blanc w-32 h-36 -bottom-36 z-10 p-0 border-solid border border-l-vertClair border-r-vertClair border-t-vertClair border-b-0 flex-col items-center justify-center"
+                ref={allCategoriesSearch}
+              >
                 {categories.map((element) => {
                   return (
                     <input
+                      class="text-xs text-center text-blanc w-full h-12 border-solid border border-l-0 border-r-0 border-t-0 border-b-blanc bg-vertClair outline-none transition-all duration-200 ease-in-out hover:cursor-pointer hover:bg-blanc hover:text-vertClair"
                       key={element._id}
                       onClick={(e) => choiseCategoriesSearch(e)}
                       type="input"
@@ -226,11 +233,12 @@ export default function Accueil(props) {
               ""
             )}
             <span>Catégories</span>
-            <img src={flecheBas} alt=""></img>
+            <img class="w-5" src={flecheBas} alt=""></img>
           </div>
         </div>
-        <div>
+        <div class="flex items-center justify-around w-auto">
           <input
+            class="text-base text-vertFoncer border-solid border border-vertFoncer p-1 ml-4 outline-vertFoncer placeholder:text-vertFoncer"
             ref={inputsearchSujetAuteur}
             onClick={() => seterrorMessage("")}
             value={recherchePost}
@@ -241,48 +249,84 @@ export default function Accueil(props) {
             type="text"
             placeholder="Rechercher sujet"
           />
-          <button ref={inputSujet} onClick={cliqueSujet}>
+          <button
+            class="text-base bg-vertFoncer text-blanc border-solid border border-vertFoncer ml-4 w-14  hover:cursor-pointer"
+            ref={inputSujet}
+            onClick={cliqueSujet}
+          >
             Sujet
           </button>
-          <button ref={inputAuteur} onClick={cliqueAuteur}>
+          <button
+            class="text-base bg-blanc text-vertFoncer border-solid border border-vertFoncer ml-4 w-14  hover:cursor-pointer"
+            ref={inputAuteur}
+            onClick={cliqueAuteur}
+          >
             Auteur
           </button>
-          <button onClick={valideRecherche}>Rechercher</button>
+          <button
+            class="text-base bg-blanc text-vertFoncer border-solid border border-vertFoncer ml-4 p-1 hover:cursor-pointer"
+            onClick={valideRecherche}
+          >
+            Rechercher
+          </button>
         </div>
-        <div>
-          <button onClick={afficheAllPost}>Posts</button>
-          <button onClick={scrollToNewPost}>Nouveau post</button>
+        <div class="w-auto flex items-center justify-evenly">
+          <button
+            class="mr-4 py-2 px-4 border-solid text-vertClair border border-vertClair rounded-lg text-base transition-all duration-300 ease-in-out hover:bg-vertClair hover:text-blanc hover:border-blanc hover:cursor-pointer "
+            onClick={afficheAllPost}
+          >
+            Posts
+          </button>
+          <button
+            class="mr-5 py-2 px-4 border-solid text-vertClair border border-vertClair rounded-lg text-base transition-all duration-300 ease-in-out hover:bg-vertClair hover:text-blanc hover:border-blanc hover:cursor-pointer "
+            onClick={scrollToNewPost}
+          >
+            Nouveau post
+          </button>
         </div>
       </div>
-      <p className="erroMessageRecherche"> {errorMessage} </p>
-      <div className="affichageAllPosts">
-        <div className="ligneTitre">
-          <div>
-            <p>Sujet</p>
+      <p class="flex items-center justify-center w-1400 my-0 mx-auto text-error text-xl h-12">
+        {" "}
+        {errorMessage}{" "}
+      </p>
+      <div class="w-1400 mt-0 mb-24 mx-auto">
+        <div class="h-12 flex items-center border-solid border border-gris bg-blanc text-vertFoncer font-bold text-xl">
+          <div class="w-9/12 ">
+            <p class="ml-10 w-36 text-center">Sujet</p>
           </div>
-          <p>Réponses</p>
-          <p>Auteur</p>
-          <p>Date</p>
+          <p class="w-1/12 text-center">Réponses</p>
+          <p class="w-1/12 text-center">Auteur</p>
+          <p class="w-1/12 text-center">Date</p>
         </div>
         {allPostPerPage.map((element) => {
           return (
             <div
               key={element._id}
               onClick={() => accesPageMessagePost(element._id)}
-              className="ligneContenu"
+              class="h-36 flex-col border-solid border border-gris bg-blanc text-xl hover:cursor-pointer"
             >
-              <div className="partieCatMsgPost">
-                <div>
-                  <p>{element.categorie}</p>
+              <div class="h-3/6 w-full flex items-center justify-center">
+                <div class="w-9/12 ">
+                  <p class="ml-10 w-36  py-1 px-0 text-vertClair text-sm text-center bg-grisFonce">
+                    {element.categorie}
+                  </p>
                 </div>
-                <div>
-                  <p>{element.nombreMessages}</p>
-                  <p>{element.pseudoCreateur}</p>
-                  <p>{element.dateCreation}</p>
+                <div class="w-3/12 flex items-center justify-evenly ">
+                  <p class="w-1/3 text-vertClair text-center text-base">
+                    {element.nombreMessages}
+                  </p>
+                  <p class="w-1/3 text-vertClair text-center text-base">
+                    {element.pseudoCreateur}
+                  </p>
+                  <p class="w-1/3 text-vertClair text-center text-base">
+                    {element.dateCreation}
+                  </p>
                 </div>
               </div>
-              <div className="partieTitrePost">
-                <p>{element.titre}</p>
+              <div class="h-2/4 w-9/12">
+                <p class="m-y-0 ml-10 mr-10 text-vertFoncer line-clamp-2 text-base">
+                  {element.titre}
+                </p>
               </div>
             </div>
           );
@@ -293,25 +337,29 @@ export default function Accueil(props) {
         totalPosts={listePost.length}
         paginate={paginate}
       />
-      <div className="creationPost">
-        <div className="partieCreation">
-          <h1>Créer un nouveau Post.</h1>
-          <p className="pQuestion">
+      <div class="w-1400 mt-24 mx-auto mb-0 flex items-start justify-center">
+        <div class="bg-blanc py-7 px-6 w-3/5 border-solid border-2 border-gris">
+          <h1 class="text-vertFoncer pb-6 text-4xl">Créer un nouveau Post.</h1>
+          <p class="text-vertFoncer pb-6 text-xl">
             Donnez votre point de vue sur un cas particulier.
           </p>
-          <h3>Titre : </h3>
+          <h3 class="text-vertFoncer pb-5 pt-6">Titre : </h3>
           <input
+            class="outline-vertFoncer border-solid border border-vertFoncer text-vertFoncer py-3 px-2 w-96"
             value={valueTitrePost}
             onChange={(e) => setvalueTitrePost(e.target.value)}
             onClick={() => seterrorMsgCreerPost("")}
             placeholder="Entrez votre titre"
             type="text"
           />
-          <h3>Catégorie : </h3>
-          <div>
+          <h3 class="text-vertFoncer pt-14 px-0 pb-4">Catégorie : </h3>
+          <div class="pt-3 flex-col items-center justify-between w-96">
             {categories.map((element) => {
               return (
-                <p key={element._id}>
+                <p
+                  class="flex items-center justify-between w-full text-vertFoncer text-base pb-6"
+                  key={element._id}
+                >
                   <label htmlFor="">- {element.titre}</label>
                   <input
                     onClick={(e) => gestionRadio(e)}
@@ -323,17 +371,31 @@ export default function Accueil(props) {
               );
             })}
           </div>
-          <p ref={errorMsgPost} className="errorMsgPost">
+          <p ref={errorMsgPost} class="h-12 text-error text-base">
             {" "}
             {errorMsgCreerPost}{" "}
           </p>
-          <button onClick={creerPost}>Créer</button>
+          <button
+            class="py-3 px-4 text-vertFoncer border-solid border border-vertFoncer bg-blanc rounded-md transition-all duration-200 ease-in-out hover:cursor-pointer hover:bg-vertFoncer hover:text-blanc"
+            onClick={creerPost}
+          >
+            Créer
+          </button>
         </div>
-        <div className="partieRemonter">
-          <div></div>
-          <h2>Post similaire déjà créé?</h2>
-          <p>Faites une recherche par sujet,auteur ou catégorie.</p>
-          <button onClick={scroolToSearchPost}>Accéder à la recherche</button>
+        <div class="py-7 px-6 w-2/5 flex-col items-center">
+          <div class="border-solid border-2 border-gris w-400 h-24"></div>
+          <h2 class="text-2xl py-6 px-0 text-vertClair">
+            Post similaire déjà créé?
+          </h2>
+          <p class=" text-vertClair text-base pb-6">
+            Faites une recherche par sujet,auteur ou catégorie.
+          </p>
+          <button
+            class="w-400 py-5 px-0 text-vertClair border-solid border border-vertClair bg-blanc rounded transition-all duration-200 ease-in-out hover:cursor-pointer hover:bg-vertClair hover:text-blanc"
+            onClick={scroolToSearchPost}
+          >
+            Accéder à la recherche
+          </button>
         </div>
       </div>
     </div>
