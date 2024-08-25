@@ -1,193 +1,190 @@
-@import '../../variableFont/variable.scss';
+@import "../../variableFont/variable.scss";
 
-.ContainerSignUp{
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 600px;
-    height: 680px;
-    background: rgb(250,110,89);
-    background: $background;    
-    opacity: 1;
-    z-index: 5000;
-    transform: translateX(-50%) translateY(-50%);
-    border-radius: 20px;
-    padding: 35px 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
+// .ContainerSignUp{
+//     position: fixed;
+//     top: 50%;
+//     left: 50%;
+//     width: 600px;
+//     height: 680px;
+//     background: rgb(250,110,89);
+//     background: $background;
+//     opacity: 1;
+//     z-index: 5000;
+//     transform: translateX(-50%) translateY(-50%);
+//     border-radius: 20px;
+//     padding: 35px 15px;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: space-between;
+// }
+
+// .SignUpTitreBtn{
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     width: 100%;
+//     position: relative;
+//     color: 	$blanc;
+//     button{
+//         width: 30px;
+//         height: 30px;
+//         position: absolute;
+//         right: 0px ;
+//         border-radius: 50%;
+//         border: none;
+//         background-color: #00000000;
+//         transition: all 0.2s ease-in-out;
+//         img{
+//             width: 30px;
+//         }
+//         &:hover{
+//             transform: rotate(90deg);
+//             cursor: pointer;
+//         }
+//     }
+//     h2{
+//         font-size: 30px;
+//     }
+// }
+
+// .SignUpInput{
+//     width: 100%;
+//     display: flex;
+//     flex-direction: row;
+//     align-items: flex-start;
+//     justify-content: space-evenly;
+//     input:focus{
+//         outline-color: $blanc;
+//         outline-style: double;
+//     }
+//     input:nth-child(1),input:nth-child(2){
+//         margin-bottom: 22px;
+//         padding: 10px;
+//         width: 40%;
+//         border-radius: 8px;
+//         border: solid 1px white;
+//         color: 	$blanc;
+//         font-size: 15px;
+//         background-color: $vertFoncer;
+//         &::placeholder{
+//             color: 	$blanc;
+//             font-size: 15px;
+//         }
+//     }
+// }
+
+// .SignUpLabel{
+//     width: 100%;
+//     display: flex;
+//     flex-direction: row;
+//     align-items: flex-start;
+//     justify-content: space-evenly;
+//     .divLabel{
+//         width: 40%;
+//         display: flex;
+//         flex-direction: row;
+//         align-items: center;
+//         justify-content: center;
+//         label:nth-child(1),label:nth-child(2){
+//             margin-bottom: 10px;
+//             color: 	$blanc;
+//             font-size: 22px;
+//         }
+//     }
+// }
+
+// .SignUpLogIn{
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     width: 100%;
+//     width: 100%;
+//     button{
+//         width: 40%;
+//         padding: 10px;
+//         border-radius: 8px;
+//         border: none;
+//         color: 	$blanc;
+//         background-color: $vertFoncer;
+//         font-size: 15px;
+//         border: solid 1px $blanc;
+//         transition: all 0.2s ease-in-out;
+//         &:hover{
+//             cursor: pointer;
+//             border: solid 1px $bleu;
+//             background-color: $blanc;
+//             color: $vertFoncer;
+//         }
+//     }
+// }
+
+// .partieMsgErreurs {
+//   color: rgba(175, 29, 29, 0.508);
+//   font-size: 25px;
+//   height: 30px;
+//   width: 100%;
+//   text-align: center;
+// }
+
+.SignUpCreateAccount {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  color: white;
+  font-size: 17px;
 }
 
-.SignUpTitreBtn{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    position: relative;
-    color: 	$blanc;
-    button{
-        width: 30px;
-        height: 30px;
-        position: absolute;
-        right: 0px ;
-        border-radius: 50%;
-        border: none;
-        background-color: #00000000;
-        transition: all 0.2s ease-in-out;
-        img{
-            width: 30px;
-        }
-        &:hover{
-            transform: rotate(90deg);
-            cursor: pointer;
-        }
-    }
-    h2{
-        font-size: 30px;
-    }
-}
+@media (max-width: 990px) {
+  .ContainerSignUp {
+    width: 350px;
+    height: 600px;
+    padding: 35px 10px;
+  }
 
+  .SignUpTitreBtn {
+    h2 {
+      font-size: 19px;
+    }
+  }
 
-.SignUpInput{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-evenly;
-    input:focus{
-        outline-color: $blanc;
-        outline-style: double;
+  .SignUpInput {
+    input:nth-child(1),
+    input:nth-child(2) {
+      font-size: 12px;
+      &::placeholder {
+        font-size: 12px;
+      }
     }
-    input:nth-child(1),input:nth-child(2){
-        margin-bottom: 22px;
-        padding: 10px;
-        width: 40%;
-        border-radius: 8px;
-        border: solid 1px white;
-        color: 	$blanc;
-        font-size: 15px;
-        background-color: $vertFoncer;
-        &::placeholder{
-            color: 	$blanc;
-            font-size: 15px;
-        }
-    }
-}
+  }
 
-.SignUpLabel{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-evenly;
-    .divLabel{
-        width: 40%;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        label:nth-child(1),label:nth-child(2){
-            margin-bottom: 10px;
-            color: 	$blanc;
-            font-size: 22px;
-        }
-    }
-}
-
-.SignUpLogIn{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    width: 100%;
-    button{
-        width: 40%;
-        padding: 10px;
-        border-radius: 8px;
-        border: none;
-        color: 	$blanc;
-        background-color: $vertFoncer;
-        font-size: 15px;
-        border: solid 1px $blanc;
-        transition: all 0.2s ease-in-out;
-        &:hover{
-            cursor: pointer;
-            border: solid 1px $bleu;
-            background-color: $blanc;
-            color: $vertFoncer;
-        }
-    }
-}
-
-.partieMsgErreurs{
-    color: rgba(175, 29, 29, 0.508);
-    font-size: 25px;
-    height: 30px;
-    width: 100%;
-    text-align: center;
-}
-
-.SignUpCreateAccount{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    color: 	white;
-    font-size: 17px;
-}
-
-
-
-@media (max-width: 990px) { 
-    .ContainerSignUp{
-        width: 350px;
-        height: 600px;
-        padding: 35px 10px;
-    }
-    
-    .SignUpTitreBtn{
-        h2{
-            font-size: 19px;
-        }
-    }
-    
-    
-    .SignUpInput{
-        input:nth-child(1),input:nth-child(2){
-            font-size: 12px;
-            &::placeholder{
-                font-size: 12px;
-            }
-        }
-    }
-    
-    .SignUpLabel{
-        .divLabel{
-            label:nth-child(1),label:nth-child(2){
-                font-size: 17px;
-            }
-        }
-    }
-    
-    .SignUpLogIn{
-        button{
-            font-size: 12px;
-        }
-    }
-    
-    .partieMsgErreurs{
+  .SignUpLabel {
+    .divLabel {
+      label:nth-child(1),
+      label:nth-child(2) {
         font-size: 17px;
-        height: 18px;
+      }
     }
-    
-    .SignUpCreateAccount{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-        color: 	white;
-        font-size: 15px;
+  }
+
+  .SignUpLogIn {
+    button {
+      font-size: 12px;
     }
- 
+  }
+
+  .partieMsgErreurs {
+    font-size: 17px;
+    height: 18px;
+  }
+
+  .SignUpCreateAccount {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    color: white;
+    font-size: 15px;
+  }
 }

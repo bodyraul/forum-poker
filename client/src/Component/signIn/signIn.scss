@@ -1,169 +1,158 @@
+@import "../../variableFont/variable.scss";
 
+// .ContainerSignIn{
+//     opacity: 0;
+//     position: fixed;
+//     top: 50%;
+//     left: 50%;
+//     width: 418px;
+//     height: 500px;
+//     background: rgb(250,110,89);
+//     background: $background;
+//     opacity: 1;
+//     z-index: 5000;
+//     transform: translateX(-50%) translateY(-50%);
+//     border-radius: 20px;
+//     padding: 35px;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: space-between;
+// }
 
-@import '../../variableFont/variable.scss';
+// .SignInTitreBtn{
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-between;
+//     width: 100%;
+//     color: 	$blanc;
+//     button{
+//         width: 30px;
+//         height: 30px;
+//         position: absolute;
+//         right: 20px ;
+//         border-radius: 50%;
+//         border: none;
+//         background-color: #00000000;
+//         transition: all 0.2s ease-in-out;
+//         img{
+//             width: 30px;
+//         }
+//         &:hover{
+//             transform: rotate(90deg);
+//             cursor: pointer;
+//         }
+//     }
+// }
 
-.ContainerSignIn{
-    opacity: 0;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 418px;
-    height: 500px;
-    background: rgb(250,110,89);
-    background: $background;    
-    opacity: 1;
-    z-index: 5000;
-    transform: translateX(-50%) translateY(-50%);
-    border-radius: 20px;
-    padding: 35px;
+// .SignInMailMdp{
+//     width: 100%;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: flex-start;
+//     justify-content: space-between;
+//     input:focus{
+//         outline-color: $blanc;
+//         outline-style: double;
+//     }
+//     label:nth-child(1),label:nth-child(3){
+//         margin-bottom: 10px;
+//         color: 	$blanc;
+//         font-size: 22px;
+//     }
+//     input:nth-child(2),input:nth-child(4){
+//         margin-bottom: 22px;
+//         padding: 10px;
+//         width: 100%;
+//         border-radius: 8px;
+//         border: solid 1px white;
+//         color: 	$blanc;
+//         font-size: 15px;
+//         background-color: $vertFoncer;
+//         &::placeholder{
+//             color: 	$blanc;
+//             font-size: 15px;
+//         }
+//     }
+// }
+
+// .SignInLogIn{
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-between;
+//     width: 100%;
+//     width: 100%;
+//     button{
+//         width: 100%;
+//         padding: 10px;
+//         border-radius: 8px;
+//         border: none;
+//         color: 	$blanc;
+//         background-color: $vertFoncer;
+//         font-size: 15px;
+//         border: solid 1px $blanc;
+//         transition: all 0.2s ease-in-out;
+//         &:hover{
+//             cursor: pointer;
+//             border: solid 1px $vertFoncer;
+//             background-color: $blanc;
+//             color: $vertFoncer;
+//         }
+//     }
+// }
+
+// .erorMsgSignIn{
+//     color: rgba(175, 29, 29, 0.508);
+//     font-size: 19px;
+//     height: 25px;
+// }
+
+// .SignInCreateAccount{
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-between;
+//     width: 100%;
+//     color: 	white;
+//     font-size: 18px;
+// }
+
+@media (max-width: 990px) {
+  .ContainerSignIn {
+    width: 350px;
+    padding: 35px 30px;
+  }
+  .SignInTitreBtn {
+    h2 {
+      font-size: 17px;
+    }
+  }
+  .SignInMailMdp {
+    label:nth-child(1),
+    label:nth-child(3) {
+      font-size: 17px;
+    }
+    input:nth-child(2),
+    input:nth-child(4) {
+      font-size: 13px;
+      &::placeholder {
+        font-size: 13px;
+      }
+    }
+  }
+  .SignInLogIn {
+    button {
+      font-size: 13px;
+    }
+  }
+  .erorMsgSignIn {
+    font-size: 17px;
+  }
+  .SignInCreateAccount {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: space-between;
-}
-
-
-
-.SignInTitreBtn{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     width: 100%;
-    color: 	$blanc;
-    button{
-        width: 30px;
-        height: 30px;
-        position: absolute;
-        right: 20px ;
-        border-radius: 50%;
-        border: none;
-        background-color: #00000000;
-        transition: all 0.2s ease-in-out;
-        img{
-            width: 30px;
-        }
-        &:hover{
-            transform: rotate(90deg);
-            cursor: pointer;
-        }
-    }
-}
-
-
-
-.SignInMailMdp{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
-    input:focus{
-        outline-color: $blanc;
-        outline-style: double;
-    }
-    label:nth-child(1),label:nth-child(3){
-        margin-bottom: 10px;
-        color: 	$blanc;
-        font-size: 22px;
-    }
-    input:nth-child(2),input:nth-child(4){
-        margin-bottom: 22px;
-        padding: 10px;
-        width: 100%;
-        border-radius: 8px;
-        border: solid 1px white;
-        color: 	$blanc;
-        font-size: 15px;
-        background-color: $vertFoncer;
-        &::placeholder{
-            color: 	$blanc;
-            font-size: 15px;
-        }
-    }
-}
-
-
-
-
-.SignInLogIn{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    width: 100%;
-    button{
-        width: 100%;
-        padding: 10px;
-        border-radius: 8px;
-        border: none;
-        color: 	$blanc;
-        background-color: $vertFoncer;
-        font-size: 15px;
-        border: solid 1px $blanc;
-        transition: all 0.2s ease-in-out;
-        &:hover{
-            cursor: pointer;
-            border: solid 1px $vertFoncer;
-            background-color: $blanc;
-            color: $vertFoncer;
-        }
-    }
-}
-
-.erorMsgSignIn{
-    color: rgba(175, 29, 29, 0.508);
-    font-size: 19px;
-    height: 25px;
-}
-
-.SignInCreateAccount{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    color: 	white;
-    font-size: 18px;
-}
-
-
-
-
-
-@media (max-width: 990px) { 
-    .ContainerSignIn{
-        width: 350px;
-        padding: 35px 30px;
-    }
-    .SignInTitreBtn{
-       h2{
-        font-size: 17px;
-       }
-    }
-    .SignInMailMdp{
-        label:nth-child(1),label:nth-child(3){
-            font-size: 17px;
-        }
-        input:nth-child(2),input:nth-child(4){
-            font-size: 13px;
-            &::placeholder{
-                font-size: 13px;
-            }
-        }
-    }
-    .SignInLogIn{
-        button{
-            font-size: 13px;
-        }
-    }
-    .erorMsgSignIn{
-        font-size: 17px;
-    }
-    .SignInCreateAccount{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-        color: 	white;
-        font-size: 15px;
-    }
+    color: white;
+    font-size: 15px;
+  }
 }
