@@ -127,64 +127,64 @@
 //   text-align: center;
 // }
 
-.SignUpCreateAccount {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  color: white;
-  font-size: 17px;
-}
+// .SignUpCreateAccount {
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+//   width: 100%;
+//   color: white;
+//   font-size: 17px;
+// }
 
-@media (max-width: 990px) {
-  .ContainerSignUp {
-    width: 350px;
-    height: 600px;
-    padding: 35px 10px;
-  }
+// @media (max-width: 990px) {
+//   .ContainerSignUp {
+//     width: 350px;
+//     height: 600px;
+//     padding: 35px 10px;
+//   }
 
-  .SignUpTitreBtn {
-    h2 {
-      font-size: 19px;
-    }
-  }
+//   .SignUpTitreBtn {
+//     h2 {
+//       font-size: 19px;
+//     }
+//   }
 
-  .SignUpInput {
-    input:nth-child(1),
-    input:nth-child(2) {
-      font-size: 12px;
-      &::placeholder {
-        font-size: 12px;
-      }
-    }
-  }
+//   .SignUpInput {
+//     input:nth-child(1),
+//     input:nth-child(2) {
+//       font-size: 12px;
+//       &::placeholder {
+//         font-size: 12px;
+//       }
+//     }
+//   }
 
-  .SignUpLabel {
-    .divLabel {
-      label:nth-child(1),
-      label:nth-child(2) {
-        font-size: 17px;
-      }
-    }
-  }
+//   .SignUpLabel {
+//     .divLabel {
+//       label:nth-child(1),
+//       label:nth-child(2) {
+//         font-size: 17px;
+//       }
+//     }
+//   }
 
-  .SignUpLogIn {
-    button {
-      font-size: 12px;
-    }
-  }
+//   .SignUpLogIn {
+//     button {
+//       font-size: 12px;
+//     }
+//   }
 
-  .partieMsgErreurs {
-    font-size: 17px;
-    height: 18px;
-  }
+//   .partieMsgErreurs {
+//     font-size: 17px;
+//     height: 18px;
+//   }
 
-  .SignUpCreateAccount {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    color: white;
-    font-size: 15px;
-  }
-}
+//   .SignUpCreateAccount {
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-between;
+//     width: 100%;
+//     color: white;
+//     font-size: 15px;
+//   }
+// }

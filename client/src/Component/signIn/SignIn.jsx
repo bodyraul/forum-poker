@@ -81,27 +81,27 @@ export default function SignUp(props) {
   return (
     <form
       ref={ContainerSignIn}
-      className=" fixed top-2/4 left-2/4 w-418 h-500 bg-gradient-to-r from-vertFoncer from-0%  to-vertClair to-100% z-50 -translate-y-2/4 -translate-x-2/4 rounded-3xl p-9 flex flex-col items-center justify-between"
+      className="sup990:w-418 sup990:p-9 fixed top-2/4 left-2/4 w-350 h-500 bg-gradient-to-r from-vertFoncer from-0%  to-vertClair to-100% z-50 -translate-y-2/4 -translate-x-2/4 rounded-3xl p-7 flex flex-col items-center justify-between"
     >
-      <div className="flex items-center justify-between w-full text-blanc text-lg">
+      <div className="sup990:text-2xl flex items-center justify-between w-full text-blanc text-xl ">
         <h2>Se connecter</h2>
         <button
           className="size-7 absolute right-5 rounded-s-full border-none bg-noir"
           onClick={onclickCroix}
         >
           <img
-            className="w-7 transition-all duration-200 ease-in-out hover:cursor-pointer hover:rotate-90"
+            className="transition-all hover:rotate-90 hover:cursor-pointer"
             src={croix}
             alt=""
           />
         </button>
       </div>
-      <div className="w-full flex flex-col items-start justify-between ">
-        <label className="mb-3 text-blanc text-2xl" htmlFor="">
+      <div className="w-full flex flex-col items-start justify-between">
+        <label className="sup990:text-xl mb-3 text-blanc text-base" htmlFor="">
           Email
         </label>
         <input
-          className="rounded-lg focus:outline-blanc focus:outline-double mb-5 p-2 border border-solid border-blanc text-blanc text-base bg-vertFoncer placeholder:text-blanc "
+          className="sup990:text-base rounded-lg focus:outline-blanc focus:outline-double mb-5 p-2 border border-solid border-blanc text-blanc text-xs bg-vertFoncer placeholder:text-blanc"
           value={mail}
           onChange={(e) => {
             setmail(e.target.value);
@@ -110,11 +110,11 @@ export default function SignUp(props) {
           placeholder="texte@exemple.com"
           type="text"
         />
-        <label className="mb-3 text-blanc text-2xl" htmlFor="">
+        <label className="sup990:text-xl mb-3 text-blanc text-base" htmlFor="">
           Password
         </label>
         <input
-          className=" rounded-lg focus:outline-blanc focus:outline-double mb-5 p-2 border border-solid border-blanc text-blanc text-base bg-vertFoncer placeholder:text-blanc "
+          className="sup990:text-base rounded-lg focus:outline-blanc focus:outline-double mb-5 p-2 border border-solid border-blanc text-blanc text-xs bg-vertFoncer placeholder:text-blanc"
           value={password}
           onChange={(e) => {
             setpassword(e.target.value);
@@ -126,14 +126,14 @@ export default function SignUp(props) {
       </div>
       <div className="flex items-center justify-between w-full">
         <button
-          className="w-full p-2 border border-solid rounded-lg border-blanc text-blanc bg-vertFoncer text-base transition-all duration-200 ease-in-out hover:cursor-pointer hover:border-vertFoncer hover:bg-blanc hover:text-vertFoncer  "
+          className="sup990:text-base sup990:w-full w-10/12 p-2 border border-solid rounded-lg border-blanc text-blanc bg-vertFoncer text-xs transition-all duration-200 ease-in-out hover:cursor-pointer hover:border-vertFoncer hover:bg-blanc hover:text-vertFoncer"
           onClick={valideForm}
         >
           Connexion
         </button>
       </div>
-      <p className="text-error text-xl h-6"></p>
-      <div className="flex items-center justify-between w-full text-blanc text-lg">
+      <p className="sup990:text-xl text-error text-base h-6">{erreurMsg}</p>
+      <div className="sup990:text-lg flex items-center justify-between w-full text-blanc text-base">
         <p>Vous n'avez toujours pas de compte? Créer</p>
       </div>
     </form>

@@ -82,11 +82,11 @@ export default function SignUp(props) {
   return (
     <form
       ref={ContainerSignUp}
-      className="fixed top-2/4 left-2/4 w-600 h-680  bg-gradient-to-r from-vertFoncer from-0%  to-vertClair to-100% z-50 -translate-x-2/4 -translate-y-2/4 rounded-3xl py-9 px-4 flex flex-col items-center justify-between "
+      className="sup990:px-4 sup990:w-600 sup990:h-680 fixed top-2/4 left-2/4 w-350 h-600  bg-gradient-to-r from-vertFoncer from-0%  to-vertClair to-100% z-50 -translate-x-2/4 -translate-y-2/4 rounded-3xl py-9 px-3 flex flex-col items-center justify-between "
       onSubmit={validerForm}
     >
       <div className="flex items-center justify-center w-full relative text-blanc">
-        <h2 className="text-2xl">Créer un compte</h2>
+        <h2 className="sup990:text-2xl text-lg">Créer un compte</h2>
         <button
           className="size-7 absolute right-0 rounded-full border-none bg-noir transition-all duration-200 ease-in-out hover:rotate-90 hover:cursor-pointer"
           onClick={onclickCroix}
@@ -96,19 +96,19 @@ export default function SignUp(props) {
       </div>
       <div className="w-full flex items-start justify-evenly">
         <div className="w-2/5 flex items-center justify-center">
-          <label className="mb-2 text-blanc text-2xl" htmlFor="">
+          <label className="sup990:text-2xl mb-2 text-blanc text-lg" htmlFor="">
             Nom
           </label>
         </div>
         <div className="w-2/5 flex items-center justify-center">
-          <label className="mb-2 text-blanc text-2xl" htmlFor="">
+          <label className="sup990:text-2xl mb-2 text-blanc text-lg" htmlFor="">
             Prénom
           </label>
         </div>
       </div>
       <div className="w-full flex items-start justify-evenly">
         <input
-          className="focus:outline-blanc focus:outline-double mb-5 p-2 w-2/5 rounded-lg border border-solid border-blanc text-base bg-vertFoncer placeholder:text-blanc placeholder:text-base"
+          className="sup990:text-base sup990:placeholder:text-base focus:outline-blanc focus:outline-double mb-5 p-2 w-2/5 rounded-lg border border-solid border-blanc text-xs bg-vertFoncer placeholder:text-blanc placeholder:text-xs"
           name="nom"
           value={nom}
           onChange={(e) => {
@@ -119,7 +119,7 @@ export default function SignUp(props) {
           type="text"
         />
         <input
-          className="focus:outline-blanc focus:outline-double mb-5 p-2 w-2/5 rounded-lg border border-solid border-blanc text-base bg-vertFoncer placeholder:text-blanc placeholder:text-base"
+          className="sup990:text-base sup990:placeholder:text-base focus:outline-blanc focus:outline-double mb-5 p-2 w-2/5 rounded-lg border border-solid border-blanc text-xs bg-vertFoncer placeholder:text-blanc placeholder:text-xs"
           value={prenom}
           onChange={(e) => {
             setprenom(e.target.value);
@@ -131,19 +131,19 @@ export default function SignUp(props) {
       </div>
       <div className="w-full flex items-start justify-evenly">
         <div className="w-2/5 flex items-center justify-center">
-          <label className="mb-2 text-blanc text-2xl" htmlFor="">
+          <label className="sup990:text-2xl mb-2 text-blanc text-lg" htmlFor="">
             Pseudonyme
           </label>
         </div>
         <div className="w-2/5 flex items-center justify-center">
-          <label className="mb-2 text-blanc text-2xl" htmlFor="">
+          <label className="sup990:text-2xl mb-2 text-blanc text-lg" htmlFor="">
             Mail
           </label>
         </div>
       </div>
       <div className="w-full flex items-start justify-evenly">
         <input
-          className="focus:outline-blanc focus:outline-double mb-5 p-2 w-2/5 rounded-lg border border-solid border-blanc text-base bg-vertFoncer placeholder:text-blanc placeholder:text-base"
+          className="sup990:text-base sup990:placeholder:text-base focus:outline-blanc focus:outline-double mb-5 p-2 w-2/5 rounded-lg border border-solid border-blanc text-xs bg-vertFoncer placeholder:text-blanc placeholder:text-xs"
           value={pseudonyme}
           onChange={(e) => {
             setpseudonyme(e.target.value);
@@ -153,7 +153,7 @@ export default function SignUp(props) {
           type="text"
         />
         <input
-          className="focus:outline-blanc focus:outline-double mb-5 p-2 w-2/5 rounded-lg border border-solid border-blanc text-base bg-vertFoncer placeholder:text-blanc placeholder:text-base"
+          className="sup990:text-base sup990:placeholder:text-base focus:outline-blanc focus:outline-double mb-5 p-2 w-2/5 rounded-lg border border-solid border-blanc text-xs bg-vertFoncer placeholder:text-blanc placeholder:text-xs"
           value={email}
           onChange={(e) => {
             setemail(e.target.value);
@@ -165,19 +165,19 @@ export default function SignUp(props) {
       </div>
       <div className="w-full flex items-start justify-evenly">
         <div className="w-2/5 flex items-center justify-center">
-          <label className="mb-2 text-blanc text-2xl" htmlFor="">
+          <label className="sup990:text-2xl mb-2 text-blanc text-lg" htmlFor="">
             Mot de passe
           </label>
         </div>
         <div className="w-2/5 flex items-center justify-center">
-          <label className="mb-2 text-blanc text-2xl" htmlFor="">
+          <label className="sup990:text-2xl mb-2 text-blanc text-lg" htmlFor="">
             Confirmation
           </label>
         </div>
       </div>
       <div className="w-full flex items-start justify-evenly">
         <input
-          className="focus:outline-blanc focus:outline-double mb-5 p-2 w-2/5 rounded-lg border border-solid border-blanc text-base bg-vertFoncer placeholder:text-blanc placeholder:text-base"
+          className="sup990:text-base sup990:placeholder:text-base focus:outline-blanc focus:outline-double mb-5 p-2 w-2/5 rounded-lg border border-solid border-blanc text-xs bg-vertFoncer placeholder:text-blanc placeholder:text-xs"
           value={password}
           onChange={(e) => {
             setpassword(e.target.value);
@@ -187,7 +187,7 @@ export default function SignUp(props) {
           type="text"
         />
         <input
-          className="focus:outline-blanc focus:outline-double mb-5 p-2 w-2/5 rounded-lg border border-solid border-blanc text-base bg-vertFoncer placeholder:text-blanc placeholder:text-base"
+          className="sup990:text-base sup990:placeholder:text-base focus:outline-blanc focus:outline-double mb-5 p-2 w-2/5 rounded-lg border border-solid border-blanc text-xs bg-vertFoncer placeholder:text-blanc placeholder:text-xs"
           value={confirmPassword}
           onChange={(e) => {
             setconfirmPassword(e.target.value);
@@ -197,11 +197,11 @@ export default function SignUp(props) {
           type="text"
         />
       </div>
-      <div className="text-error text-2xl h-7 w-full text-center">
+      <div className="sup990:text-2xl sup990:h-7 text-error text-lg h-6 w-full text-center">
         {errorMsg}
       </div>
       <div className="flex items-center justify-center w-full">
-        <button className="w-2/5 p-2 rounded-lg border border-solid border-blanc transition-all duration-200 ease-in-out hover:cursor-pointer hover:border-bleu hover:bg-blanc hover:text-vertFoncer text-blanc bg-vertFoncer text-base ">
+        <button className="sup990:text-base w-2/5 p-2 rounded-lg border border-solid border-blanc transition-all duration-200 ease-in-out hover:cursor-pointer hover:border-bleu hover:bg-blanc hover:text-vertFoncer text-blanc bg-vertFoncer text-sm ">
           Créer
         </button>
       </div>

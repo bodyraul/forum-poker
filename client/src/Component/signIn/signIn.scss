@@ -116,43 +116,43 @@
 //     font-size: 18px;
 // }
 
-@media (max-width: 990px) {
-  .ContainerSignIn {
-    width: 350px;
-    padding: 35px 30px;
-  }
-  .SignInTitreBtn {
-    h2 {
-      font-size: 17px;
-    }
-  }
-  .SignInMailMdp {
-    label:nth-child(1),
-    label:nth-child(3) {
-      font-size: 17px;
-    }
-    input:nth-child(2),
-    input:nth-child(4) {
-      font-size: 13px;
-      &::placeholder {
-        font-size: 13px;
-      }
-    }
-  }
-  .SignInLogIn {
-    button {
-      font-size: 13px;
-    }
-  }
-  .erorMsgSignIn {
-    font-size: 17px;
-  }
-  .SignInCreateAccount {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    color: white;
-    font-size: 15px;
-  }
-}
+// @media (max-width: 990px) {
+//   .ContainerSignIn {
+//     width: 350px;
+//     padding: 35px 30px;
+//   }
+//   .SignInTitreBtn {
+//     h2 {
+//       font-size: 17px;
+//     }
+//   }
+//   .SignInMailMdp {
+//     label:nth-child(1),
+//     label:nth-child(3) {
+//       font-size: 17px;
+//     }
+//     input:nth-child(2),
+//     input:nth-child(4) {
+//       font-size: 13px;
+//       &::placeholder {
+//         font-size: 13px;
+//       }
+//     }
+//   }
+//   .SignInLogIn {
+//     button {
+//       font-size: 13px;
+//     }
+//   }
+//   .erorMsgSignIn {
+//     font-size: 17px;
+//   }
+//   .SignInCreateAccount {
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-between;
+//     width: 100%;
+//     color: white;
+//     font-size: 15px;
+//   }
+// }
