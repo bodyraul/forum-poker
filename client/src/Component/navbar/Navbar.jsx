@@ -85,15 +85,15 @@ export default function Navbar(props) {
   if (token && !newNavPhone) {
     return (
       <div class="fixed top-0 z-50 h-24 w-screen  flex items-center justify-center ">
-        <nav class="h-20 services-item w-1200 bg-gradient-to-r from-vertFoncer from-0%  to-vertClair to-100%  flex items-center justify-evenly rounded-bl-3xl rounded-tr-3xl ">
+        <nav class="sup1600:w-1200 h-20 services-item w-3/4 bg-gradient-to-r from-vertFoncer from-0%  to-vertClair to-100%  flex items-center justify-evenly rounded-bl-3xl rounded-tr-3xl ">
           <Link
-            class="text-blanc text-3xl no-underline transition-transform ease-in-out duration-300 hover:scale-90 hover:opacity-60 hover:cursor-pointer"
+            class="sup1600:text-3xl text-blanc text-xl no-underline transition-transform ease-in-out duration-300 hover:scale-90 hover:opacity-60 hover:cursor-pointer"
             to={"/"}
           >
             Accueil{" "}
           </Link>
           <Link
-            class="text-blanc text-3xl no-underline transition-transform ease-in-out duration-300 hover:scale-90 hover:opacity-60 hover:cursor-pointer"
+            class="sup1600:text-3xl text-blanc text-xl no-underline transition-transform ease-in-out duration-300 hover:scale-90 hover:opacity-60 hover:cursor-pointer"
             onClick={() => {
               localStorage.removeItem("token");
               localStorage.removeItem("confidentialite");
@@ -108,19 +108,29 @@ export default function Navbar(props) {
           >
             Deconnexion{" "}
           </Link>
-          <Link class="text-blanc text-3xl no-underline transition-transform ease-in-out duration-300 hover:scale-90 hover:opacity-60 hover:cursor-pointer">
+          <Link class="sup1600:text-3xl text-blanc text-xl no-underline transition-transform ease-in-out duration-300 hover:scale-90 hover:opacity-60 hover:cursor-pointer">
             Support{" "}
           </Link>
-          <Link class="text-blanc text-2xl no-underline hover:cursor-default">
+          <Link class="sup1600:text-3xl text-blanc text-xl no-underline hover:cursor-default">
             {pseudo}{" "}
           </Link>
         </nav>
         {props.imgPref.length > 0 ? (
-          <p onClick={modifPhoto} id="imgPref">
-            <img alt="" src={props.imgPref}></img>
+          <p
+            onClick={modifPhoto}
+            className=" sup1300:right-percent5 absolute top-1/2 right-percent2  transform -translate-y-1/2 flex flex-row  items-center justify-center rounded-full w-auto h-auto border-double border-vertClair border-2 px-2 "
+          >
+            <img
+              alt=""
+              className="h-20 max-h-20 rounded-full hover:cursor-pointer"
+              src={props.imgPref}
+            ></img>
           </p>
         ) : (
-          <p onClick={modifPhoto} id="nameNav">
+          <p
+            onClick={modifPhoto}
+            className="sup1300:right-percent5 fixed top-percent5 right-percent2 text-base  bg-vertFoncer text-blanc rounded-full py-4 px-3 transform -translate-y-2/4 hover:cursor-pointer"
+          >
             {" "}
             <span>{nom} .</span> <span>{prenom}</span>{" "}
           </p>
@@ -147,7 +157,7 @@ export default function Navbar(props) {
   if (!token && !newNavPhone) {
     return (
       <div class="fixed top-0 z-50 h-24 w-screen  flex items-center justify-center ">
-        <nav class="h-20 services-item w-1200 bg-gradient-to-r from-vertFoncer from-0%  to-vertClair to-100%  flex items-center justify-evenly rounded-bl-3xl rounded-tr-3xl ">
+        <nav class="sup1600:w-1200 h-20 services-item w-3/4 bg-gradient-to-r from-vertFoncer from-0%  to-vertClair to-100%  flex items-center justify-evenly rounded-bl-3xl rounded-tr-3xl ">
           <Link
             class="text-blanc text-3xl no-underline transition-transform ease-in-out duration-300 hover:scale-90 hover:opacity-60 hover:cursor-pointer"
             to={"/"}
@@ -176,20 +186,29 @@ export default function Navbar(props) {
 
   if (token && newNavPhone) {
     return (
-      <div className="containerNavResponsive">
-        <div className="navbarResponsive">
-          <img onClick={togleNavResponsive} src={menu} alt="" />
+      <div className="w-screen h-24 relative flex flex-row items-center justify-center ">
+        <div className="fixed top-0 w-screen h-16 flex flex-row items-center justify-between ">
+          <img
+            className="h-10 max-w-20 ml-12 hover:cursor-pointer"
+            onClick={togleNavResponsive}
+            src={menu}
+            alt=""
+          />
           {props.imgPref.length > 0 ? (
             <img
               onClick={modifPhoto}
-              id="imgPrefDeux"
+              className="rounded-full  border-double border-vertClair border-2 hover:cursor-pointer h-16 mr-12 px-1"
               alt=""
               src={props.imgPref}
             ></img>
           ) : (
-            <p onClick={modifPhoto} id="nameNavResponsive">
+            <p
+              onClick={modifPhoto}
+              className="mr-12 text-base text-blanc rounder-full py-4 px-3"
+            >
               {" "}
-              <span>{nom} .</span> <span>{prenom}</span>{" "}
+              <span className="pl-1 hover:cursor-pointer">{nom} .</span>{" "}
+              <span className="pl-1 hover:cursor-pointer">{prenom}</span>{" "}
             </p>
           )}
         </div>
@@ -210,13 +229,13 @@ export default function Navbar(props) {
           " "
         )}
         {visibleNavResponsive ? (
-          <div className="affichierLien">
-            <nav>
-              <Link onClick={togleNavResponsive} className="AllLink" to={"/"}>
+          <div className="fixed z-10 top-0 w-screen h-screen bg-vertFoncer">
+            <nav className="w-full h-full flex flex-col items-center justify-evenly">
+              <Link onClick={togleNavResponsive} className="text-xl" to={"/"}>
                 Accueil{" "}
               </Link>
               <Link
-                className="AllLink"
+                className="text-xl"
                 onClick={() => {
                   togleNavResponsive();
                   localStorage.removeItem("token");
@@ -233,19 +252,22 @@ export default function Navbar(props) {
                 Deconnexion{" "}
               </Link>
               {admin === true ? (
-                <Link className="AllLink" to={"/admin"}>
+                <Link className="text-xl" to={"/admin"}>
                   admin{" "}
                 </Link>
               ) : (
                 ""
               )}
-              <Link onClick={togleNavResponsive} className="AllLink">
+              <Link onClick={togleNavResponsive} className="text-xl">
                 Support{" "}
               </Link>
-              <p className="affichePseudoNavResponsive"> {pseudo} </p>
+              <p className="w-7 h-7 absolute top-percent5 left-percent7  text-blanc text-2xl no-underline flex flex-row items-center justify-center">
+                {" "}
+                {pseudo}{" "}
+              </p>
               <img
                 onClick={togleNavResponsive}
-                className="closeNavResponsive"
+                className="absolute top-percent5 right-percent7 w-7 h-7 hover:cursor-pointer"
                 src={croix}
                 alt=""
               />
@@ -260,9 +282,10 @@ export default function Navbar(props) {
 
   if (!token && newNavPhone) {
     return (
-      <div className="containerNavResponsive">
-        <div className="navbarResponsive">
+      <div className="w-screen h-24 relative flex flex-row items-center justify-center">
+        <div className="fixed top-0 w-screen  h-16 flex flex-row items-center justify-between">
           <img
+            className="h-10 max-w-20 ml-12 hover:cursor-pointer"
             onClick={() => {
               togleNavResponsive();
               props.setSignIn(false);
@@ -273,16 +296,16 @@ export default function Navbar(props) {
           />
         </div>
         {visibleNavResponsive ? (
-          <div className="affichierLien">
-            <nav>
-              <Link className="AllLink" to={"/"}>
+          <div className="fixed z-10 top-0 w-screen h-screen bg-vertFoncer">
+            <nav className="w-full h-full flex flex-col items-center justify-evenly">
+              <Link className="text-xl" to={"/"}>
                 Accueil{" "}
               </Link>
-              <Link className="AllLink" to={"/forum"}>
+              <Link className="text-xl" to={"/forum"}>
                 forum{" "}
               </Link>
               <Link
-                className="AllLink"
+                className="text-xl"
                 onClick={() => {
                   togleNavResponsive();
                   onclickConnexion();
@@ -291,7 +314,7 @@ export default function Navbar(props) {
                 Connexion{" "}
               </Link>
               <Link
-                className="AllLink"
+                className="text-xl"
                 onClick={() => {
                   togleNavResponsive();
                   onclickInscription();
@@ -304,13 +327,13 @@ export default function Navbar(props) {
                   togleNavResponsive();
                   onclickConnexion();
                 }}
-                className="AllLink"
+                className="text-xl"
               >
                 Support{" "}
               </Link>
               <img
                 onClick={togleNavResponsive}
-                className="closeNavResponsive"
+                className="absolute top-percent5 right-percent7 w-7 h-7 hover:cursor-pointer"
                 src={croix}
                 alt=""
               />

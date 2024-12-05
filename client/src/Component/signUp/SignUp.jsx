@@ -82,7 +82,7 @@ export default function SignUp(props) {
   return (
     <form
       ref={ContainerSignUp}
-      className="sup990:px-4 sup990:w-600 sup990:h-680 fixed top-2/4 left-2/4 w-350 h-600  bg-gradient-to-r from-vertFoncer from-0%  to-vertClair to-100% z-50 -translate-x-2/4 -translate-y-2/4 rounded-3xl py-9 px-3 flex flex-col items-center justify-between "
+      className="sup377:w-350 sup990:px-4 sup990:w-600 sup990:h-680 fixed top-2/4 left-2/4 w-full h-600  bg-gradient-to-r from-vertFoncer from-0%  to-vertClair to-100% z-50 -translate-x-2/4 -translate-y-2/4 rounded-3xl py-9 px-3 flex flex-col items-center justify-between "
       onSubmit={validerForm}
     >
       <div className="flex items-center justify-center w-full relative text-blanc">

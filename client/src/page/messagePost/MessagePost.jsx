@@ -101,7 +101,7 @@ export default function MessagesPost(props) {
         return (
           <img
             alt=""
-            class="pb-1 pr-2 transition-all duration-200 ease-in-out origin-left hover:cursor-pointer hover:-rotate-6"
+            class="sup670:w-8 w-7 pb-1 pr-2 transition-all duration-200 ease-in-out origin-left hover:cursor-pointer hover:-rotate-6"
             onClick={() => modifierLike(id, true)}
             src={LikeActif}
           ></img>
@@ -111,7 +111,7 @@ export default function MessagesPost(props) {
     return (
       <img
         alt=""
-        class="pb-1 pr-2 transition-all duration-200 ease-in-out origin-left hover:cursor-pointer hover:-rotate-6"
+        class="sup670:w-8 w-7 pb-1 pr-2 transition-all duration-200 ease-in-out origin-left hover:cursor-pointer hover:-rotate-6"
         onClick={() => modifierLike(id, false)}
         src={LikeNoActif}
       ></img>
@@ -156,12 +156,12 @@ export default function MessagesPost(props) {
         return (
           <div class="flex items-center justify-start">
             <img
-              class="pb-1 pr-2 transition-all duration-200 ease-in-out origin-left hover:cursor-pointer hover:-rotate-6"
+              class="sup670:w-8 w-7 pb-1 pr-2 transition-all duration-200 ease-in-out origin-left hover:cursor-pointer hover:-rotate-6"
               onClick={() => modifierSignalement(id, true)}
               alt=""
               src={signalerActif}
             ></img>
-            <span>Ne plus signaler</span>
+            <span className="sup670:text-base text-xs">Ne plus signaler</span>
           </div>
         );
       }
@@ -169,12 +169,12 @@ export default function MessagesPost(props) {
     return (
       <div class="flex items-center justify-start">
         <img
-          class="pb-1 pr-2 transition-all duration-200 ease-in-out origin-left hover:cursor-pointer hover:-rotate-6"
+          class="sup670:w-8 w-7 pb-1 pr-2 transition-all duration-200 ease-in-out origin-left hover:cursor-pointer hover:-rotate-6"
           onClick={() => modifierSignalement(id, false)}
           alt=""
           src={signalerNoActif}
         ></img>
-        <span>Signaler</span>
+        <span className="sup670:text-base text-xs">Signaler</span>
       </div>
     );
   };
@@ -249,25 +249,35 @@ export default function MessagesPost(props) {
   function afficheImgOnMajImg(element) {
     if (element.image.length > 0 && element.idUser === id) {
       return (
-        <p class="mr-2 text-2xl text-blanc w-auto h-auto border-double border-2 border-vertClair rounded-full flex items-center justify-center">
-          <img class="h-20 max-w-20 rounded-full" src={props.imgPref} alt="" />
+        <p class="flex flex-row  items-center justify-center rounded-full w-auto h-auto border-double border-vertClair border-2 px-2 mr-2">
+          <img
+            class="h-16 max-h-16 rounded-full hover:cursor-pointer"
+            src={props.imgPref}
+            alt=""
+          />
         </p>
       );
     }
     if (element.image.length > 0 && element.idUser !== id) {
       return (
-        <p class="mr-2 text-2xl text-blanc w-auto h-auto border-double border-2 border-vertClair rounded-full flex items-center justify-center">
-          <img class="h-20 max-w-20 rounded-full" src={element.image} alt="" />
+        <p class=" flex flex-row  items-center justify-center rounded-full w-auto h-auto border-double border-vertClair border-2 px-2 mr-2">
+          <img
+            class="sup670:h-16 sup670:max-h-16 h-14 max-h-14 rounded-full hover:cursor-pointer"
+            src={element.image}
+            alt=""
+          />
         </p>
       );
     }
     if (props.imgPref.length === 0) {
       return (
         <p class="mr-2 text-xl bg-vertFoncer text-blanc rounded-full size-12 flex items-center justify-center">
-          <span class="uppercase text-base ">
-            {element.nomCreateurMessage[0]} .{" "}
+          <span class="uppercase text-xs ">
+            {element.nomCreateurMessage[0].toUpperCase() + " . "}
           </span>
-          <span class="pl-1">{element.prenomCreateurMessage[0]}</span>
+          <span class="pl-1 text-xs">
+            {element.prenomCreateurMessage[0].toUpperCase()}
+          </span>
         </p>
       );
     }
@@ -281,19 +291,21 @@ export default function MessagesPost(props) {
   function afficheMsgNbMessages() {
     if (allPostPerPage.length === 0) {
       return (
-        <p class="text-center text-4xl text-vertFoncer mt-12">
+        <p class="sup670:text-4xl text-center text-2xl text-vertFoncer ">
           Aucune réponse{" "}
         </p>
       );
     }
     if (allPostPerPage.length === 1) {
       return (
-        <p class="text-center text-4xl text-vertFoncer mt-12">une réponse </p>
+        <p class="sup670:text-4xl text-center text-2xl text-vertFoncer ">
+          une réponse{" "}
+        </p>
       );
     }
     if (allPostPerPage.length >= 1) {
       return (
-        <p class="text-center text-4xl text-vertFoncer mt-12">
+        <p class="sup670:text-4xl text-center text-2xl text-vertFoncer  ">
           {" "}
           {post.nombreMessages} réponses{" "}
         </p>
@@ -313,63 +325,69 @@ export default function MessagesPost(props) {
     });
   }
   return (
-    <div class="w-screen mt-48">
-      <p class="text-center text-4xl text-vertFoncer mt-12">
+    <div class="sup990:mt-48 w-screen mt-10">
+      <p class="sup670:text-4xl text-center text-2xl text-vertFoncer mt-12">
         {" "}
         Post selectionné
       </p>
-      <div class="w-1400 mt-14 mb-24 mx-auto">
+      <div class=" sup990:w-11/12 sup1600:w-1400 w-full mt-14 mb-12 mx-auto">
         <div class="h-12 flex items-center border-solid border border-gris bg-blanc text-vertFoncer font-bold text-xl">
-          <div class="w-9/12 ">
-            <p class="ml-10 w-36 text-center">Sujet</p>
+          <div class="w-3/12 ">
+            <p class="sup670:text-base sup670:ml-10 text-xs ml-1  text-center">
+              Sujet
+            </p>
           </div>
-          <p class="w-1/12 text-center">Réponses</p>
-          <p class="w-1/12 text-center">Auteur</p>
-          <p class="w-1/12 text-center">Date</p>
+          <p class="sup670:text-base text-xs w-3/12 text-center">Réponses</p>
+          <p class="sup670:text-base text-xs w-3/12 text-center">Auteur</p>
+          <p class="sup670:text-base text-xs w-3/12 text-center">Date</p>
         </div>
         <div
           key={post._id}
           class="h-36 flex-col border-solid border border-gris bg-blanc text-xl hover:cursor-pointer"
         >
           <div class="h-3/6 w-full flex items-center justify-center">
-            <div class="w-9/12 ">
-              <p class="ml-10 w-36  py-1 px-0 text-vertClair text-sm text-center bg-grisFonce">
+            <div class="w-3/12 ">
+              <p class="sup670:text-sm sup670:ml-10  ml-1  py-1 px-0 text-vertClair text-xs text-center bg-grisFonce">
                 {post.categorie}
               </p>
             </div>
-            <div class="w-3/12 flex items-center justify-evenly ">
-              <p class="w-1/3 text-vertClair text-center text-base">
+            <div class="w-9/12 flex items-center justify-evenly ">
+              <p class="sup670:text-base text-xs  w-1/3 text-vertClair text-center ">
                 {post.nombreMessages}
               </p>
-              <p class="w-1/3 text-vertClair text-center text-base">
+              <p class="sup670:text-base text-xs  w-1/3 text-vertClair text-center ">
                 {post.pseudoCreateur}
               </p>
-              <p class="w-1/3 text-vertClair text-center text-base">
+              <p class="sup670:text-base text-xs  w-1/3 text-vertClair text-center ">
                 {post.dateCreation}
               </p>
             </div>
           </div>
-          <div class="h-2/4 w-9/12">
-            <p class="m-y-0 ml-10 mr-10 text-vertFoncer line-clamp-2 text-base">
+          <div class="h-2/4 w-full">
+            <p class="sup670:text-base sup670:ml-10 text-xs m-y-0 ml-1 mr-10 text-vertFoncer line-clamp-2 ">
               {post.titre}
             </p>
           </div>
         </div>
       </div>
       {afficheMsgNbMessages()}
-      <div class="w-900 mx-auto mt-12 mb-0">
+      <div class="sup990:w-900 w-full mx-auto mt-12 mb-0">
         {allPostPerPage.map((element) => {
           return (
             <div
               key={element._id}
-              class="bg-blanc mb-7 p-9 border-solid border border-gris"
+              class=" bg-blanc mb-7 p-9 border-solid border border-gris"
             >
               <div class="pb-5 text-vertClair font-bold flex items-center justify-between">
                 <div class=" flex items-center justify-between">
                   {afficheImgOnMajImg(element)}
-                  <span>{" " + element.pseudoCreateurMessage}</span>
+                  <span className="sup670:text-base text-xs">
+                    {" " + element.pseudoCreateurMessage}
+                  </span>
                 </div>
-                <span>{element.dateCreation}</span>
+                <span className="sup670:text-base text-xs">
+                  {element.dateCreation}
+                </span>
               </div>
               <p className="VisibleContenu noActive" ref={titrecontenu}>
                 {element.contenu}
@@ -377,7 +395,9 @@ export default function MessagesPost(props) {
               </p>
               <div class="flex items-center justify-start">
                 {like(element._id)}
-                <span class="pr-12 text-vertClair">{element.nbLike}</span>
+                <span class="sup670:text-base text-xs pr-12 text-vertClair">
+                  {element.nbLike}
+                </span>
                 {signaler(element._id)}
               </div>
             </div>
@@ -389,18 +409,20 @@ export default function MessagesPost(props) {
         totalPosts={props.allMsg.length}
         paginate={paginate}
       />
-      <div className="w-1400 mx-auto mt-24 mb-0 flex items-start justify-center">
-        <div className="bg-blanc py-7 px-6">
-          <h1 className="text-vertFoncer pb-6 text-xl">
+      <div className="sup1256:flex-row sup1256:items-start sup1256:justify-center sup1600:w-1400 w-full mx-auto mt-12 mb-0 flex flex-col items-start justify-center ">
+        <div className="sup1256:ml-0 sup670:ml-14 sup1256::w-3/5 bg-blanc py-7 px-6 w-4/5 border-solid border-2 border-grisFonce ml-8">
+          <h1 className="sup670:text-xl text-vertFoncer pb-6 text-base">
             Créer un nouveau Message.
           </h1>
-          <p className="text-vertFoncer text-base pb-6">
+          <p className="sup670:text-base text-vertFoncer text-xs pb-6">
             Essayez d'apporter quelque chose de nouveau à la conversation.
           </p>
-          <h3 className=" text-vertFoncer py-6 px-0">Description</h3>
+          <h3 className=" sup670:text-base text-vertFoncer py-6 px-0 text-xs">
+            Description
+          </h3>
           <div className="pt-1 pb-6 px-0">
             <textarea
-              className="outline-vertFoncer border-solid border border-vertFoncer text-vertFoncer py-3 px-2 resize-none text-base"
+              className="sup1256:w-auto sup670:text-base w-full outline-vertFoncer border-solid border border-vertFoncer text-vertFoncer py-3 px-2 resize-none text-xs"
               onClick={onclickTextArea}
               value={valueMsgForm}
               onChange={(e) => setvalueMsgForm(e.target.value)}
@@ -415,25 +437,25 @@ export default function MessagesPost(props) {
             {messageErreur}{" "}
           </p>
           <button
-            className="py-3 px-4 text-vertFoncer border-solid border border-vertFoncer bg-blanc rounded-md transition-all duration-200 ease-in-out hover:cursor-pointer hover:bg-vertFoncer hover:text-blanc"
+            className="sup670:text-base text-xs py-3 px-4 text-vertFoncer border-solid border border-vertFoncer bg-blanc rounded-md transition-all duration-200 ease-in-out hover:cursor-pointer hover:bg-vertFoncer hover:text-blanc"
             onClick={valideFormMessage}
           >
             Créer
           </button>
         </div>
-        <div className="py-7 px-6">
-          <div className="border-solid border border-gris w-400 h-24"></div>
-          <h2 className="py-6 px-0 text-vertClair">
-            Mauvais Post selectionné?
+        <div class="sup1256:w-2/5 sup670:px-6 py-7 px-0 w-full flex-col items-center ">
+          <div class="sup670:w-96  sup1256:w-400 sup1400:ml-0 border-solid border-2 border-gris w-52 h-24 ml-8"></div>
+          <h2 class="sup670:text-2xl sup1400:ml-0 ml-8 text-xl py-6 px-0 text-vertClair">
+            Post similaire déjà créé?
           </h2>
-          <p className="text-vertClair text-base pb-6">
-            Cliquez ci-dessous pour revenir à la page des post.
+          <p class="sup670:text-lg sup1400:ml-0 text-vertClair text-sm pb-6 ml-8">
+            Faites une recherche par sujet,auteur ou catégorie.
           </p>
           <button
-            className="w-400 py-5 px-0 text-vertClair border-solid border border-vertClair bg-blanc rounded-md transition-all duration-200 ease-in-out hover:cursor-pointer hover:bg-vertClair hover:text-blanc"
+            class="sup990:py-3 sup670:text-base sup1400:ml-0 text-sm ml-8 w-44 py-2 px-0 text-vertClair border-solid border border-vertClair bg-blanc rounded transition-all duration-200 ease-in-out hover:cursor-pointer hover:bg-vertClair hover:text-blanc"
             onClick={() => navigate("/")}
           >
-            Retour
+            Accéder à la recherche
           </button>
         </div>
       </div>

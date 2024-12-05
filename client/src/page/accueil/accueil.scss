@@ -1,4 +1,4 @@
-@import '../../variableFont/variable.scss';
+@import "../../variableFont/variable.scss";
 *,
 ::before,
 ::after {
@@ -7,649 +7,646 @@
   margin: 0;
 }
 
-body{
-    background-color: #F9FBFD;
-    overflow-x: hidden;
+body {
+  background-color: #f9fbfd;
+  overflow-x: hidden;
 }
 
-.ContainerForum{
-    width: 100vw;
-    padding-top: 200px;
-}
+// .ContainerForum{
+//     width: 100vw;
+//     padding-top: 200px;
+// }
 
-.titrePageAccueil{
-    text-align: center;
-    font-size: 40px;
-    color: $vertFoncer;
-}
+// .titrePageAccueil{
+//     text-align: center;
+//     font-size: 40px;
+//     color: $vertFoncer;
+// }
 
-.AllBtnRecherchePost{
-    padding: 10px 0;
-    height: auto;
-    margin: 0 auto;
-    margin-top: 100px;
-    @include display(row,center,space-between);
-    border: solid 1px $gris;
-    background-color: white;
-    width: 1400px;
-    div:nth-child(1){
-        div{
-            padding: 4px 0;
-            width: 130px;
-            margin: 0px 15px;
-            background-color: white;
-            color: $vertFoncer;
-            border: $vertFoncer solid 1px;
-            font-size: 16px;
-            transition: all 0.2s ease-in-out;
-            @include display(row,center,space-around);
-            position: relative;
-            &:hover{
-                cursor: pointer;
-            }
-            img{
-                width: 20px;
-            }
-            div{
-                position: absolute;
-                background-color: white;
-                width: 130px;
-                height: 150px;
-                bottom: -150px;
-                z-index:1;
-                padding: 0 0;
-                border-left: 1px solid $vertClair;
-                border-right: 1px solid $vertClair;
-                border-top: 1px solid $vertFoncer;
-                border-bottom: none;
-                @include display(column,center,center);
-                input{
-                    font-size: 16px;
-                    width: 100%;
-                    height: 50px;
-                    border-left: none;
-                    border-right: none;
-                    border-top: none;
-                    border-bottom: 1px solid $blanc;
-                    background-color: $vertClair;
-                    color: $blanc;
-                    text-align: center;
-                    font-size: 12px;
-                    outline: none;
-                    transition: all 0.2s ease-in-out;
-                    &:hover{
-                        cursor: pointer;
-                        background-color: $blanc;
-                        color: $vertClair;
-                    }
-                }
-            }
-        }
+// .AllBtnRecherchePost{
+//     padding: 10px 0;
+//     height: auto;
+//     margin: 0 auto;
+//     margin-top: 100px;
+//     @include display(row,center,space-between);
+//     border: solid 1px $gris;
+//     background-color: white;
+//     width: 1400px;
+//     div:nth-child(1){
+//         div{
+//             padding: 4px 0;
+//             width: 130px;
+//             margin: 0px 15px;
+//             background-color: white;
+//             color: $vertFoncer;
+//             border: $vertFoncer solid 1px;
+//             font-size: 16px;
+//             transition: all 0.2s ease-in-out;
+//             @include display(row,center,space-around);
+//             position: relative;
+//             &:hover{
+//                 cursor: pointer;
+//             }
+//             img{
+//                 width: 20px;
+//             }
+//             div{
+//                 position: absolute;
+//                 background-color: white;
+//                 width: 130px;
+//                 height: 150px;
+//                 bottom: -150px;
+//                 z-index:1;
+//                 padding: 0 0;
+//                 border-left: 1px solid $vertClair;
+//                 border-right: 1px solid $vertClair;
+//                 border-top: 1px solid $vertFoncer;
+//                 border-bottom: none;
+//                 @include display(column,center,center);
+//                 input{
+//                     font-size: 16px;
+//                     width: 100%;
+//                     height: 50px;
+//                     border-left: none;
+//                     border-right: none;
+//                     border-top: none;
+//                     border-bottom: 1px solid $blanc;
+//                     background-color: $vertClair;
+//                     color: $blanc;
+//                     text-align: center;
+//                     font-size: 12px;
+//                     outline: none;
+//                     transition: all 0.2s ease-in-out;
+//                     &:hover{
+//                         cursor: pointer;
+//                         background-color: $blanc;
+//                         color: $vertClair;
+//                     }
+//                 }
+//             }
+//         }
 
-    }
-    div:nth-child(2){
-        @include display(row,center,space-around);
-        width: auto;
-        input:nth-child(1){
-            font-size: 16px;
-            color: $vertFoncer;
-            border: solid 1px $vertFoncer;
-            padding: 5px;
-            margin-left: 15px;
-            outline-color: $vertFoncer;
-            &::placeholder{
-                color: $vertFoncer;
-            }
-        }
-        button:nth-child(2),button:nth-child(3){
-            font-size: 16px;
-            color: $vertFoncer;
-            border: solid 1px $vertFoncer;
-            margin-left: 15px;
-            width: 60px;
-            padding-left: 5px;
-            outline-color: $vertFoncer;
-            outline: none;
-            &:hover{
-                cursor: pointer;
-            }
-        }
-        button:nth-child(2){
-            font-size: 16px;
-            background-color: $vertFoncer;
-            color: white;
-        }
-        button{
-            font-size: 16px;
-            margin-left: 15px;
-            color: $vertFoncer;
-            border: solid 1px $vertFoncer;
-            background-color: white;
-            padding: 5px;
-            &:hover{
-                cursor: pointer;
-            }
-        }
-    }
-    div:nth-child(3){
-        width: auto;
-        @include display(row,center,space-evenly);
-        button{
-            padding: 10px 15px;
-            border-radius: 8px;
-            background-color: white;
-            color: $vertClair;
-            border: $vertClair solid 1px;
-            font-size: 16px;
-            transition: color,background-color,border  0.3s ease-in-out;
-            &:hover{
-                background-color: $vertClair;
-                color: white;
-                border: white solid 1px;
-                cursor: pointer;
-            }
-        }
-        button:nth-child(1){
-            margin-right: 15px;
-        }
-        button:nth-child(2){
-            margin-right: 20px;
-        }
-    }
-}
+//     }
+//     div:nth-child(2){
+//         @include display(row,center,space-around);
+//         width: auto;
+//         input:nth-child(1){
+//             font-size: 16px;
+//             color: $vertFoncer;
+//             border: solid 1px $vertFoncer;
+//             padding: 5px;
+//             margin-left: 15px;
+//             outline-color: $vertFoncer;
+//             &::placeholder{
+//                 color: $vertFoncer;
+//             }
+//         }
+//         button:nth-child(2),button:nth-child(3){
+//             font-size: 16px;
+//             color: $vertFoncer;
+//             border: solid 1px $vertFoncer;
+//             margin-left: 15px;
+//             width: 60px;
+//             padding-left: 5px;
+//             outline-color: $vertFoncer;
+//             outline: none;
+//             &:hover{
+//                 cursor: pointer;
+//             }
+//         }
+//         button:nth-child(2){
+//             font-size: 16px;
+//             background-color: $vertFoncer;
+//             color: white;
+//         }
+//         button{
+//             font-size: 16px;
+//             margin-left: 15px;
+//             color: $vertFoncer;
+//             border: solid 1px $vertFoncer;
+//             background-color: white;
+//             padding: 5px;
+//             &:hover{
+//                 cursor: pointer;
+//             }
+//         }
+//     }
+//     div:nth-child(3){
+//         width: auto;
+//         @include display(row,center,space-evenly);
+//         button{
+//             padding: 10px 15px;
+//             border-radius: 8px;
+//             background-color: white;
+//             color: $vertClair;
+//             border: $vertClair solid 1px;
+//             font-size: 16px;
+//             transition: color,background-color,border  0.3s ease-in-out;
+//             &:hover{
+//                 background-color: $vertClair;
+//                 color: white;
+//                 border: white solid 1px;
+//                 cursor: pointer;
+//             }
+//         }
+//         button:nth-child(1){
+//             margin-right: 15px;
+//         }
+//         button:nth-child(2){
+//             margin-right: 20px;
+//         }
+//     }
+// }
 
+// .erroMessageRecherche{
+//     @include display(row,center,center);
+//     width: 1400px;
+//     margin: 0 auto;
+//     color: #ef4444;
+//     font-size: 20px;
+//     height: 50px;
+// }
 
-.erroMessageRecherche{
-    @include display(row,center,center);
-    width: 1400px;
-    margin: 0 auto;
-    color: #ef4444;
-    font-size: 20px;
-    height: 50px;
-}
+// .affichageAllPosts{
+//     width: 1400px;
+//     margin: 0px auto 100px auto;
+//     .ligneTitre{
+//         height: 50px;
+//         display: flex;
+//         align-items: center;
+//         border: solid 1px $gris;
+//         background-color: white;
+//         color: $vertFoncer;
+//         font-weight: bolder;
+//         font-size: 22px;
+//         div:nth-child(1){
+//             width: 70%;
+//             p{
+//                 margin-left: 40px;
+//                 width: 150px;
+//                 text-align: center;
+//             }
+//         }
+//         p:nth-child(2){
+//             width: 10%;
+//             text-align: center;
+//         }
+//         p:nth-child(3){
+//             width: 10%;
+//             text-align: center;
+//         }
+//         p:nth-child(4){
+//             width: 10%;
+//             text-align: center;
+//         }
+//     }
+//     .ligneContenu{
+//         height: 140px;
+//         display: flex;
+//         flex-direction: column;
+//         border: solid 1px #E0E3E5;
+//         background-color: white;
+//         font-size: 18px;
+//         &:hover{
+//             cursor: pointer;
+//         }
+//         .partieCatMsgPost{
+//             height: 50%;
+//             width: 100%;
+//             @include display(row,center,center);
+//             div:nth-child(1){
+//                 width: 70%;
+//                 p{
+//                     margin-left: 40px;
+//                     width: 150px;
+//                     background-color:#EFEFEF ;
+//                     padding: 5px 0px;
+//                     color: $vertClair;
+//                     font-size: 15px;
+//                     text-align: center;
+//                 }
+//             }
+//             div:nth-child(2){
+//                 width: 30%;
+//                 @include display(row,center,space-evenly);
+//                 p{
+//                     width: 33.3%;
+//                     color: $vertClair;
+//                     text-align: center;
+//                 }
+//             }
+//         }
+//         .partieTitrePost{
+//             height: 50%;
+//             width: 70%;
+//             p{
+//                 margin: 0px 40px 0px 40px;
+//                 color: $vertFoncer;
+//                 display: block;
+//                 display: -webkit-box;
+//                 -webkit-box-orient: vertical;
+//                 -webkit-line-clamp: 2;
+//                 line-clamp: 2;
+//                 text-overflow: ellipsis;
+//                 overflow: hidden;
+//             }
+//         }
+//     }
+// }
 
+// .creationPost{
+//     width: 1400px;
+//     margin: 100px auto 0 auto;
+//     @include display(row,flex-start,center);
 
-.affichageAllPosts{
-    width: 1400px;
-    margin: 0px auto 100px auto;
-    .ligneTitre{
-        height: 50px;
-        display: flex;
-        align-items: center;
-        border: solid 1px $gris;
-        background-color: white;
-        color: $vertFoncer;
-        font-weight: bolder;
-        font-size: 22px;
-        div:nth-child(1){
-            width: 70%;
-            p{  
-                margin-left: 40px;
-                width: 150px;
-                text-align: center;
-            }
-        }
-        p:nth-child(2){
-            width: 10%;
-            text-align: center;
-        }
-        p:nth-child(3){
-            width: 10%;
-            text-align: center;
-        }
-        p:nth-child(4){
-            width: 10%;
-            text-align: center;
-        }
-    }
-    .ligneContenu{
-        height: 140px;
-        display: flex;
-        flex-direction: column;
-        border: solid 1px #E0E3E5;
-        background-color: white;
-        font-size: 18px;
-        &:hover{
-            cursor: pointer;
-        }
-        .partieCatMsgPost{
-            height: 50%;
-            width: 100%;
-            @include display(row,center,center);
-            div:nth-child(1){
-                width: 70%;
-                p{
-                    margin-left: 40px;
-                    width: 150px;
-                    background-color:#EFEFEF ;
-                    padding: 5px 0px;
-                    color: $vertClair;
-                    font-size: 15px;
-                    text-align: center;
-                }
-            }
-            div:nth-child(2){
-                width: 30%;
-                @include display(row,center,space-evenly);
-                p{
-                    width: 33.3%;
-                    color: $vertClair;
-                    text-align: center;
-                }
-            }
-        }
-        .partieTitrePost{
-            height: 50%;
-            width: 70%;
-            p{
-                margin: 0px 40px 0px 40px;
-                color: $vertFoncer;
-                display: block;
-                display: -webkit-box;
-                -webkit-box-orient: vertical;
-                -webkit-line-clamp: 2;
-                line-clamp: 2;
-                text-overflow: ellipsis;
-                overflow: hidden;
-            }
-        }
-    }
-}
-
-
-.creationPost{
-    width: 1400px;
-    margin: 100px auto 0 auto;
-    @include display(row,flex-start,center);
-    
-    .partieCreation{
-        background-color: white;
-        padding: 30px 25px;
-        width: 60%;
-        border: $gris solid 2px;
-        h1{
-            color: $vertFoncer;
-            padding-bottom: 25px;
-            font-size: 38px;
-        }
-        .pQuestion{
-            color: $vertFoncer;
-            font-size: 19px;
-            padding-bottom: 25px;
-        }
-        h3:nth-child(3){
-            color: $vertFoncer;
-            padding-bottom: 22px;
-            padding-top: 25px;
-        }
-        input:nth-child(4){
-            outline-color: $vertFoncer ;
-            border: 1px solid $vertFoncer;
-            color:  $vertFoncer;
-            padding: 10px 7px;
-            width: 380px;
-        }
-        h3:nth-child(5){
-            color: $vertFoncer;
-            padding: 60px 0px 15px 0px;
-        }
-        div{
-            padding: 10px 0 0 0;
-            @include display(column,center,space-between);
-            width: 380px;
-            p{
-                @include display(row,center,space-between);
-                width: 100%;
-                color: $vertFoncer;
-                font-size: 17px;
-                padding-bottom: 25px;
-            }
-        }
-        .errorMsgPost{
-            height: 50px;
-            color: #ef4444;
-            font-size: 20px;
-        }
-        button{
-            padding: 10px 15px;
-            color: $vertFoncer;
-            border: 1px solid $vertFoncer;
-            background-color: white;
-            border-radius: 7px;
-            transition: all 0.2s ease-in-out;
-            &:hover{
-                cursor: pointer;
-                background-color: $vertFoncer;
-                color: white;
-            }
-        }
-    }
-    .partieRemonter{
-        padding: 30px 25px;
-        width: 40%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        div{
-            border: solid 2px $gris;
-            width: 400px;
-            height: 100px;
-        }
-        h2{
-            font-size: 25px;
-            padding: 25px 0px;
-            color: $vertClair;
-        }
-        p{
-            color: $vertClair;
-            font-size: 17px;
-            padding-bottom: 25px;
-        }
-        button{
-            width: 400px;
-            padding: 20px 0;
-            color: $vertClair;
-            border: 1px solid $vertClair;
-            background-color: white;
-            border-radius: 5px;
-            transition: all 0.2s ease-in-out;
-            &:hover{
-                cursor: pointer;
-                background-color: $vertClair;
-                color: white;
-            }
-        }
-    }
-}
+//     .partieCreation{
+//         background-color: white;
+//         padding: 30px 25px;
+//         width: 60%;
+//         border: $gris solid 2px;
+//         h1{
+//             color: $vertFoncer;
+//             padding-bottom: 25px;
+//             font-size: 38px;
+//         }
+//         .pQuestion{
+//             color: $vertFoncer;
+//             font-size: 19px;
+//             padding-bottom: 25px;
+//         }
+//         h3:nth-child(3){
+//             color: $vertFoncer;
+//             padding-bottom: 22px;
+//             padding-top: 25px;
+//         }
+//         input:nth-child(4){
+//             outline-color: $vertFoncer ;
+//             border: 1px solid $vertFoncer;
+//             color:  $vertFoncer;
+//             padding: 10px 7px;
+//             width: 380px;
+//         }
+//         h3:nth-child(5){
+//             color: $vertFoncer;
+//             padding: 60px 0px 15px 0px;
+//         }
+//         div{
+//             padding: 10px 0 0 0;
+//             @include display(column,center,space-between);
+//             width: 380px;
+//             p{
+//                 @include display(row,center,space-between);
+//                 width: 100%;
+//                 color: $vertFoncer;
+//                 font-size: 17px;
+//                 padding-bottom: 25px;
+//             }
+//         }
+//         .errorMsgPost{
+//             height: 50px;
+//             color: #ef4444;
+//             font-size: 20px;
+//         }
+//         button{
+//             padding: 10px 15px;
+//             color: $vertFoncer;
+//             border: 1px solid $vertFoncer;
+//             background-color: white;
+//             border-radius: 7px;
+//             transition: all 0.2s ease-in-out;
+//             &:hover{
+//                 cursor: pointer;
+//                 background-color: $vertFoncer;
+//                 color: white;
+//             }
+//         }
+//     }
+//     .partieRemonter{
+//         padding: 30px 25px;
+//         width: 40%;
+//         display: flex;
+//         flex-direction: column;
+//         align-items: center;
+//         div{
+//             border: solid 2px $gris;
+//             width: 400px;
+//             height: 100px;
+//         }
+//         h2{
+//             font-size: 25px;
+//             padding: 25px 0px;
+//             color: $vertClair;
+//         }
+//         p{
+//             color: $vertClair;
+//             font-size: 17px;
+//             padding-bottom: 25px;
+//         }
+//         button{
+//             width: 400px;
+//             padding: 20px 0;
+//             color: $vertClair;
+//             border: 1px solid $vertClair;
+//             background-color: white;
+//             border-radius: 5px;
+//             transition: all 0.2s ease-in-out;
+//             &:hover{
+//                 cursor: pointer;
+//                 background-color: $vertClair;
+//                 color: white;
+//             }
+//         }
+//     }
+// }
 
 @media (max-width: 1600px) {
-    .AllBtnRecherchePost{
-        width: 90%;
-    }
-    .affichageAllPosts{
-        width: 90%;
-    }
-    .creationPost{
-        width: 90%;
-    }
+  .AllBtnRecherchePost {
+    width: 90%;
+  }
+  .affichageAllPosts {
+    width: 90%;
+  }
+  .creationPost {
+    width: 90%;
+  }
 }
 
-@media (max-width: 1256px) { 
-    .AllBtnRecherchePost{
-        div:nth-child(2){
-            input:nth-child(1){
-                padding: 5px 0px 5px 5px;
-                margin-left: 0px;
-            }
-        }
-        div:nth-child(3){
-            button{
-                padding: 10px 10px;
-                border-radius: 8px;
-            }
-        }
+@media (max-width: 1256px) {
+  .AllBtnRecherchePost {
+    div:nth-child(2) {
+      input:nth-child(1) {
+        padding: 5px 0px 5px 5px;
+        margin-left: 0px;
+      }
     }
+    div:nth-child(3) {
+      button {
+        padding: 10px 10px;
+        border-radius: 8px;
+      }
+    }
+  }
 
-    .affichageAllPosts{
-        .ligneTitre{
-            div:nth-child(1){
-                width: 61%;
-            }
-            p:nth-child(2), p:nth-child(3), p:nth-child(4){
-                    width: 13%;
-            }
-        }
-        .ligneContenu{
-            .partieCatMsgPost{
-                div:nth-child(1){
-                    width: 61%;
-                }
-                div:nth-child(2){
-                    width: 39%;
-                }
-            }
-            .partieTitrePost{
-                width: 100%;
-            }
-        }
+  .affichageAllPosts {
+    .ligneTitre {
+      div:nth-child(1) {
+        width: 61%;
+      }
+      p:nth-child(2),
+      p:nth-child(3),
+      p:nth-child(4) {
+        width: 13%;
+      }
     }
-    .creationPost{
-        @include display(column,center,center);
-        .partieCreation{
-            width: 100%;
+    .ligneContenu {
+      .partieCatMsgPost {
+        div:nth-child(1) {
+          width: 60%;
         }
-        .partieRemonter{
-            width: 100%;
+        div:nth-child(2) {
+          width: 40%;
         }
-    }
- }
-
-
- @media (max-width: 990px) { 
-    .ContainerForum{
-        padding-top: 100px;
-    }
-    .titrePageAccueil{
-        font-size: 30px;
-    }
-    .AllBtnRecherchePost{
-        height: 300px;
-        width: 450px;
-        @include display(column-reverse,center,space-evenly);
-         div:nth-child(1){
-            div{
-                font-size: 12px;
-            }
-    
-        }
-        div:nth-child(2){
-            input:nth-child(1){
-                font-size: 12px;
-            }
-            button:nth-child(2),button:nth-child(3){
-                font-size: 12px;
-            }
-            button:nth-child(2){
-                font-size: 12px;
-            }
-            button{
-                font-size: 12px;
-            }
-        }
-        div:nth-child(3){
-            width: 100%;
-            button{
-                padding: 5px 30px;
-                font-size: 12px;
-            }
-            button:nth-child(1){
-                margin-left: 20px;
-            }
-        }
-    }
-    .affichageAllPosts{
+      }
+      .partieTitrePost {
         width: 100%;
-        .ligneTitre{
-            div:nth-child(1){
-                width: 25%;
-                font-size: 18px;
-                p{
-                    margin-left: 0px;
-                    width: 100%;
-                }
-            }
-            p:nth-child(2), p:nth-child(3), p:nth-child(4){
-                    width: 25%;
-                    font-size: 18px;
-            }
-        }
-        .ligneContenu{
-            .partieCatMsgPost{
-                div:nth-child(1){
-                    width: 25%;
-                    @include display(row,center,center);
-                    p{
-                        margin-left: 0px;
-                        padding: 5px 10px;
-                        font-size: 13px;
-                    }
-                }
-                div:nth-child(2){
-                    width: 75%;
-                    p{
-                        width: 33.3%;
-                        text-align: center;
-                        font-size: 13px;
-                    }
-                }
-            }
-            .partieTitrePost{
-                p{
-                    font-size: 15px;
-                }
-            }
-        }
+      }
     }
- }
+  }
+  .creationPost {
+    @include display(column, center, center);
+    .partieCreation {
+      width: 100%;
+    }
+    .partieRemonter {
+      width: 100%;
+    }
+  }
+}
 
+@media (max-width: 990px) {
+  .ContainerForum {
+    padding-top: 100px;
+  }
+  .titrePageAccueil {
+    font-size: 30px;
+  }
+  .AllBtnRecherchePost {
+    height: 300px;
+    width: 450px;
+    @include display(column-reverse, center, space-evenly);
+    div:nth-child(1) {
+      div {
+        font-size: 12px;
+      }
+    }
+    div:nth-child(2) {
+      input:nth-child(1) {
+        font-size: 12px;
+      }
+      button:nth-child(2),
+      button:nth-child(3) {
+        font-size: 12px;
+      }
+      button:nth-child(2) {
+        font-size: 12px;
+      }
+      button {
+        font-size: 12px;
+      }
+    }
+    div:nth-child(3) {
+      width: 100%;
+      button {
+        padding: 5px 30px;
+        font-size: 12px;
+      }
+      button:nth-child(1) {
+        margin-left: 20px;
+      }
+    }
+  }
+  .affichageAllPosts {
+    width: 100%;
+    .ligneTitre {
+      div:nth-child(1) {
+        width: 25%;
+        font-size: 18px;
+        p {
+          margin-left: 0px;
+          width: 100%;
+        }
+      }
+      p:nth-child(2),
+      p:nth-child(3),
+      p:nth-child(4) {
+        width: 25%;
+        font-size: 18px;
+      }
+    }
+    .ligneContenu {
+      .partieCatMsgPost {
+        div:nth-child(1) {
+          width: 25%;
+          @include display(row, center, center);
+          p {
+            margin-left: 0px;
+            padding: 5px 10px;
+            font-size: 13px;
+          }
+        }
+        div:nth-child(2) {
+          width: 75%;
+          p {
+            width: 33.3%;
+            text-align: center;
+            font-size: 13px;
+          }
+        }
+      }
+      .partieTitrePost {
+        p {
+          font-size: 15px;
+        }
+      }
+    }
+  }
+}
 
- @media (max-width: 670px) { 
-    .AllBtnRecherchePost{
+@media (max-width: 670px) {
+  .AllBtnRecherchePost {
+    width: 100%;
+    div:nth-child(2) {
+      @include display(row, center, space-evenly);
+      width: 80%;
+      input {
+        margin-left: 0px;
+        width: 100px;
+        margin-left: 0px;
+        &::placeholder {
+          font-size: 11px;
+        }
+      }
+      button:nth-child(2),
+      button:nth-child(3) {
+        margin-left: 0px;
+      }
+      button {
+        margin-left: 0px;
+      }
+    }
+  }
+  .affichageAllPosts {
+    width: 100%;
+    .ligneTitre {
+      font-size: 5px;
+      div:nth-child(1) {
+        padding-left: 0px;
+        text-align: center;
+        width: 35%;
+        font-size: 13px;
+      }
+      p:nth-child(2) {
+        text-align: center;
+        width: 15%;
+        font-size: 13px;
+      }
+      p:nth-child(3) {
+        text-align: center;
+        width: 15%;
+        font-size: 13px;
+      }
+      p:nth-child(4) {
+        text-align: center;
+        width: 35%;
+        font-size: 13px;
+      }
+    }
+    .ligneContenu {
+      .partieCatMsgPost {
+        div:nth-child(1) {
+          width: 33.3%;
+          @include display(row, center, center);
+          p {
+            padding: 5px 10px;
+            font-size: 12px;
+            margin-left: 0px;
+          }
+        }
+        div:nth-child(2) {
+          width: 65%;
+          p {
+            width: 22.75%;
+            text-align: center;
+            font-size: 12px;
+          }
+          p:nth-child(3) {
+            width: 54.5%;
+          }
+        }
+      }
+      .partieTitrePost {
+        p {
+          font-size: 13px;
+          margin: 0 15px 0 15px;
+        }
+      }
+    }
+  }
+  .creationPost {
+    .partieCreation {
+      h1 {
+        font-size: 22px;
+      }
+      .pQuestion {
+        font-size: 15px;
+      }
+      input:nth-child(4) {
         width: 100%;
-        div:nth-child(2){
-            @include display(row,center,space-evenly);
-            width: 80%;
-            input{
-                margin-left:0px ;
-                width: 100px;
-                margin-left: 0px;
-                &::placeholder{
-                    font-size: 11px;
-                }
-            }
-            button:nth-child(2),button:nth-child(3){
-                margin-left: 0px;
-            }
-            button{
-                margin-left: 0px;
-            }
-        }
-    }
-    .affichageAllPosts{
+      }
+      div {
+        padding: 10px 10px 0 0;
         width: 100%;
-        .ligneTitre{
-            font-size: 5px;
-            div:nth-child(1){
-                padding-left: 0px;
-                text-align: center;
-                width: 35%;
-                font-size: 13px;
-            }
-            p:nth-child(2){
-                text-align: center;
-                width: 15%;
-                font-size: 13px;
-            }
-            p:nth-child(3){
-                text-align: center;
-                width: 15%;
-                font-size: 13px;
-            }
-            p:nth-child(4){
-                text-align: center;
-                width: 35%;
-                font-size: 13px;
-            }
+        p {
+          font-size: 15px;
         }
-        .ligneContenu{
-            .partieCatMsgPost{
-                div:nth-child(1){
-                    width: 35%;
-                    @include display(row,center,center);
-                    p{
-                        padding: 5px 10px;
-                        font-size: 12px;
-                        margin-left: 0px;
-                    }
-                }
-                div:nth-child(2){
-                    width: 65%;
-                    p{
-                        width: 22.75%;
-                        text-align: center;
-                        font-size: 12px;
-                    }
-                    p:nth-child(3){
-                        width: 54.5%;
-                    }
-                }
-            }
-            .partieTitrePost{
-                p{
-                    font-size: 13px;
-                    margin: 0 15px 0 15px;
-                }
-            }
-        }
+      }
+      .errorMsgPost {
+        font-size: 15px;
+      }
     }
-    .creationPost{
-        .partieCreation{
-            h1{
-                font-size: 22px;
-            }
-            .pQuestion{
-                font-size: 15px;
-            }
-            input:nth-child(4){
-                width:100%;
-            }
-            div{
-                padding: 10px 10px 0 0;
-                width: 100%;
-                p{
-                    font-size: 15px;
-                }
-            }
-            .errorMsgPost{
-                font-size: 15px;
-            }
-        }
-        .partieRemonter{
-            padding: 30px 0px;
-            width: 100%;
-            div{
-                width: 80%;
-                height: 100px;
-            }
-            h2{
-                font-size: 20px;
-            }
-            p{
-                font-size: 15px;
-                padding-bottom: 25px;
-            }
-            button{
-                width: 180px;
-                padding: 15px 0;
-            }
-        }
+    .partieRemonter {
+      padding: 30px 0px;
+      width: 100%;
+      div {
+        width: 80%;
+        height: 100px;
+      }
+      h2 {
+        font-size: 20px;
+      }
+      p {
+        font-size: 15px;
+        padding-bottom: 25px;
+      }
+      button {
+        width: 180px;
+        padding: 15px 0;
+      }
     }
-    
- }
+  }
+}
 
-
- @media (max-width: 460px) { 
-    .AllBtnRecherchePost{
-        div:nth-child(2){
-            @include display(row,center,space-evenly);
-            width: 95%;
-            input{
-                width: 80px;
-                &::placeholder{
-                    font-size: 9px;
-                }
-            }
+@media (max-width: 460px) {
+  .AllBtnRecherchePost {
+    div:nth-child(2) {
+      @include display(row, center, space-evenly);
+      width: 95%;
+      input {
+        width: 80px;
+        &::placeholder {
+          font-size: 9px;
         }
+      }
     }
- }
-
+  }
+}

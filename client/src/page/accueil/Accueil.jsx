@@ -204,12 +204,12 @@ export default function Accueil(props) {
   const paginate = (pageNumber) => setcurrentPage(pageNumber);
 
   return (
-    <div class="w-screen pt-44 ">
-      <p class="text-center text-5xl text-vertFoncer">Forum</p>
-      <div class="py-2.5 px-0 h-auto mx-auto my-0 mt-24 flex items-center justify-between border-solid border border-gris w-1400">
+    <div class="sup990:pt-44 w-screen pt-10 ">
+      <p class="sup990:text-5xl text-center text-3xl text-vertFoncer">Forum</p>
+      <div class="sup460:w-475  sup1256:w-11/12 sup1600:h-auto sup1600:flex sup1600:flex-row sup1600:items-center sup1600:justify-between sup1600:w-1400 py-2.5 px-0 h-80 mx-auto my-0 mt-24 flex flex-col-reverse items-center justify-evenly border-solid border border-gris w-full">
         <div>
           <div
-            class="py-1 px-0 w-32 my-0 mx-4 bg-blanc text-vertFoncer border-solid border border-vertFoncer text-base transition-all duration-200 ease-in-out flex items-center justify-around relative hover:cursor-pointer"
+            class="sup670:text-lg py-1 px-0 w-32 my-0 mx-4 bg-blanc text-vertFoncer border-solid border border-vertFoncer text-sm transition-all duration-200 ease-in-out flex items-center justify-around relative hover:cursor-pointer"
             onClick={cliqueCategories}
           >
             {boolCategorieSearch ? (
@@ -236,9 +236,9 @@ export default function Accueil(props) {
             <img class="w-5" src={flecheBas} alt=""></img>
           </div>
         </div>
-        <div class="flex items-center justify-around w-auto">
+        <div class="sup460:w-4/5 sup670:w-auto sup670:justify-around flex items-center justify-evenly w-11/12">
           <input
-            class="text-base text-vertFoncer border-solid border border-vertFoncer p-1 ml-4 outline-vertFoncer placeholder:text-vertFoncer"
+            class="sup1256:ml-4 sup1256:p-1 sup670:text-base sup460:w-24 sup460:placeholder:text-xs sup670:placeholder:text-base sup670:w-auto w-20 text-base text-vertFoncer border-solid border border-vertFoncer pt-1 pr-0 pb-1 pl-1 ml-0 outline-vertFoncer placeholder:text-vertFoncer placeholder:text-xs"
             ref={inputsearchSujetAuteur}
             onClick={() => seterrorMessage("")}
             value={recherchePost}
@@ -250,53 +250,53 @@ export default function Accueil(props) {
             placeholder="Rechercher sujet"
           />
           <button
-            class="text-base bg-vertFoncer text-blanc border-solid border border-vertFoncer ml-4 w-14  hover:cursor-pointer"
+            class="sup670:ml-4 sup670:text-base text-xs bg-vertFoncer text-blanc border-solid border border-vertFoncer ml-0 w-14  hover:cursor-pointer"
             ref={inputSujet}
             onClick={cliqueSujet}
           >
             Sujet
           </button>
           <button
-            class="text-base bg-blanc text-vertFoncer border-solid border border-vertFoncer ml-4 w-14  hover:cursor-pointer"
+            class="sup670:ml-4 sup670:text-base text-xs bg-blanc text-vertFoncer border-solid border border-vertFoncer ml-0 w-14  hover:cursor-pointer"
             ref={inputAuteur}
             onClick={cliqueAuteur}
           >
             Auteur
           </button>
           <button
-            class="text-base bg-blanc text-vertFoncer border-solid border border-vertFoncer ml-4 p-1 hover:cursor-pointer"
+            class="sup670:ml-4 sup670:text-base text-xs bg-blanc text-vertFoncer border-solid border border-vertFoncer ml-0 p-1 hover:cursor-pointer"
             onClick={valideRecherche}
           >
             Rechercher
           </button>
         </div>
-        <div class="w-auto flex items-center justify-evenly">
+        <div class="sup990:w-auto w-full flex items-center justify-evenly">
           <button
-            class="mr-4 py-2 px-4 border-solid text-vertClair border border-vertClair rounded-lg text-base transition-all duration-300 ease-in-out hover:bg-vertClair hover:text-blanc hover:border-blanc hover:cursor-pointer "
+            class="sup1256:px-4 sup1256:py-3 sup990:py-3 sup990:px-3 sup990:ml-0 sup670:text-base mr-4 ml-5 py-1 px-7 border-solid text-vertClair border border-vertClair rounded-lg text-xs transition-all duration-300 ease-in-out hover:bg-vertClair hover:text-blanc hover:border-blanc hover:cursor-pointer "
             onClick={afficheAllPost}
           >
             Posts
           </button>
           <button
-            class="mr-5 py-2 px-4 border-solid text-vertClair border border-vertClair rounded-lg text-base transition-all duration-300 ease-in-out hover:bg-vertClair hover:text-blanc hover:border-blanc hover:cursor-pointer "
+            class="sup1256:px-4 sup1256:py-3  sup990:py-3 sup990:px-3 sup670:text-base mr-5 py-1 px-7 border-solid text-vertClair border border-vertClair rounded-lg text-xs transition-all duration-300 ease-in-out hover:bg-vertClair hover:text-blanc hover:border-blanc hover:cursor-pointer "
             onClick={scrollToNewPost}
           >
             Nouveau post
           </button>
         </div>
       </div>
-      <p class="flex items-center justify-center w-1400 my-0 mx-auto text-error text-xl h-12">
+      <p class="sup990:text-xl flex items-center justify-center w-full my-0 mx-auto text-error text-sm h-12 ">
         {" "}
         {errorMessage}{" "}
       </p>
-      <div class="w-1400 mt-0 mb-24 mx-auto">
-        <div class="h-12 flex items-center border-solid border border-gris bg-blanc text-vertFoncer font-bold text-xl">
-          <div class="w-9/12 ">
-            <p class="ml-10 w-36 text-center">Sujet</p>
+      <div class="sup990:w-11/12 sup1600:w-1400 w-full mt-0 mb-24 mx-auto ">
+        <div class=" h-12 flex items-center border-solid border border-gris bg-blanc text-vertFoncer font-bold ">
+          <div class="sup670:text-base w-1/4 text-center text-xs">
+            <p class="">Sujet</p>
           </div>
-          <p class="w-1/12 text-center">Réponses</p>
-          <p class="w-1/12 text-center">Auteur</p>
-          <p class="w-1/12 text-center">Date</p>
+          <p class="sup670:text-base w-1/4 text-center text-xs">Réponses</p>
+          <p class="sup670:text-base w-1/4 text-center text-xs">Auteur</p>
+          <p class="sup670:text-base w-1/4 text-center text-xs">Date</p>
         </div>
         {allPostPerPage.map((element) => {
           return (
@@ -305,26 +305,28 @@ export default function Accueil(props) {
               onClick={() => accesPageMessagePost(element._id)}
               class="h-36 flex-col border-solid border border-gris bg-blanc text-xl hover:cursor-pointer"
             >
-              <div class="h-3/6 w-full flex items-center justify-center">
-                <div class="w-9/12 ">
-                  <p class="ml-10 w-36  py-1 px-0 text-vertClair text-sm text-center bg-grisFonce">
+              <div class=" h-12 flex items-center bg-blanc text-vertFoncer ">
+                <div class="sup670:text-base w-1/4  text-vertClair text-xs text-centerpy-1 flex items-center justify-center">
+                  <p class="w-auto bg-grisFonce text-center px-2 py-1">
+                    {" "}
                     {element.categorie}
                   </p>
                 </div>
-                <div class="w-3/12 flex items-center justify-evenly ">
-                  <p class="w-1/3 text-vertClair text-center text-base">
-                    {element.nombreMessages}
-                  </p>
-                  <p class="w-1/3 text-vertClair text-center text-base">
-                    {element.pseudoCreateur}
-                  </p>
-                  <p class="w-1/3 text-vertClair text-center text-base">
-                    {element.dateCreation}
-                  </p>
-                </div>
+                <p class="sup670:text-base w-1/4 text-center text-xs text-vertClair">
+                  {" "}
+                  {element.nombreMessages}
+                </p>
+                <p class="sup670:text-base w-1/4 text-center text-xs text-vertClair">
+                  {" "}
+                  {element.pseudoCreateur}
+                </p>
+                <p class="sup670:text-base w-1/4 text-center text-xs text-vertClair">
+                  {" "}
+                  {element.dateCreation}
+                </p>
               </div>
-              <div class="h-2/4 w-9/12">
-                <p class="m-y-0 ml-10 mr-10 text-vertFoncer line-clamp-2 text-base">
+              <div class=" h-12 flex items-center bg-blanc text-vertFoncer ">
+                <p class="sup670:text-base w-full px-8 text-sm line-clamp-2">
                   {element.titre}
                 </p>
               </div>
@@ -337,27 +339,33 @@ export default function Accueil(props) {
         totalPosts={listePost.length}
         paginate={paginate}
       />
-      <div class="w-1400 mt-24 mx-auto mb-0 flex items-start justify-center">
-        <div class="bg-blanc py-7 px-6 w-3/5 border-solid border-2 border-gris">
-          <h1 class="text-vertFoncer pb-6 text-4xl">Créer un nouveau Post.</h1>
-          <p class="text-vertFoncer pb-6 text-xl">
+      <div class="sup1400:flex-row sup1400:items-start sup1400:justify-center sup1400:w-1400 w-full mt-24 mx-auto mb-0 flex flex-col items-center justify-center">
+        <div class="sup990:w-11/12 bg-blanc py-7 px-6 w-full border-solid border-2 border-gris">
+          <h1 class="sup670:text-4xl text-vertFoncer pb-6 text-2xl">
+            Créer un nouveau Post.
+          </h1>
+          <p class="sup670:text-xl text-vertFoncer pb-6 text-base">
             Donnez votre point de vue sur un cas particulier.
           </p>
-          <h3 class="text-vertFoncer pb-5 pt-6">Titre : </h3>
+          <h3 class="sup670:text-base text-vertFoncer pb-5 pt-6 text-sm">
+            Titre :{" "}
+          </h3>
           <input
-            class="outline-vertFoncer border-solid border border-vertFoncer text-vertFoncer py-3 px-2 w-96"
+            class="sup670:placeholder:text-base sup460:w-96 outline-vertFoncer border-solid border border-vertFoncer text-vertFoncer py-3 px-2 w-full placeholder:text-sm"
             value={valueTitrePost}
             onChange={(e) => setvalueTitrePost(e.target.value)}
             onClick={() => seterrorMsgCreerPost("")}
             placeholder="Entrez votre titre"
             type="text"
           />
-          <h3 class="text-vertFoncer pt-14 px-0 pb-4">Catégorie : </h3>
-          <div class="pt-3 flex-col items-center justify-between w-96">
+          <h3 class="sup670:text-base text-sm text-vertFoncer pt-14 px-0 pb-4">
+            Catégorie :{" "}
+          </h3>
+          <div class="sup670:pt-2 sup670:pr-0 sup670:pb-0 sup670:pl-0 sup460:w-96  pt-2 pr-2 pb-0 pl-0 flex-col items-center justify-between w-full">
             {categories.map((element) => {
               return (
                 <p
-                  class="flex items-center justify-between w-full text-vertFoncer text-base pb-6"
+                  class="sup670:text-base text-sm flex items-center justify-between w-full text-vertFoncer  pb-6"
                   key={element._id}
                 >
                   <label htmlFor="">- {element.titre}</label>
@@ -371,27 +379,30 @@ export default function Accueil(props) {
               );
             })}
           </div>
-          <p ref={errorMsgPost} class="h-12 text-error text-base">
+          <p
+            ref={errorMsgPost}
+            class="sup670:text-base text-sm h-12 text-error "
+          >
             {" "}
             {errorMsgCreerPost}{" "}
           </p>
           <button
-            class="py-3 px-4 text-vertFoncer border-solid border border-vertFoncer bg-blanc rounded-md transition-all duration-200 ease-in-out hover:cursor-pointer hover:bg-vertFoncer hover:text-blanc"
+            class="sup670:text-base text-sm py-3 px-4 text-vertFoncer border-solid border border-vertFoncer bg-blanc rounded-md transition-all duration-200 ease-in-out hover:cursor-pointer hover:bg-vertFoncer hover:text-blanc"
             onClick={creerPost}
           >
             Créer
           </button>
         </div>
-        <div class="py-7 px-6 w-2/5 flex-col items-center">
-          <div class="border-solid border-2 border-gris w-400 h-24"></div>
-          <h2 class="text-2xl py-6 px-0 text-vertClair">
+        <div class="sup1400:w-2/5 sup670:px-6 py-7 px-0 w-full flex-col items-center ">
+          <div class=" sup1400:w-400 sup1400:ml-0 border-solid border-2 border-gris w-4/5 h-24 ml-8"></div>
+          <h2 class="sup670:text-2xl sup1400:ml-0 ml-8 text-xl py-6 px-0 text-vertClair">
             Post similaire déjà créé?
           </h2>
-          <p class=" text-vertClair text-base pb-6">
+          <p class="sup670:text-lg sup1400:ml-0 text-vertClair text-sm pb-6 ml-8">
             Faites une recherche par sujet,auteur ou catégorie.
           </p>
           <button
-            class="w-400 py-5 px-0 text-vertClair border-solid border border-vertClair bg-blanc rounded transition-all duration-200 ease-in-out hover:cursor-pointer hover:bg-vertClair hover:text-blanc"
+            class="sup990:py-3 sup670:text-base sup1400:ml-0 text-sm ml-8 w-44 py-2 px-0 text-vertClair border-solid border border-vertClair bg-blanc rounded transition-all duration-200 ease-in-out hover:cursor-pointer hover:bg-vertClair hover:text-blanc"
             onClick={scroolToSearchPost}
           >
             Accéder à la recherche

@@ -81,7 +81,7 @@ export default function SignUp(props) {
   return (
     <form
       ref={ContainerSignIn}
-      className="sup990:w-418 sup990:p-9 fixed top-2/4 left-2/4 w-350 h-500 bg-gradient-to-r from-vertFoncer from-0%  to-vertClair to-100% z-50 -translate-y-2/4 -translate-x-2/4 rounded-3xl p-7 flex flex-col items-center justify-between"
+      className="sup377:w-350 sup990:w-418 sup990:p-9 fixed top-2/4 left-2/4 w-full h-500 bg-gradient-to-r from-vertFoncer from-0%  to-vertClair to-100% z-50 -translate-y-2/4 -translate-x-2/4 rounded-3xl p-7 flex flex-col items-center justify-between"
     >
       <div className="sup990:text-2xl flex items-center justify-between w-full text-blanc text-xl ">
         <h2>Se connecter</h2>
