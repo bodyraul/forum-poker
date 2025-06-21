@@ -30,6 +30,8 @@ export default function Navbar(props) {
     },
   };
 
+  //bonjour
+
   const onclickConnexion = () => {
     props.setSignIn(true);
     props.setSignUp(false);
